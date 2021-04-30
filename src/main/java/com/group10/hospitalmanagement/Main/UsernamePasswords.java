@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement;
+package com.group10.hospitalmanagement.Main;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.*;
 import java.io.*;
 
 public class UsernamePasswords {
-    final static String filePath = "E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\usernamePass.txt";
+    final static String filePath = "E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\Admin\\usernamePass.txt";
     HashMap<String, String> loginInfo = new HashMap<>();
 
     UsernamePasswords(){

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement;
+package com.group10.hospitalmanagement.Admin;
 
 import java.io.*;
 import java.text.*;
@@ -102,9 +102,7 @@ public class addRecep extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 255));
         setBounds(new java.awt.Rectangle(0, 0, 630, 510));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 630, 510));
-        setMaximumSize(new java.awt.Dimension(630, 510));
         setMinimumSize(new java.awt.Dimension(630, 510));
-        setPreferredSize(new java.awt.Dimension(630, 510));
         setResizable(false);
         setSize(new java.awt.Dimension(630, 510));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

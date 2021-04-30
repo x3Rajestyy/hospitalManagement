@@ -3,14 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement;
+package com.group10.hospitalmanagement.Main;
+
+import com.group10.hospitalmanagement.Admin.adminPanel1;
+import com.group10.hospitalmanagement.Main.hospitalMenu;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import java.util.HashMap;
 
-public class loginPage extends JFrame implements ActionListener {
+public class adminLogin extends JFrame implements ActionListener {
     JFrame frame = new JFrame("Admin Login");
     JButton loginButton = new JButton("Login");
     JButton resetButton = new JButton("Sign Up");
@@ -22,7 +25,7 @@ public class loginPage extends JFrame implements ActionListener {
     JLabel messageLabel = new JLabel();
     HashMap<String,String> userPass1 = new HashMap<>();
 
-    loginPage(HashMap<String,String> userPass){
+    adminLogin(HashMap<String,String> userPass){
         userPass1 = userPass;
 
         adminLabel.setBounds(130,5,200,100);

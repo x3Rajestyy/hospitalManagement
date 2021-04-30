@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement;
+package com.group10.hospitalmanagement.Admin;
 
 import java.io.*;
 import java.text.*;
@@ -98,9 +98,7 @@ public class addNurse extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 255));
         setBounds(new java.awt.Rectangle(0, 0, 495, 530));
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 495, 530));
-        setMaximumSize(new java.awt.Dimension(495, 530));
         setMinimumSize(new java.awt.Dimension(495, 530));
-        setPreferredSize(new java.awt.Dimension(495, 530));
         setResizable(false);
         setSize(new java.awt.Dimension(495, 530));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

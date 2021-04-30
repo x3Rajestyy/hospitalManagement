@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement;
+package com.group10.hospitalmanagement.Admin;
 
 /**
  *
@@ -58,7 +58,7 @@ public class adminPanel1 extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 620, 1280, 100);
+        jPanel2.setBounds(0, 620, 1280, 0);
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -74,7 +74,7 @@ public class adminPanel1 extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1280, 100);
+        jPanel3.setBounds(0, 0, 1280, 0);
 
         jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
