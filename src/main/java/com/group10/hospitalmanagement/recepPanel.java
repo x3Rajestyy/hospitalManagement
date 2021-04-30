@@ -29,7 +29,7 @@ public class recepPanel extends javax.swing.JFrame {
     public recepPanel() {
         initComponents();
         
-        File file = new File("nurseData.txt");
+        File file = new File("recepData.txt");
         if(file.length() == 0){
             //do nothing
         } else {
@@ -38,7 +38,7 @@ public class recepPanel extends javax.swing.JFrame {
     }
     
     private void setTableData(){
-        File file = new File("nurseData.txt");
+        File file = new File("recepData.txt");
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -106,11 +106,11 @@ public class recepPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Disease"
+                "Joined Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Marital Status", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                true, false, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -129,6 +129,7 @@ public class recepPanel extends javax.swing.JFrame {
             recepTable.getColumnModel().getColumn(5).setResizable(false);
             recepTable.getColumnModel().getColumn(6).setResizable(false);
             recepTable.getColumnModel().getColumn(7).setResizable(false);
+            recepTable.getColumnModel().getColumn(8).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1);
@@ -215,7 +216,7 @@ public class recepPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String filePath = "doctorData.txt";
+        String filePath = "recepData.txt";
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
