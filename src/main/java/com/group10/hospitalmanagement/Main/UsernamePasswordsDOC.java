@@ -14,7 +14,7 @@ import java.util.HashMap;
  * @author Kurt Jayson Zacarias
  */
 public class UsernamePasswordsDOC {
-    final static String filePath = "D:\\Programming\\github\\Java\\loginHospital\\src\\main\\java\\userPass\\usernamePassDoc.txt";
+    final static String filePath = "usernamePassDoc.txt";
     HashMap<String, String> loginInfoDOC = new HashMap<>();
     
     UsernamePasswordsDOC(){
