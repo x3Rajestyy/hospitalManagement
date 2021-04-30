@@ -29,9 +29,9 @@ public class hospitalMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        recepLogin = new javax.swing.JButton();
+        adminLogin = new javax.swing.JButton();
+        docLogin = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -55,48 +55,52 @@ public class hospitalMenu extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(1280, 720));
         jPanel1.setLayout(null);
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 102));
-        jButton3.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Receptionist");
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        recepLogin.setBackground(new java.awt.Color(102, 102, 102));
+        recepLogin.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
+        recepLogin.setForeground(new java.awt.Color(255, 255, 255));
+        recepLogin.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\front_desk_64px.png")); // NOI18N
+        recepLogin.setText("Receptionist");
+        recepLogin.setBorderPainted(false);
+        recepLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                recepLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(890, 300, 260, 120);
+        jPanel1.add(recepLogin);
+        recepLogin.setBounds(890, 300, 260, 120);
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 102));
-        jButton2.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Admin");
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        adminLogin.setBackground(new java.awt.Color(102, 102, 102));
+        adminLogin.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
+        adminLogin.setForeground(new java.awt.Color(255, 255, 255));
+        adminLogin.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\microsoft_admin_64px.png")); // NOI18N
+        adminLogin.setText("Admin");
+        adminLogin.setBorderPainted(false);
+        adminLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                adminLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(350, 300, 260, 120);
+        jPanel1.add(adminLogin);
+        adminLogin.setBounds(350, 300, 260, 120);
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Doctor");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        docLogin.setBackground(new java.awt.Color(102, 102, 102));
+        docLogin.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
+        docLogin.setForeground(new java.awt.Color(255, 255, 255));
+        docLogin.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\doctors_bag_64px.png")); // NOI18N
+        docLogin.setText("Doctor");
+        docLogin.setBorderPainted(false);
+        docLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                docLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(620, 300, 260, 120);
+        jPanel1.add(docLogin);
+        docLogin.setBounds(620, 300, 260, 120);
 
         jPanel2.setBackground(new java.awt.Color(0, 204, 0));
 
         jLabel1.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Hospital Management System");
 
@@ -198,19 +202,24 @@ public class hospitalMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void docLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docLoginActionPerformed
+        UsernamePasswordsDOC doc = new UsernamePasswordsDOC();
+        doctorLogin dl = new doctorLogin(doc.getLoginInfoDOC());
+        dispose();
+        
+    }//GEN-LAST:event_docLoginActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void recepLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recepLoginActionPerformed
+        UsernamePasswordRECEP rec = new UsernamePasswordRECEP();
+        recepLogin recLog = new recepLogin(rec.getLoginInfoRecep());
+        dispose();
+    }//GEN-LAST:event_recepLoginActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        adminUserPass up = new adminUserPass();
+    private void adminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginActionPerformed
+        UsernamePasswordsADMIN  up = new UsernamePasswordsADMIN();
         adminLogin lp = new adminLogin(up.getLoginInfo());
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_adminLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,9 +258,8 @@ public class hospitalMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton adminLogin;
+    private javax.swing.JButton docLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -262,5 +270,6 @@ public class hospitalMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JButton recepLogin;
     // End of variables declaration//GEN-END:variables
 }
