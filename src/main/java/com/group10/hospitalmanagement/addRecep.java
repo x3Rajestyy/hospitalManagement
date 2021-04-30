@@ -8,7 +8,6 @@ package com.group10.hospitalmanagement;
 import java.io.*;
 import java.text.*;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractButton;
@@ -23,7 +22,8 @@ public class addRecep extends javax.swing.JFrame {
     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
     Date date = new Date();
     Calendar cal = Calendar.getInstance();
-    private String uniqueID,dates,name,gender,age,address,con,dis;
+    private String uniqueID,dates,name,gender,age,address,con,marital,email;
+    private String username,password;
 
     /**
      * Creates new form addPatient
@@ -49,11 +49,11 @@ public class addRecep extends javax.swing.JFrame {
     
 
     private void writeFile() throws IOException{
-        File file = new File("patientData.txt");
+        File file = new File("recepData.txt");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         
-        pw.print(dates + " " + uniqueID + " " + name + " " + gender + " " + age + " " + address + " " + con + " " + dis + "\n");
+        pw.print(dates + " " + uniqueID + " " + name + " " + gender + " " + age + " " + address + " " + con + " " + marital + " " + email  + "\n");
         pw.close();
     }
 
@@ -68,136 +68,48 @@ public class addRecep extends javax.swing.JFrame {
     private void initComponents() {
 
         radioButtonGroup = new javax.swing.ButtonGroup();
-        dateField = new javax.swing.JTextField();
-        nameField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        ageField = new javax.swing.JTextField();
-        addressField = new javax.swing.JTextField();
-        conField = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        disField = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        disLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        conField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        addressField = new javax.swing.JTextField();
+        ageField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        nameField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        dateField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        statComBox = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Patient");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
-        setBounds(new java.awt.Rectangle(0, 0, 480, 460));
-        setMinimumSize(new java.awt.Dimension(470, 460));
+        setBounds(new java.awt.Rectangle(0, 0, 650, 530));
+        setMinimumSize(new java.awt.Dimension(650, 530));
         setResizable(false);
-        setSize(new java.awt.Dimension(480, 460));
+        setSize(new java.awt.Dimension(650, 530));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        dateField.setEnabled(false);
-        dateField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateFieldActionPerformed(evt);
-            }
-        });
-        getContentPane().add(dateField, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 15, 62, -1));
-        getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 99, 392, 28));
-
-        jLabel3.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jLabel3.setText("Name: ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 99, -1, 28));
-
-        jRadioButton1.setBackground(new java.awt.Color(255, 192, 160));
-        radioButtonGroup.add(jRadioButton1);
-        jRadioButton1.setText("Male");
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 145, -1, -1));
-
-        jRadioButton2.setBackground(new java.awt.Color(255, 192, 160));
-        radioButtonGroup.add(jRadioButton2);
-        jRadioButton2.setText("Female");
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 168, -1, -1));
-        jRadioButton2.getAccessibleContext().setAccessibleDescription("");
-
-        jRadioButton3.setBackground(new java.awt.Color(255, 192, 160));
-        radioButtonGroup.add(jRadioButton3);
-        jRadioButton3.setText("Other");
-        getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 191, -1, -1));
-        getContentPane().add(ageField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 221, 53, 28));
-
-        addressField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressFieldActionPerformed(evt);
-            }
-        });
-        getContentPane().add(addressField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 267, 392, 28));
-
-        conField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                conFieldActionPerformed(evt);
-            }
-        });
-        getContentPane().add(conField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 313, 392, 28));
-
-        jLabel7.setFont(new java.awt.Font("Aeroport", 0, 11)); // NOI18N
-        jLabel7.setText("Contact No.");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
-        getContentPane().add(disField, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 359, 392, 28));
-
-        jButton2.setBackground(new java.awt.Color(255, 153, 0));
-        jButton2.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButton2.setBorderPainted(false);
-        jButton2.setInheritsPopupMenu(true);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, 90, 30));
-
-        jButton1.setBackground(new java.awt.Color(255, 153, 0));
-        jButton1.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
-        jButton1.setText("Save");
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 90, 30));
-
-        jLabel5.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jLabel5.setText("Age:");
-        jLabel5.setToolTipText("");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 40, 30));
-
-        jLabel6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jLabel6.setText("Address:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jLabel4.setText("Gender: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 110, 70));
-
-        disLabel.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        disLabel.setText("Disease:");
-        getContentPane().add(disLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jLabel2.setText("Date: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 40, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
 
         jLabel1.setFont(new java.awt.Font("Couture", 0, 18)); // NOI18N
-        jLabel1.setText("Add rECEPTIONIST");
+        jLabel1.setText("Add Receptionist");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -217,20 +129,145 @@ public class addRecep extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
 
-        jPanel3.setBackground(new java.awt.Color(255, 192, 160));
+        jPanel3.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel3.setLayout(null);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
+        conField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conFieldActionPerformed(evt);
+            }
+        });
+        jPanel3.add(conField);
+        conField.setBounds(84, 349, 186, 28);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 460));
+        jLabel7.setFont(new java.awt.Font("Aeroport", 0, 11)); // NOI18N
+        jLabel7.setText("Contact No.");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(10, 355, 64, 16);
+
+        jLabel6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel6.setText("Address:");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(10, 306, 62, 20);
+
+        addressField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressFieldActionPerformed(evt);
+            }
+        });
+        jPanel3.add(addressField);
+        addressField.setBounds(393, 300, 190, 28);
+        jPanel3.add(ageField);
+        ageField.setBounds(84, 258, 53, 28);
+
+        jLabel5.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel5.setText("Age:");
+        jLabel5.setToolTipText("");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(10, 256, 40, 30);
+
+        jLabel4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel4.setText("Gender: ");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(10, 176, 110, 70);
+
+        jRadioButton2.setBackground(new java.awt.Color(255, 204, 102));
+        radioButtonGroup.add(jRadioButton2);
+        jRadioButton2.setText("Female");
+        jPanel3.add(jRadioButton2);
+        jRadioButton2.setBounds(80, 200, 59, 23);
+        jRadioButton2.getAccessibleContext().setAccessibleDescription("");
+
+        jRadioButton1.setBackground(new java.awt.Color(255, 204, 102));
+        radioButtonGroup.add(jRadioButton1);
+        jRadioButton1.setText("Male");
+        jPanel3.add(jRadioButton1);
+        jRadioButton1.setBounds(80, 180, 47, 23);
+
+        jRadioButton3.setBackground(new java.awt.Color(255, 204, 102));
+        radioButtonGroup.add(jRadioButton3);
+        jRadioButton3.setText("Other");
+        jPanel3.add(jRadioButton3);
+        jRadioButton3.setBounds(80, 220, 53, 23);
+        jPanel3.add(nameField);
+        nameField.setBounds(80, 142, 186, 28);
+
+        jLabel3.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel3.setText("Name: ");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(10, 141, 47, 28);
+
+        jButton2.setBackground(new java.awt.Color(255, 153, 0));
+        jButton2.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
+        jButton2.setText("Back");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton2.setBorderPainted(false);
+        jButton2.setInheritsPopupMenu(true);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2);
+        jButton2.setBounds(393, 393, 90, 30);
+
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
+        jButton1.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
+        jButton1.setText("Save");
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1);
+        jButton1.setBounds(493, 393, 90, 30);
+
+        jLabel2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel2.setText("Join Date:");
+        jLabel2.setToolTipText("");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(10, 99, 66, 30);
+
+        dateField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateFieldActionPerformed(evt);
+            }
+        });
+        jPanel3.add(dateField);
+        dateField.setBounds(80, 100, 186, 30);
+
+        jLabel8.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel8.setText("Marital Status:");
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(315, 104, 102, 23);
+
+        statComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced", " " }));
+        jPanel3.add(statComBox);
+        statComBox.setBounds(427, 102, 156, 28);
+
+        jLabel9.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel9.setText("Email:");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(315, 145, 41, 20);
+        jPanel3.add(emailField);
+        emailField.setBounds(393, 141, 190, 29);
+
+        jLabel10.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel10.setText("Username:");
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(315, 260, 74, 20);
+
+        jLabel11.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel11.setText("Password:");
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(315, 306, 72, 20);
+        jPanel3.add(jTextField2);
+        jTextField2.setBounds(393, 257, 190, 28);
+        jPanel3.add(jTextField3);
+        jTextField3.setBounds(84, 303, 186, 28);
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -249,6 +286,8 @@ public class addRecep extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
+        recepPanel recPan = new recepPanel();
+        recPan.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -259,15 +298,16 @@ public class addRecep extends javax.swing.JFrame {
         age = ageField.getText();
         address = addressField.getText().replaceAll("\\s+", "_");
         con = conField.getText().replaceAll("\\s+", "_");
-        dis = disField.getText().replaceAll("\\s+", "_");
+        marital = statComBox.getSelectedItem().toString();
+        email = emailField.getText().replaceAll("\\s+", "");
         try {
             writeFile();
         } catch (IOException ex) {
             Logger.getLogger(addRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
         dispose();
-        patientPanel patPanel = new patientPanel();
-        patPanel.setVisible(true);
+        recepPanel recPanel = new recepPanel();
+        recPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -276,23 +316,29 @@ public class addRecep extends javax.swing.JFrame {
     private javax.swing.JTextField ageField;
     private javax.swing.JTextField conField;
     private javax.swing.JTextField dateField;
-    private javax.swing.JTextField disField;
-    private javax.swing.JLabel disLabel;
+    private javax.swing.JTextField emailField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField nameField;
     private javax.swing.ButtonGroup radioButtonGroup;
+    private javax.swing.JComboBox<String> statComBox;
     // End of variables declaration//GEN-END:variables
 }
