@@ -252,14 +252,14 @@ public class recepPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-         DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
-         try {
+        DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
+        try {
             int SelectedRowIndex = recepTable.getSelectedRow();
             model.removeRow(SelectedRowIndex);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-         updateTable();
+        updateTable();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
 
