@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -39,6 +40,28 @@ public class doctorPanel extends javax.swing.JFrame {
             //do nothing
         } else {
             setTableData();
+        }
+    }
+    
+    private void updateTable(){
+        String filePath = "doctorData.txt";
+        File file = new File(filePath);
+        try {
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            
+            for(int i = 0; i < docTable.getRowCount(); i++){//rows
+                for(int j = 0; j < docTable.getColumnCount(); j++){//columns
+                    bw.write(docTable.getValueAt(i, j).toString()+" ");
+                }
+                bw.newLine();
+            }
+            
+            bw.close();
+            fw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -80,10 +103,10 @@ public class doctorPanel extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -173,6 +196,20 @@ public class doctorPanel extends javax.swing.JFrame {
         jPanel1.add(jButton2);
         jButton2.setBounds(1090, 550, 80, 40);
 
+        deleteButton.setBackground(new java.awt.Color(0, 153, 0));
+        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        deleteButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\delete_16px.png")); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteButton.setBorderPainted(false);
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteButton);
+        deleteButton.setBounds(1000, 550, 80, 40);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1340, 780);
 
@@ -188,11 +225,6 @@ public class doctorPanel extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jMenuItem1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jMenuItem2.setText("Delete Doctor");
-        jMenu4.add(jMenuItem2);
 
         jMenuBar1.add(jMenu4);
 
@@ -214,31 +246,25 @@ public class doctorPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String filePath = "doctorData.txt";
-        File file = new File(filePath);
-        try {
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            
-            for(int i = 0; i < docTable.getRowCount(); i++){//rows
-                for(int j = 0; j < docTable.getColumnCount(); j++){//columns
-                    bw.write(docTable.getValueAt(i, j).toString()+" ");
-                }
-                bw.newLine();
-            }
-            
-            bw.close();
-            fw.close();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        updateTable();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) docTable.getModel();
+        try {
+            int SelectedRowIndex = docTable.getSelectedRow();
+            model.removeRow(SelectedRowIndex);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        updateTable();
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JTable docTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -247,7 +273,6 @@ public class doctorPanel extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

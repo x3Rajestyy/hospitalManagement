@@ -49,7 +49,7 @@ public class addNurse extends javax.swing.JFrame {
     
 
     private void writeFile() throws IOException{
-        File file = new File("patientData.txt");
+        File file = new File("nurseData.txt");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         
@@ -180,7 +180,7 @@ public class addNurse extends javax.swing.JFrame {
         radioButtonGroup.add(jRadioButton3);
         jRadioButton3.setText("Other");
         jPanel3.add(jRadioButton3);
-        jRadioButton3.setBounds(80, 180, 53, 23);
+        jRadioButton3.setBounds(80, 180, 230, 23);
 
         jLabel4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel4.setText("Gender: ");
@@ -191,14 +191,14 @@ public class addNurse extends javax.swing.JFrame {
         radioButtonGroup.add(jRadioButton2);
         jRadioButton2.setText("Female");
         jPanel3.add(jRadioButton2);
-        jRadioButton2.setBounds(80, 160, 59, 23);
+        jRadioButton2.setBounds(80, 160, 230, 23);
         jRadioButton2.getAccessibleContext().setAccessibleDescription("");
 
         jRadioButton1.setBackground(new java.awt.Color(204, 204, 255));
         radioButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
         jPanel3.add(jRadioButton1);
-        jRadioButton1.setBounds(80, 140, 47, 23);
+        jRadioButton1.setBounds(80, 140, 220, 23);
 
         jLabel5.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel5.setText("Age:");

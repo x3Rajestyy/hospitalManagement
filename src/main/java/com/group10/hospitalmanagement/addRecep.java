@@ -100,12 +100,13 @@ public class addRecep extends javax.swing.JFrame {
         setTitle("Add Receptionist");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
-        setBounds(new java.awt.Rectangle(0, 0, 650, 530));
-        setMaximizedBounds(new java.awt.Rectangle(0, 0, 650, 530));
-        setMaximumSize(new java.awt.Dimension(650, 530));
-        setMinimumSize(new java.awt.Dimension(650, 530));
+        setBounds(new java.awt.Rectangle(0, 0, 630, 510));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 630, 510));
+        setMaximumSize(new java.awt.Dimension(630, 510));
+        setMinimumSize(new java.awt.Dimension(630, 510));
+        setPreferredSize(new java.awt.Dimension(630, 510));
         setResizable(false);
-        setSize(new java.awt.Dimension(650, 530));
+        setSize(new java.awt.Dimension(630, 510));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));

@@ -13,20 +13,23 @@
       <Color blue="ff" green="cc" red="cc" type="rgb"/>
     </Property>
     <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
-      <Rectangle value="[0, 0, 650, 530]"/>
+      <Rectangle value="[0, 0, 630, 510]"/>
     </Property>
     <Property name="maximizedBounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
-      <Rectangle value="[0, 0, 650, 530]"/>
+      <Rectangle value="[0, 0, 630, 510]"/>
     </Property>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[650, 530]"/>
+      <Dimension value="[630, 510]"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[650, 530]"/>
+      <Dimension value="[630, 510]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[630, 510]"/>
     </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[650, 530]"/>
+      <Dimension value="[630, 510]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
