@@ -6,9 +6,12 @@
 package com.group10.hospitalmanagement;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +28,7 @@ public class nursePanel extends javax.swing.JFrame {
      */
     public nursePanel() {
         initComponents();
-        
+        setSize(1290,766);
         File file = new File("nurseData.txt");
         if(file.length() == 0){
             //do nothing
@@ -40,7 +43,7 @@ public class nursePanel extends javax.swing.JFrame {
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             
-            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)nurTable.getModel();
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length; i++){
@@ -66,8 +69,11 @@ public class nursePanel extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
+        nurTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
@@ -94,55 +100,80 @@ public class nursePanel extends javax.swing.JFrame {
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        patTable.setBackground(new java.awt.Color(255, 255, 204));
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
+        nurTable.setBackground(new java.awt.Color(255, 255, 204));
+        nurTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Disease"
+                "Join Date", "ID", "Name", "Gender", "Age", "Address", "Contact No."
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                true, false, true, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        patTable.setGridColor(new java.awt.Color(0, 0, 0));
-        patTable.setShowGrid(false);
-        jScrollPane1.setViewportView(patTable);
-        if (patTable.getColumnModel().getColumnCount() > 0) {
-            patTable.getColumnModel().getColumn(0).setResizable(false);
-            patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(2).setResizable(false);
-            patTable.getColumnModel().getColumn(3).setResizable(false);
-            patTable.getColumnModel().getColumn(4).setResizable(false);
-            patTable.getColumnModel().getColumn(5).setResizable(false);
-            patTable.getColumnModel().getColumn(6).setResizable(false);
-            patTable.getColumnModel().getColumn(7).setResizable(false);
+        nurTable.setGridColor(new java.awt.Color(0, 0, 0));
+        nurTable.setShowGrid(false);
+        nurTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(nurTable);
+        if (nurTable.getColumnModel().getColumnCount() > 0) {
+            nurTable.getColumnModel().getColumn(0).setResizable(false);
+            nurTable.getColumnModel().getColumn(1).setResizable(false);
+            nurTable.getColumnModel().getColumn(2).setResizable(false);
+            nurTable.getColumnModel().getColumn(3).setResizable(false);
+            nurTable.getColumnModel().getColumn(4).setResizable(false);
+            nurTable.getColumnModel().getColumn(5).setResizable(false);
+            nurTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 330, 1250, 210);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\backbutton.png")); // NOI18N
-        jButton1.setBorder(null);
+        jPanel3.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel3.setLayout(null);
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 1280, 60);
+
+        jButton2.setBackground(new java.awt.Color(204, 0, 255));
+        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
+        jButton2.setText("Back");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(1090, 550, 80, 40);
+
+        jButton1.setBackground(new java.awt.Color(204, 0, 255));
+        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
+        jButton1.setText("Update");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.setBorderPainted(false);
-        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1171, 10, 90, 80);
+        jButton1.setBounds(1180, 550, 80, 40);
+
+        jPanel2.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel2.setLayout(null);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 640, 1280, 60);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(null);
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 700);
 
@@ -175,10 +206,32 @@ public class nursePanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
         adminPanel1 adminPanel = new adminPanel1();
         adminPanel.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String filePath = "nurseData.txt";
+        File file = new File(filePath);
+        try {
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for(int i = 0; i < nurTable.getRowCount(); i++){//rows
+                for(int j = 0; j < nurTable.getColumnCount(); j++){//columns
+                    bw.write(nurTable.getValueAt(i, j).toString()+" ");
+                }
+                bw.newLine();
+            }
+
+            bw.close();
+            fw.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -186,6 +239,7 @@ public class nursePanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu4;
@@ -193,7 +247,9 @@ public class nursePanel extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable patTable;
+    private javax.swing.JTable nurTable;
     // End of variables declaration//GEN-END:variables
 }

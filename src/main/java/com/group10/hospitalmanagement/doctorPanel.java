@@ -149,7 +149,7 @@ public class doctorPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(1170, 550, 80, 40);
+        jButton1.setBounds(1180, 550, 80, 40);
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 0));
         jPanel1.add(jPanel3);
@@ -171,7 +171,7 @@ public class doctorPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(1080, 550, 80, 40);
+        jButton2.setBounds(1090, 550, 80, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1340, 780);

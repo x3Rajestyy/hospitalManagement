@@ -65,6 +65,7 @@ public class adminPanel1 extends javax.swing.JFrame {
         jButton5.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-logout-rounded-up-64.png")); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
+        jButton5.setOpaque(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
