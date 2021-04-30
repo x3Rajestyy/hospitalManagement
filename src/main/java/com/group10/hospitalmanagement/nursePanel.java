@@ -106,11 +106,11 @@ public class nursePanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Join Date", "ID", "Name", "Gender", "Age", "Address", "Contact No."
+                "Join Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, false, true, true, true
+                true, false, true, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -203,7 +203,7 @@ public class nursePanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

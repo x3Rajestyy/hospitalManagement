@@ -242,7 +242,7 @@ public class addRecep extends javax.swing.JFrame {
         jPanel3.add(jLabel8);
         jLabel8.setBounds(315, 104, 102, 23);
 
-        statComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced", " " }));
+        statComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced" }));
         jPanel3.add(statComBox);
         statComBox.setBounds(427, 102, 156, 28);
 
