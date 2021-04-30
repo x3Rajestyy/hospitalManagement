@@ -210,7 +210,7 @@ public class hospitalMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        UsernamePasswords up = new UsernamePasswords();
+        adminUserPass up = new adminUserPass();
         adminLogin lp = new adminLogin(up.getLoginInfo());
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
