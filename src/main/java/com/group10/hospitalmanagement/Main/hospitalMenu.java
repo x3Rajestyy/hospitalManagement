@@ -16,7 +16,7 @@ public class hospitalMenu extends javax.swing.JFrame {
      */
     public hospitalMenu() {
         initComponents();
-        setSize(1280,720);
+        setSize(1290,766);
     }
 
     /**
@@ -205,6 +205,7 @@ public class hospitalMenu extends javax.swing.JFrame {
     private void docLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docLoginActionPerformed
         UsernamePasswordsDOC doc = new UsernamePasswordsDOC();
         doctorLogin dl = new doctorLogin(doc.getLoginInfoDOC());
+        dl.setVisible(true);
         dispose();
         
     }//GEN-LAST:event_docLoginActionPerformed
@@ -212,12 +213,14 @@ public class hospitalMenu extends javax.swing.JFrame {
     private void recepLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recepLoginActionPerformed
         UsernamePasswordRECEP rec = new UsernamePasswordRECEP();
         recepLogin recLog = new recepLogin(rec.getLoginInfoRecep());
+        recLog.setVisible(true);
         dispose();
     }//GEN-LAST:event_recepLoginActionPerformed
 
     private void adminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminLoginActionPerformed
         UsernamePasswordsADMIN  up = new UsernamePasswordsADMIN();
         adminLogin lp = new adminLogin(up.getLoginInfo());
+        lp.setVisible(true);
         dispose();
     }//GEN-LAST:event_adminLoginActionPerformed
 

@@ -5,6 +5,8 @@
  */
 package com.group10.hospitalmanagement.Doctor;
 
+import com.group10.hospitalmanagement.Admin.doctorPanel;
+import com.group10.hospitalmanagement.Admin.patientPanel;
 import com.group10.hospitalmanagement.Admin.*;
 import com.group10.hospitalmanagement.Main.hospitalMenu;
 
@@ -150,11 +152,15 @@ public class doctorMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+       dispose();
+       patientPanel patpan = new patientPanel();
+       patpan.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-      
+       dispose();
+       doctorPanel docpan = new doctorPanel();
+       docpan.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
