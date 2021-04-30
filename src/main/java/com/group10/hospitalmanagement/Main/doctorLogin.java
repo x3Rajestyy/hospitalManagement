@@ -12,15 +12,17 @@ import java.util.HashMap;
  *
  * @author Kurt Jayson Zacarias
  */
-public class adminLogin extends javax.swing.JFrame{
+public class doctorLogin extends javax.swing.JFrame {
     HashMap<String,String> userPass1 = new HashMap<>();
-    public adminLogin(HashMap<String,String> userPass){    
+        public doctorLogin(HashMap<String,String> userPass){    
         initComponents();
         userPass1 = userPass;
     }
-    public adminLogin() {
+    /**
+     * Creates new form doctorLogin
+     */
+    public doctorLogin() {
         initComponents();
-        
     }
 
     /**
@@ -41,13 +43,11 @@ public class adminLogin extends javax.swing.JFrame{
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setIconImages(null);
-        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        jLabel1.setText("Admin");
+        jLabel1.setText("Doctor");
 
         loginButton.setText("LOGIN");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -62,11 +62,6 @@ public class adminLogin extends javax.swing.JFrame{
         userUsername.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userUsernameMouseClicked(evt);
-            }
-        });
-        userUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userUsernameActionPerformed(evt);
             }
         });
 
@@ -132,15 +127,15 @@ public class adminLogin extends javax.swing.JFrame{
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         if(evt.getSource()==loginButton){
             String userID = userUsername.getText();
             String password = String.valueOf(userPassword.getPassword());
-            
+
             if(userPass1.containsKey(userID)) {
                 if(userPass1.get(userID).equals(password)) {
-                    messageLabel.setForeground(Color.GREEN);
+                    messageLabel.setForeground(Color.green);
                     messageLabel.setText("Login successful");
                 }
                 else {
@@ -167,10 +162,6 @@ public class adminLogin extends javax.swing.JFrame{
         lS.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void userUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userUsernameActionPerformed
-        
-    }//GEN-LAST:event_userUsernameActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -188,18 +179,22 @@ public class adminLogin extends javax.swing.JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(adminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(doctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(adminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(doctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(adminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(doctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(adminLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(doctorLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new doctorLogin().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
