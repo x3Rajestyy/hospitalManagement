@@ -96,10 +96,13 @@ public class addNurse extends javax.swing.JFrame {
         setTitle("Add Patient");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
-        setBounds(new java.awt.Rectangle(0, 0, 480, 500));
-        setMinimumSize(new java.awt.Dimension(470, 460));
+        setBounds(new java.awt.Rectangle(0, 0, 495, 530));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 495, 530));
+        setMaximumSize(new java.awt.Dimension(495, 530));
+        setMinimumSize(new java.awt.Dimension(495, 530));
+        setPreferredSize(new java.awt.Dimension(495, 530));
         setResizable(false);
-        setSize(new java.awt.Dimension(480, 460));
+        setSize(new java.awt.Dimension(495, 530));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(nameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 99, 390, 28));
 
@@ -270,6 +273,8 @@ public class addNurse extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
+        nursePanel nurPanel = new nursePanel();
+        nurPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -287,8 +292,8 @@ public class addNurse extends javax.swing.JFrame {
             Logger.getLogger(addNurse.class.getName()).log(Level.SEVERE, null, ex);
         }
         dispose();
-        patientPanel patPanel = new patientPanel();
-        patPanel.setVisible(true);
+        nursePanel nurPanel = new nursePanel();
+        nurPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void statComBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statComBoxActionPerformed

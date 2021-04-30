@@ -94,11 +94,13 @@ public class addPatient extends javax.swing.JFrame {
         setTitle("Add Patient");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
-        setBounds(new java.awt.Rectangle(0, 0, 480, 460));
-        setMinimumSize(new java.awt.Dimension(470, 460));
-        setPreferredSize(new java.awt.Dimension(470, 460));
+        setBounds(new java.awt.Rectangle(0, 0, 495, 500));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 495, 500));
+        setMaximumSize(new java.awt.Dimension(495, 500));
+        setMinimumSize(new java.awt.Dimension(495, 500));
+        setPreferredSize(new java.awt.Dimension(495, 500));
         setResizable(false);
-        setSize(new java.awt.Dimension(480, 460));
+        setSize(new java.awt.Dimension(495, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dateField.setEnabled(false);
@@ -219,18 +221,6 @@ public class addPatient extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 204));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 460));
 
         pack();
@@ -250,6 +240,8 @@ public class addPatient extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
+        patientPanel patPanel = new patientPanel();
+        patPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

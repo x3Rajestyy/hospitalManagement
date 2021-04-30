@@ -97,10 +97,12 @@ public class addRecep extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Patient");
+        setTitle("Add Receptionist");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
         setBounds(new java.awt.Rectangle(0, 0, 650, 530));
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 650, 530));
+        setMaximumSize(new java.awt.Dimension(650, 530));
         setMinimumSize(new java.awt.Dimension(650, 530));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 530));
@@ -175,20 +177,20 @@ public class addRecep extends javax.swing.JFrame {
         radioButtonGroup.add(jRadioButton2);
         jRadioButton2.setText("Female");
         jPanel3.add(jRadioButton2);
-        jRadioButton2.setBounds(80, 200, 59, 23);
+        jRadioButton2.setBounds(80, 203, 200, 20);
         jRadioButton2.getAccessibleContext().setAccessibleDescription("");
 
         jRadioButton1.setBackground(new java.awt.Color(255, 204, 102));
         radioButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
         jPanel3.add(jRadioButton1);
-        jRadioButton1.setBounds(80, 180, 47, 23);
+        jRadioButton1.setBounds(80, 180, 190, 23);
 
         jRadioButton3.setBackground(new java.awt.Color(255, 204, 102));
         radioButtonGroup.add(jRadioButton3);
         jRadioButton3.setText("Other");
         jPanel3.add(jRadioButton3);
-        jRadioButton3.setBounds(80, 220, 53, 23);
+        jRadioButton3.setBounds(80, 220, 200, 23);
         jPanel3.add(nameField);
         nameField.setBounds(80, 142, 186, 28);
 
