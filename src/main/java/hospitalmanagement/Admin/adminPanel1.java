@@ -48,7 +48,6 @@ public class adminPanel1 extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-doctor-male-48.png")); // NOI18N
         jButton3.setText("Doctor Info");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +60,6 @@ public class adminPanel1 extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-patient-oxygen-mask-48.png")); // NOI18N
         jButton2.setText("Patient Info");
         jButton2.setActionCommand("Patient");
         jButton2.setBorder(null);
@@ -76,7 +74,6 @@ public class adminPanel1 extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(255, 153, 153));
         jButton4.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-nurse-48.png")); // NOI18N
         jButton4.setText("Nurse Info");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -89,7 +86,6 @@ public class adminPanel1 extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-front-desk-48.png")); // NOI18N
         jButton1.setText("Receptionist Info");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
@@ -107,14 +103,11 @@ public class adminPanel1 extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 200, 1280, 80);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-admin-settings-male-100.png")); // NOI18N
         jPanel1.add(jLabel1);
         jLabel1.setBounds(590, 110, 100, 90);
 
         jButton6.setBackground(new java.awt.Color(255, 153, 153));
         jButton6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\logout.png")); // NOI18N
         jButton6.setText("Logout");
         jButton6.setBorderPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +132,7 @@ public class adminPanel1 extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(0, 620, 1280, 0);
+        jPanel4.setBounds(0, 620, 1280, 100);
 
         jPanel5.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -155,11 +148,12 @@ public class adminPanel1 extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel5);
-        jPanel5.setBounds(0, 0, 1280, 0);
+        jPanel5.setBounds(0, 0, 1280, 100);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

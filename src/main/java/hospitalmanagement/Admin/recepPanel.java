@@ -108,8 +108,6 @@ public class recepPanel extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\front_desk_100px.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(590, 180, 100, 100);
 
@@ -172,7 +170,6 @@ public class recepPanel extends javax.swing.JFrame {
 
         deleteButton.setBackground(new java.awt.Color(255, 153, 0));
         deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        deleteButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\delete_16px.png")); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteButton.setBorderPainted(false);
@@ -186,7 +183,6 @@ public class recepPanel extends javax.swing.JFrame {
 
         updateButton.setBackground(new java.awt.Color(255, 153, 0));
         updateButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        updateButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
         updateButton.setText("Update");
         updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateButton.setBorderPainted(false);
@@ -200,7 +196,6 @@ public class recepPanel extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(255, 153, 0));
         backButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        backButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         backButton.setBorderPainted(false);
@@ -233,6 +228,7 @@ public class recepPanel extends javax.swing.JFrame {
         setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

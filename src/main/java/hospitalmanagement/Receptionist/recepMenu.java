@@ -59,7 +59,7 @@ public class recepMenu extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(0, 620, 1280, 0);
+        jPanel3.setBounds(0, 620, 1280, 100);
 
         jPanel4.setBackground(new java.awt.Color(230, 126, 34));
 
@@ -75,7 +75,7 @@ public class recepMenu extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(0, 0, 1280, 0);
+        jPanel4.setBounds(0, 0, 1280, 100);
 
         jButton2.setBackground(new java.awt.Color(242, 121, 53));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
@@ -143,6 +143,7 @@ public class recepMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

@@ -144,12 +144,12 @@ public class addRecep extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Aeroport", 0, 11)); // NOI18N
         jLabel7.setText("Contact No.");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(10, 355, 64, 16);
+        jLabel7.setBounds(10, 355, 59, 15);
 
         jLabel6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel6.setText("Address:");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(10, 306, 62, 20);
+        jLabel6.setBounds(10, 306, 56, 19);
 
         addressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +196,7 @@ public class addRecep extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel3.setText("Name: ");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(10, 141, 47, 28);
+        jLabel3.setBounds(10, 141, 46, 28);
 
         jButton2.setBackground(new java.awt.Color(255, 153, 0));
         jButton2.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
@@ -228,7 +228,7 @@ public class addRecep extends javax.swing.JFrame {
         jLabel2.setText("Join Date:");
         jLabel2.setToolTipText("");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(10, 99, 66, 30);
+        jLabel2.setBounds(10, 99, 65, 30);
 
         dateField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,7 +241,7 @@ public class addRecep extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel8.setText("Marital Status:");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(315, 104, 102, 23);
+        jLabel8.setBounds(315, 104, 92, 23);
 
         statComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced" }));
         jPanel3.add(statComBox);
@@ -250,19 +250,19 @@ public class addRecep extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel9.setText("Email:");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(315, 145, 41, 20);
+        jLabel9.setBounds(315, 145, 39, 19);
         jPanel3.add(emailField);
         emailField.setBounds(393, 141, 190, 29);
 
         jLabel10.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel10.setText("Username:");
         jPanel3.add(jLabel10);
-        jLabel10.setBounds(315, 260, 74, 20);
+        jLabel10.setBounds(315, 260, 70, 19);
 
         jLabel11.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel11.setText("Password:");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(315, 306, 72, 20);
+        jLabel11.setBounds(315, 306, 67, 19);
         jPanel3.add(jTextField2);
         jTextField2.setBounds(393, 257, 190, 28);
         jPanel3.add(jTextField3);
@@ -271,6 +271,7 @@ public class addRecep extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 530));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed

@@ -112,8 +112,6 @@ public class patientPanel extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-patient-care-100.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(590, 180, 100, 100);
 
@@ -176,7 +174,6 @@ public class patientPanel extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 222, 5));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
         jButton2.setText("Back");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.setBorderPainted(false);
@@ -190,7 +187,6 @@ public class patientPanel extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 222, 5));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
         jButton1.setText("Update");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.setBorderPainted(false);
@@ -204,7 +200,6 @@ public class patientPanel extends javax.swing.JFrame {
 
         deleteButton.setBackground(new java.awt.Color(255, 222, 5));
         deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        deleteButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\delete_16px.png")); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteButton.setBorderPainted(false);
@@ -237,6 +232,7 @@ public class patientPanel extends javax.swing.JFrame {
         setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
