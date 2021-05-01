@@ -3,21 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Main;
+package hospitalmanagement.Main;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.util.HashMap;
 /**
  *
  * @author Kurt Jayson Zacarias
  */
-public class UsernamePasswordsDOC {
-    final static String filePath = "usernamePassDoc.txt";
-    HashMap<String, String> loginInfoDOC = new HashMap<>();
-    
-    UsernamePasswordsDOC(){
+import java.util.*;
+import java.io.*;
+
+public class UsernamePasswordsADMIN {
+    final static String filePath = "usernamePassAdmin.txt";
+    HashMap<String, String> loginInfo = new HashMap<>();
+
+    UsernamePasswordsADMIN(){
         BufferedReader br = null;
 
         try{
@@ -42,7 +41,7 @@ public class UsernamePasswordsDOC {
 
                 //put name, password in HashMap if they are not empty
                 if( !name.equals("") && !password.equals("") )
-                    loginInfoDOC.put(name, password);
+                    loginInfo.put(name, password);
             }
 
         }catch(Exception e){
@@ -58,7 +57,7 @@ public class UsernamePasswordsDOC {
         }
     }
 
-     public HashMap getLoginInfoDOC(){
-        return loginInfoDOC;
+     public HashMap getLoginInfo(){
+        return loginInfo;
     }
 }

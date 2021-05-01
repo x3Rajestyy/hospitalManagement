@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Main;
+package hospitalmanagement.Main;
 
-import com.group10.hospitalmanagement.Doctor.doctorMenu;
+import hospitalmanagement.Admin.adminPanel1;
 import java.awt.Color;
 import java.util.HashMap;
 
@@ -13,17 +13,15 @@ import java.util.HashMap;
  *
  * @author Kurt Jayson Zacarias
  */
-public class doctorLogin extends javax.swing.JFrame {
+public class adminLogin extends javax.swing.JFrame{
     HashMap<String,String> userPass1 = new HashMap<>();
-        public doctorLogin(HashMap<String,String> userPass){    
+    public adminLogin(HashMap<String,String> userPass){    
         initComponents();
         userPass1 = userPass;
     }
-    /**
-     * Creates new form doctorLogin
-     */
-    public doctorLogin() {
+    public adminLogin() {
         initComponents();
+        
     }
 
     /**
@@ -44,11 +42,13 @@ public class doctorLogin extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        jLabel1.setText("Doctor");
+        jLabel1.setText("Admin");
 
         loginButton.setText("LOGIN");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +63,11 @@ public class doctorLogin extends javax.swing.JFrame {
         userUsername.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 userUsernameMouseClicked(evt);
+            }
+        });
+        userUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userUsernameActionPerformed(evt);
             }
         });
 
@@ -128,18 +133,19 @@ public class doctorLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         if(evt.getSource()==loginButton){
             String userID = userUsername.getText();
             String password = String.valueOf(userPassword.getPassword());
-
+            
             if(userPass1.containsKey(userID)) {
                 if(userPass1.get(userID).equals(password)) {
-                    messageLabel.setForeground(Color.green);
+                    messageLabel.setForeground(Color.GREEN);
                     messageLabel.setText("Login successful");
-                    doctorMenu docMen = new doctorMenu();
-                    docMen.setVisible(true);
+                    adminPanel1 admin = new adminPanel1();
+                    admin.setVisible(true);
+                    dispose();
                 }
                 else {
                     messageLabel.setForeground(Color.red);
@@ -165,6 +171,9 @@ public class doctorLogin extends javax.swing.JFrame {
         lS.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void userUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userUsernameActionPerformed
+        
+    }//GEN-LAST:event_userUsernameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

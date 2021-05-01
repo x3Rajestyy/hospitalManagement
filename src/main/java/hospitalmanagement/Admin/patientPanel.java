@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Admin;
+package hospitalmanagement.Admin;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,15 +22,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Raj
  */
-public class nursePanel extends javax.swing.JFrame {
+public class patientPanel extends javax.swing.JFrame {
+    
+    private String date, ID, name, gender, age, address, con, dis;
+    
     
     /**
      * Creates new form patientPanel
      */
-    public nursePanel() {
+    public patientPanel() {
         initComponents();
         setSize(1290,766);
-        File file = new File("nurseData.txt");
+        File file = new File("patientData.txt");
         if(file.length() == 0){
             //do nothing
         } else {
@@ -39,15 +42,15 @@ public class nursePanel extends javax.swing.JFrame {
     }
     
     private void updateTable(){
-        String filePath = "nurseData.txt";
+        String filePath = "patientData.txt";
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < nurTable.getRowCount(); i++){//rows
-                for(int j = 0; j < nurTable.getColumnCount(); j++){//columns
-                    bw.write(nurTable.getValueAt(i, j).toString()+" ");
+            for(int i = 0; i < patTable.getRowCount(); i++){//rows
+                for(int j = 0; j < patTable.getColumnCount(); j++){//columns
+                    bw.write(patTable.getValueAt(i, j).toString()+" ");
                 }
                 bw.newLine();
             }
@@ -61,12 +64,12 @@ public class nursePanel extends javax.swing.JFrame {
     }
     
     private void setTableData(){
-        File file = new File("nurseData.txt");
+        File file = new File("patientData.txt");
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             
-            DefaultTableModel model = (DefaultTableModel)nurTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length; i++){
@@ -74,7 +77,7 @@ public class nursePanel extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }catch(FileNotFoundException ex){
-            Logger.getLogger(nursePanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -92,12 +95,12 @@ public class nursePanel extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        nurTable = new javax.swing.JTable();
+        patTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
@@ -110,26 +113,26 @@ public class nursePanel extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\nurse_100px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-patient-care-100.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(590, 180, 100, 100);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("nurse list");
+        jLabel3.setText("PATIENT list");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 270, 1280, 80);
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        nurTable.setBackground(new java.awt.Color(255, 255, 204));
-        nurTable.setModel(new javax.swing.table.DefaultTableModel(
+        patTable.setBackground(new java.awt.Color(255, 255, 204));
+        patTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Join Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Email"
+                "Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Disease"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -140,29 +143,38 @@ public class nursePanel extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        nurTable.setGridColor(new java.awt.Color(0, 0, 0));
-        nurTable.setShowGrid(false);
-        nurTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(nurTable);
-        if (nurTable.getColumnModel().getColumnCount() > 0) {
-            nurTable.getColumnModel().getColumn(0).setResizable(false);
-            nurTable.getColumnModel().getColumn(1).setResizable(false);
-            nurTable.getColumnModel().getColumn(2).setResizable(false);
-            nurTable.getColumnModel().getColumn(3).setResizable(false);
-            nurTable.getColumnModel().getColumn(4).setResizable(false);
-            nurTable.getColumnModel().getColumn(5).setResizable(false);
-            nurTable.getColumnModel().getColumn(6).setResizable(false);
+        patTable.setGridColor(new java.awt.Color(0, 0, 0));
+        patTable.setShowGrid(false);
+        patTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(patTable);
+        if (patTable.getColumnModel().getColumnCount() > 0) {
+            patTable.getColumnModel().getColumn(0).setResizable(false);
+            patTable.getColumnModel().getColumn(1).setResizable(false);
+            patTable.getColumnModel().getColumn(2).setResizable(false);
+            patTable.getColumnModel().getColumn(3).setResizable(false);
+            patTable.getColumnModel().getColumn(4).setResizable(false);
+            patTable.getColumnModel().getColumn(5).setResizable(false);
+            patTable.getColumnModel().getColumn(6).setResizable(false);
+            patTable.getColumnModel().getColumn(7).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 330, 1250, 210);
 
-        jPanel3.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
         jPanel3.setLayout(null);
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 1280, 60);
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel2.setLayout(null);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 640, 1280, 60);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setLayout(null);
+
+        jButton2.setBackground(new java.awt.Color(255, 222, 5));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
         jButton2.setText("Back");
@@ -173,10 +185,10 @@ public class nursePanel extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
+        jPanel1.add(jButton2);
         jButton2.setBounds(1090, 550, 80, 40);
 
-        jButton1.setBackground(new java.awt.Color(204, 0, 255));
+        jButton1.setBackground(new java.awt.Color(255, 222, 5));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
         jButton1.setText("Update");
@@ -187,18 +199,10 @@ public class nursePanel extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
+        jPanel1.add(jButton1);
         jButton1.setBounds(1180, 550, 80, 40);
 
-        jPanel2.setBackground(new java.awt.Color(204, 0, 255));
-        jPanel2.setLayout(null);
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 640, 1280, 60);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(null);
-
-        deleteButton.setBackground(new java.awt.Color(204, 0, 255));
+        deleteButton.setBackground(new java.awt.Color(255, 222, 5));
         deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\delete_16px.png")); // NOI18N
         deleteButton.setText("Delete");
@@ -215,12 +219,12 @@ public class nursePanel extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 700);
 
-        jMenu4.setText("Nurse Tools");
+        jMenu4.setText("Patient Tools");
         jMenu4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jMenuItem1.setText("Add Nurse");
+        jMenuItem1.setText("Add Patient");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -236,9 +240,10 @@ public class nursePanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
         dispose();
-        addNurse addN = new addNurse();
-        addN.setVisible(true);
+        addPatient addP = new addPatient();
+        addP.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -252,9 +257,9 @@ public class nursePanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
         try {
-            int SelectedRowIndex = nurTable.getSelectedRow();
+            int SelectedRowIndex = patTable.getSelectedRow();
             model.removeRow(SelectedRowIndex);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -278,6 +283,6 @@ public class nursePanel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable nurTable;
+    private javax.swing.JTable patTable;
     // End of variables declaration//GEN-END:variables
 }

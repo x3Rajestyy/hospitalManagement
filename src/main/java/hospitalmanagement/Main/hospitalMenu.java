@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Main;
+package hospitalmanagement.Main;
 
 /**
  *
@@ -46,7 +46,6 @@ public class hospitalMenu extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 255, 204));
         setBounds(new java.awt.Rectangle(0, 0, 1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
@@ -58,7 +57,6 @@ public class hospitalMenu extends javax.swing.JFrame {
         recepLogin.setBackground(new java.awt.Color(102, 102, 102));
         recepLogin.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         recepLogin.setForeground(new java.awt.Color(255, 255, 255));
-        recepLogin.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\front_desk_64px.png")); // NOI18N
         recepLogin.setText("Receptionist");
         recepLogin.setBorderPainted(false);
         recepLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +70,6 @@ public class hospitalMenu extends javax.swing.JFrame {
         adminLogin.setBackground(new java.awt.Color(102, 102, 102));
         adminLogin.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         adminLogin.setForeground(new java.awt.Color(255, 255, 255));
-        adminLogin.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\microsoft_admin_64px.png")); // NOI18N
         adminLogin.setText("Admin");
         adminLogin.setBorderPainted(false);
         adminLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +83,6 @@ public class hospitalMenu extends javax.swing.JFrame {
         docLogin.setBackground(new java.awt.Color(102, 102, 102));
         docLogin.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         docLogin.setForeground(new java.awt.Color(255, 255, 255));
-        docLogin.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\doctors_bag_64px.png")); // NOI18N
         docLogin.setText("Doctor");
         docLogin.setBorderPainted(false);
         docLogin.addActionListener(new java.awt.event.ActionListener() {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Admin;
+package hospitalmanagement.Admin;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -22,15 +22,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Raj
  */
-public class recepPanel extends javax.swing.JFrame {
+public class nursePanel extends javax.swing.JFrame {
     
     /**
      * Creates new form patientPanel
      */
-    public recepPanel() {
+    public nursePanel() {
         initComponents();
         setSize(1290,766);
-        File file = new File("recepData.txt");
+        File file = new File("nurseData.txt");
         if(file.length() == 0){
             //do nothing
         } else {
@@ -39,15 +39,15 @@ public class recepPanel extends javax.swing.JFrame {
     }
     
     private void updateTable(){
-        String filePath = "recepData.txt";
+        String filePath = "nurseData.txt";
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
             BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < recepTable.getRowCount(); i++){//rows
-                for(int j = 0; j < recepTable.getColumnCount(); j++){//columns
-                    bw.write(recepTable.getValueAt(i, j).toString()+" ");
+            for(int i = 0; i < nurTable.getRowCount(); i++){//rows
+                for(int j = 0; j < nurTable.getColumnCount(); j++){//columns
+                    bw.write(nurTable.getValueAt(i, j).toString()+" ");
                 }
                 bw.newLine();
             }
@@ -59,13 +59,14 @@ public class recepPanel extends javax.swing.JFrame {
             Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     private void setTableData(){
-        File file = new File("recepData.txt");
+        File file = new File("nurseData.txt");
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             
-            DefaultTableModel model = (DefaultTableModel)recepTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)nurTable.getModel();
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length; i++){
@@ -73,7 +74,7 @@ public class recepPanel extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }catch(FileNotFoundException ex){
-            Logger.getLogger(recepPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(nursePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -91,13 +92,13 @@ public class recepPanel extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        recepTable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        nurTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         deleteButton = new javax.swing.JButton();
-        updateButton = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -109,68 +110,95 @@ public class recepPanel extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\front_desk_100px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\nurse_100px.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(590, 180, 100, 100);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("RECEPTIONIST list");
+        jLabel3.setText("nurse list");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 270, 1280, 80);
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        recepTable.setBackground(new java.awt.Color(255, 255, 204));
-        recepTable.setModel(new javax.swing.table.DefaultTableModel(
+        nurTable.setBackground(new java.awt.Color(255, 255, 204));
+        nurTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Joined Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Marital Status", "Email"
+                "Join Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, true, true, true, true
+                true, false, true, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        recepTable.setGridColor(new java.awt.Color(0, 0, 0));
-        recepTable.setShowGrid(false);
-        jScrollPane1.setViewportView(recepTable);
-        if (recepTable.getColumnModel().getColumnCount() > 0) {
-            recepTable.getColumnModel().getColumn(0).setResizable(false);
-            recepTable.getColumnModel().getColumn(1).setResizable(false);
-            recepTable.getColumnModel().getColumn(2).setResizable(false);
-            recepTable.getColumnModel().getColumn(3).setResizable(false);
-            recepTable.getColumnModel().getColumn(4).setResizable(false);
-            recepTable.getColumnModel().getColumn(5).setResizable(false);
-            recepTable.getColumnModel().getColumn(6).setResizable(false);
-            recepTable.getColumnModel().getColumn(7).setResizable(false);
-            recepTable.getColumnModel().getColumn(8).setResizable(false);
+        nurTable.setGridColor(new java.awt.Color(0, 0, 0));
+        nurTable.setShowGrid(false);
+        nurTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(nurTable);
+        if (nurTable.getColumnModel().getColumnCount() > 0) {
+            nurTable.getColumnModel().getColumn(0).setResizable(false);
+            nurTable.getColumnModel().getColumn(1).setResizable(false);
+            nurTable.getColumnModel().getColumn(2).setResizable(false);
+            nurTable.getColumnModel().getColumn(3).setResizable(false);
+            nurTable.getColumnModel().getColumn(4).setResizable(false);
+            nurTable.getColumnModel().getColumn(5).setResizable(false);
+            nurTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 330, 1250, 210);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 102));
-        jPanel1.setLayout(null);
-
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setLayout(null);
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 640, 1280, 60);
-
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel3.setBackground(new java.awt.Color(204, 0, 255));
         jPanel3.setLayout(null);
-        jPanel1.add(jPanel3);
+        getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 1280, 60);
 
-        deleteButton.setBackground(new java.awt.Color(255, 153, 0));
+        jButton2.setBackground(new java.awt.Color(204, 0, 255));
+        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
+        jButton2.setText("Back");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(1090, 550, 80, 40);
+
+        jButton1.setBackground(new java.awt.Color(204, 0, 255));
+        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
+        jButton1.setText("Update");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(1180, 550, 80, 40);
+
+        jPanel2.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel2.setLayout(null);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 640, 1280, 60);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(null);
+
+        deleteButton.setBackground(new java.awt.Color(204, 0, 255));
         deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         deleteButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\delete_16px.png")); // NOI18N
         deleteButton.setText("Delete");
@@ -184,43 +212,15 @@ public class recepPanel extends javax.swing.JFrame {
         jPanel1.add(deleteButton);
         deleteButton.setBounds(1000, 550, 80, 40);
 
-        updateButton.setBackground(new java.awt.Color(255, 153, 0));
-        updateButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        updateButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
-        updateButton.setText("Update");
-        updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateButton.setBorderPainted(false);
-        updateButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(updateButton);
-        updateButton.setBounds(1180, 550, 80, 40);
-
-        backButton.setBackground(new java.awt.Color(255, 153, 0));
-        backButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        backButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
-        backButton.setText("Back");
-        backButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        backButton.setBorderPainted(false);
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(backButton);
-        backButton.setBounds(1090, 550, 80, 40);
-
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 700);
 
-        jMenu4.setText("Receptionist Tools");
+        jMenu4.setText("Nurse Tools");
         jMenu4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jMenuItem1.setText("Add Receptionist");
+        jMenuItem1.setText("Add Nurse");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -237,24 +237,24 @@ public class recepPanel extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         dispose();
-        addRecep addR = new addRecep();
-        addR.setVisible(true);
+        addNurse addN = new addNurse();
+        addN.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
         adminPanel1 adminPanel = new adminPanel1();
         adminPanel.setVisible(true);
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         updateTable();
-    }//GEN-LAST:event_updateButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
         try {
-            int SelectedRowIndex = recepTable.getSelectedRow();
+            int SelectedRowIndex = nurTable.getSelectedRow();
             model.removeRow(SelectedRowIndex);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -265,9 +265,10 @@ public class recepPanel extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
     private java.awt.Canvas canvas1;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu4;
@@ -277,7 +278,6 @@ public class recepPanel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable recepTable;
-    private javax.swing.JButton updateButton;
+    private javax.swing.JTable nurTable;
     // End of variables declaration//GEN-END:variables
 }
