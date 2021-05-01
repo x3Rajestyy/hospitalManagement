@@ -15,7 +15,6 @@ import java.util.HashMap;
  * @author Kurt Jayson Zacarias
  */
 public class UsernamePasswordRECEP {
-    final static String filePath = "usernamePassRecep.txt";
     HashMap<String, String> loginInfoRecep = new HashMap<>();
     
     UsernamePasswordRECEP(){

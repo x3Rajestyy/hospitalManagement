@@ -13,7 +13,7 @@ import java.util.*;
 import java.io.*;
 
 public class UsernamePasswordsADMIN {
-    final static String filePath = "usernamePassAdmin.txt";
+    final static String filePath = "src\\main\\java\\hospitalmanagement\\Main\\usernamePassAdmin.txt";
     HashMap<String, String> loginInfo = new HashMap<>();
 
     UsernamePasswordsADMIN(){
