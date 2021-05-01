@@ -34,10 +34,10 @@ public class appointmentWindow extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
 
@@ -65,23 +65,34 @@ public class appointmentWindow extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(105, 203, 255));
 
+        jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("appointments");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1280, 100);
+        jPanel3.setBounds(0, 0, 1280, 102);
 
         jButton3.setBackground(new java.awt.Color(105, 203, 255));
-        jButton3.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton3.setText("Delete Appointments");
+        jButton3.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton3.setText("Delete ");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,10 +100,10 @@ public class appointmentWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(650, 280, 200, 110);
+        jButton3.setBounds(970, 550, 140, 60);
 
         jButton2.setBackground(new java.awt.Color(105, 203, 255));
-        jButton2.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton2.setText("Add Appointments");
         jButton2.setActionCommand("Patient");
         jButton2.setBorder(null);
@@ -103,11 +114,11 @@ public class appointmentWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(430, 280, 200, 110);
+        jButton2.setBounds(1120, 550, 140, 60);
 
         jButton1.setBackground(new java.awt.Color(105, 203, 255));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setText("View Appointments");
+        jButton1.setText("Update");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,14 +127,7 @@ public class appointmentWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(540, 410, 200, 110);
-
-        jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("appointments");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(0, 200, 1280, 80);
+        jButton1.setBounds(820, 550, 140, 60);
         jPanel1.add(jLabel1);
         jLabel1.setBounds(590, 110, 100, 90);
 
@@ -137,7 +141,7 @@ public class appointmentWindow extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton6);
-        jButton6.setBounds(1160, 550, 110, 60);
+        jButton6.setBounds(1160, 110, 110, 60);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 

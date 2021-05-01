@@ -20,6 +20,7 @@ hospitalmanagement\Admin\nursePanel$4.class
 hospitalmanagement\Admin\addNurse$1.class
 hospitalmanagement\Admin\addRecep$2.class
 hospitalmanagement\Receptionist\recepMenu.class
+hospitalmanagement\Admin\patientPanel$6.class
 hospitalmanagement\Global\appointmentWindow$4.class
 hospitalmanagement\Admin\addPatient$2.class
 hospitalmanagement\Doctor\doctorMenu$2.class
