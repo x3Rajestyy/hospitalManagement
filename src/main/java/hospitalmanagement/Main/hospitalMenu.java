@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Main;
+package hospitalmanagement.Main;
 
 /**
  *
@@ -46,7 +46,6 @@ public class hospitalMenu extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 255, 204));
         setBounds(new java.awt.Rectangle(0, 0, 1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);

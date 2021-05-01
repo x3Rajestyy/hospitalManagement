@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Main;
+package hospitalmanagement.Main;
 
 import java.io.BufferedReader;
 import java.io.File;

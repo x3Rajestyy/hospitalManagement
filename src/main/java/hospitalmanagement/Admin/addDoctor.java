@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Admin;
+package hospitalmanagement.Admin;
 
 import java.io.*;
 import java.text.*;
@@ -17,18 +17,18 @@ import javax.swing.ButtonGroup;
  *
  * @author Raj
  */
-public class addRecep extends javax.swing.JFrame {
+public class addDoctor extends javax.swing.JFrame {
     
     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
     Date date = new Date();
     Calendar cal = Calendar.getInstance();
-    private String uniqueID,dates,name,gender,age,address,con,marital,email;
+    private String uniqueID,dates,name,gender,age,address,con,dept,marital,email;
     private String username,password;
 
     /**
      * Creates new form addPatient
      */
-    public addRecep() {
+    public addDoctor() {
         initComponents();
         
         dateField.setText(" "+ dateFormat.format(date));
@@ -49,11 +49,11 @@ public class addRecep extends javax.swing.JFrame {
     
 
     private void writeFile() throws IOException{
-        File file = new File("recepData.txt");
+        File file = new File("doctorData.txt");
         FileWriter fw = new FileWriter(file, true);
         PrintWriter pw = new PrintWriter(fw);
         
-        pw.print(dates + " " + uniqueID + " " + name + " " + gender + " " + age + " " + address + " " + con + " " + marital + " " + email  + "\n");
+        pw.print(dates + " " + uniqueID + " " + name + " " + gender + " " + age + " " + address + " " + con + " " + dept + " " + marital + " " + email  + "\n");
         pw.close();
     }
 
@@ -72,6 +72,7 @@ public class addRecep extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         conField = new javax.swing.JTextField();
+        disLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         addressField = new javax.swing.JTextField();
@@ -87,6 +88,7 @@ public class addRecep extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         dateField = new javax.swing.JTextField();
+        deptComBox = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         statComBox = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -97,7 +99,7 @@ public class addRecep extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Add Receptionist");
+        setTitle("Add Doctor");
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 204, 255));
         setBounds(new java.awt.Rectangle(0, 0, 630, 510));
@@ -107,10 +109,10 @@ public class addRecep extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(630, 510));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(0, 204, 51));
 
         jLabel1.setFont(new java.awt.Font("Couture", 0, 18)); // NOI18N
-        jLabel1.setText("Add Receptionist");
+        jLabel1.setText("Add Doctor");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,7 +121,7 @@ public class addRecep extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +132,7 @@ public class addRecep extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
 
-        jPanel3.setBackground(new java.awt.Color(255, 204, 102));
+        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel3.setLayout(null);
 
         conField.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +142,11 @@ public class addRecep extends javax.swing.JFrame {
         });
         jPanel3.add(conField);
         conField.setBounds(84, 349, 186, 28);
+
+        disLabel.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        disLabel.setText("Department:");
+        jPanel3.add(disLabel);
+        disLabel.setBounds(10, 398, 87, 20);
 
         jLabel7.setFont(new java.awt.Font("Aeroport", 0, 11)); // NOI18N
         jLabel7.setText("Contact No.");
@@ -157,7 +164,7 @@ public class addRecep extends javax.swing.JFrame {
             }
         });
         jPanel3.add(addressField);
-        addressField.setBounds(393, 300, 190, 28);
+        addressField.setBounds(391, 314, 192, 28);
         jPanel3.add(ageField);
         ageField.setBounds(84, 258, 53, 28);
 
@@ -172,33 +179,33 @@ public class addRecep extends javax.swing.JFrame {
         jPanel3.add(jLabel4);
         jLabel4.setBounds(10, 176, 110, 70);
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 204, 102));
+        jRadioButton2.setBackground(new java.awt.Color(204, 255, 204));
         radioButtonGroup.add(jRadioButton2);
         jRadioButton2.setText("Female");
         jPanel3.add(jRadioButton2);
-        jRadioButton2.setBounds(80, 203, 200, 20);
+        jRadioButton2.setBounds(80, 200, 190, 23);
         jRadioButton2.getAccessibleContext().setAccessibleDescription("");
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 204, 102));
+        jRadioButton1.setBackground(new java.awt.Color(204, 255, 204));
         radioButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
         jPanel3.add(jRadioButton1);
-        jRadioButton1.setBounds(80, 180, 190, 23);
+        jRadioButton1.setBounds(80, 180, 170, 23);
 
-        jRadioButton3.setBackground(new java.awt.Color(255, 204, 102));
+        jRadioButton3.setBackground(new java.awt.Color(204, 255, 204));
         radioButtonGroup.add(jRadioButton3);
         jRadioButton3.setText("Other");
         jPanel3.add(jRadioButton3);
-        jRadioButton3.setBounds(80, 220, 200, 23);
+        jRadioButton3.setBounds(80, 220, 180, 23);
         jPanel3.add(nameField);
-        nameField.setBounds(80, 142, 186, 28);
+        nameField.setBounds(80, 141, 186, 28);
 
         jLabel3.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel3.setText("Name: ");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(10, 141, 47, 28);
+        jLabel3.setBounds(10, 140, 47, 28);
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 0));
+        jButton2.setBackground(new java.awt.Color(0, 204, 51));
         jButton2.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
         jButton2.setText("Back");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -212,7 +219,7 @@ public class addRecep extends javax.swing.JFrame {
         jPanel3.add(jButton2);
         jButton2.setBounds(393, 393, 90, 30);
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 0));
+        jButton1.setBackground(new java.awt.Color(0, 204, 51));
         jButton1.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
         jButton1.setText("Save");
         jButton1.setBorderPainted(false);
@@ -228,7 +235,7 @@ public class addRecep extends javax.swing.JFrame {
         jLabel2.setText("Join Date:");
         jLabel2.setToolTipText("");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(10, 99, 66, 30);
+        jLabel2.setBounds(10, 98, 66, 30);
 
         dateField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,21 +243,25 @@ public class addRecep extends javax.swing.JFrame {
             }
         });
         jPanel3.add(dateField);
-        dateField.setBounds(80, 100, 186, 30);
+        dateField.setBounds(80, 99, 186, 30);
+
+        deptComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Medicine", "Dental", "Nutrition", "Gynecology", "Neurology", "Cardiology", "Hematology", "Microbiology", "Radiology", "Surgical", "Optometry" }));
+        jPanel3.add(deptComBox);
+        deptComBox.setBounds(115, 395, 153, 28);
 
         jLabel8.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel8.setText("Marital Status:");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(315, 104, 102, 23);
+        jLabel8.setBounds(315, 103, 102, 23);
 
         statComBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Divorced" }));
         jPanel3.add(statComBox);
-        statComBox.setBounds(427, 102, 156, 28);
+        statComBox.setBounds(427, 101, 156, 28);
 
         jLabel9.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel9.setText("Email:");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(315, 145, 41, 20);
+        jLabel9.setBounds(315, 144, 41, 20);
         jPanel3.add(emailField);
         emailField.setBounds(393, 141, 190, 29);
 
@@ -287,8 +298,8 @@ public class addRecep extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
-        recepPanel recPan = new recepPanel();
-        recPan.setVisible(true);
+        doctorPanel docPanel = new doctorPanel();
+        docPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -299,16 +310,17 @@ public class addRecep extends javax.swing.JFrame {
         age = ageField.getText();
         address = addressField.getText().replaceAll("\\s+", "_");
         con = conField.getText().replaceAll("\\s+", "_");
+        dept = deptComBox.getSelectedItem().toString();
         marital = statComBox.getSelectedItem().toString();
         email = emailField.getText().replaceAll("\\s+", "");
         try {
             writeFile();
         } catch (IOException ex) {
-            Logger.getLogger(addRecep.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(addDoctor.class.getName()).log(Level.SEVERE, null, ex);
         }
         dispose();
-        recepPanel recPanel = new recepPanel();
-        recPanel.setVisible(true);
+        doctorPanel docPanel = new doctorPanel();
+        docPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -317,6 +329,8 @@ public class addRecep extends javax.swing.JFrame {
     private javax.swing.JTextField ageField;
     private javax.swing.JTextField conField;
     private javax.swing.JTextField dateField;
+    private javax.swing.JComboBox<String> deptComBox;
+    private javax.swing.JLabel disLabel;
     private javax.swing.JTextField emailField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

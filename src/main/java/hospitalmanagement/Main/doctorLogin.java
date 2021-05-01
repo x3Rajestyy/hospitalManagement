@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Main;
+package hospitalmanagement.Main;
 
+import hospitalmanagement.Doctor.doctorMenu;
 import java.awt.Color;
 import java.util.HashMap;
 
@@ -12,13 +13,16 @@ import java.util.HashMap;
  *
  * @author Kurt Jayson Zacarias
  */
-public class recepLogin extends javax.swing.JFrame {
+public class doctorLogin extends javax.swing.JFrame {
     HashMap<String,String> userPass1 = new HashMap<>();
-    public recepLogin(HashMap<String,String> userPass){    
+        public doctorLogin(HashMap<String,String> userPass){    
         initComponents();
         userPass1 = userPass;
     }
-    public recepLogin() {
+    /**
+     * Creates new form doctorLogin
+     */
+    public doctorLogin() {
         initComponents();
     }
 
@@ -44,7 +48,7 @@ public class recepLogin extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 102, 255));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI", 0, 24)); // NOI18N
-        jLabel1.setText("Receptionist");
+        jLabel1.setText("Doctor");
 
         loginButton.setText("LOGIN");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +81,9 @@ public class recepLogin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(159, 159, 159)
-                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,18 +93,15 @@ public class recepLogin extends javax.swing.JFrame {
                                 .addComponent(userUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(jLabel1)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(147, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(57, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(userUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(userPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,7 +138,8 @@ public class recepLogin extends javax.swing.JFrame {
                 if(userPass1.get(userID).equals(password)) {
                     messageLabel.setForeground(Color.green);
                     messageLabel.setText("Login successful");
-                    //needs recepmenu here
+                    doctorMenu docMen = new doctorMenu();
+                    docMen.setVisible(true);
                 }
                 else {
                     messageLabel.setForeground(Color.red);
