@@ -82,7 +82,7 @@ public class appointmentWindow extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(105, 203, 255));
         jButton3.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton3.setText("Doctor Info");
+        jButton3.setText("Delete Appointments");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +94,7 @@ public class appointmentWindow extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(105, 203, 255));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton2.setText("Patient Info");
+        jButton2.setText("Add Appointments");
         jButton2.setActionCommand("Patient");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
@@ -108,7 +108,7 @@ public class appointmentWindow extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(105, 203, 255));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setText("Check Appointments");
+        jButton1.setText("View Appointments");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class appointmentWindow extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(105, 203, 255));
         jButton6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton6.setText("Logout");
+        jButton6.setText("Back");
         jButton6.setBorderPainted(false);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

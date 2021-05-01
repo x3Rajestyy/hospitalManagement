@@ -92,16 +92,16 @@ public class patientPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        patTable = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -112,19 +112,70 @@ public class patientPanel extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\icons8-patient-care-100.png")); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(590, 180, 100, 100);
+        getContentPane().add(canvas1);
+        canvas1.setBounds(601, 356, 0, 0);
+
+        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel3.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PATIENT list");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 270, 1280, 80);
-        getContentPane().add(canvas1);
-        canvas1.setBounds(601, 356, 0, 0);
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(0, 0, 1280, 70);
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 1280, 60);
+
+        jPanel2.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel2.setLayout(null);
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 640, 1280, 60);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setLayout(null);
+
+        jButton2.setBackground(new java.awt.Color(255, 222, 5));
+        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton2.setText("Back");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(10, 70, 80, 40);
+
+        jButton1.setBackground(new java.awt.Color(255, 222, 5));
+        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton1.setText("Update");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(1180, 70, 80, 40);
+
+        deleteButton.setBackground(new java.awt.Color(255, 222, 5));
+        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteButton.setBorderPainted(false);
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteButton);
+        deleteButton.setBounds(1180, 120, 80, 40);
 
         patTable.setBackground(new java.awt.Color(255, 255, 204));
         patTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -132,11 +183,11 @@ public class patientPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Disease"
+                "Date", "ID", "First Name", "Last Name", "Gender", "Age", "Address", "Patient Type", "Contact No.", "Disease"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, false, true, true, true, true
+                true, false, true, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -156,65 +207,12 @@ public class patientPanel extends javax.swing.JFrame {
             patTable.getColumnModel().getColumn(5).setResizable(false);
             patTable.getColumnModel().getColumn(6).setResizable(false);
             patTable.getColumnModel().getColumn(7).setResizable(false);
+            patTable.getColumnModel().getColumn(8).setResizable(false);
+            patTable.getColumnModel().getColumn(9).setResizable(false);
         }
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 1250, 210);
-
-        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
-        jPanel3.setLayout(null);
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(0, 0, 1280, 60);
-
-        jPanel2.setBackground(new java.awt.Color(255, 222, 5));
-        jPanel2.setLayout(null);
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 640, 1280, 60);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setLayout(null);
-
-        jButton2.setBackground(new java.awt.Color(255, 222, 5));
-        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\smallback.png")); // NOI18N
-        jButton2.setText("Back");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(1090, 550, 80, 40);
-
-        jButton1.setBackground(new java.awt.Color(255, 222, 5));
-        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\updatesmol.png")); // NOI18N
-        jButton1.setText("Update");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(1180, 550, 80, 40);
-
-        deleteButton.setBackground(new java.awt.Color(255, 222, 5));
-        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        deleteButton.setIcon(new javax.swing.ImageIcon("E:\\Users\\Raj\\Documents\\NetBeansProjects\\hospitalManagement\\src\\main\\java\\com\\group10\\hospitalmanagement\\pictures\\delete_16px.png")); // NOI18N
-        deleteButton.setText("Delete");
-        deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteButton.setBorderPainted(false);
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(deleteButton);
-        deleteButton.setBounds(1000, 550, 80, 40);
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 420, 1260, 210);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 700);
