@@ -69,7 +69,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\medical_doctor_100px.png"/>
+          <Image iconType="3" name="/hospitalmanagement/pictures/medical_doctor_100px.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -220,9 +220,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="14" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\updatesmol.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Update"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -276,9 +273,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="14" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\smallback.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Back"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -305,7 +299,7 @@
               <Font name="Aeroport" size="14" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\delete_16px.png"/>
+              <Image iconType="3" name="/hospitalmanagement/pictures/delete_16px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Delete"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
