@@ -5,8 +5,9 @@
  */
 package com.group10.hospitalmanagement.Receptionist;
 
-import com.group10.hospitalmanagement.Admin.patientPanel;
-import com.group10.hospitalmanagement.Main.hospitalMenu;
+import hospitalmanagement.Admin.patientPanel;
+import hospitalmanagement.Main.hospitalMenu;
+
 
 /**
  *
