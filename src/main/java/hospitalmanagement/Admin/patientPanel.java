@@ -92,16 +92,16 @@ public class patientPanel extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         canvas1 = new java.awt.Canvas();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        patTable = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -114,53 +114,19 @@ public class patientPanel extends javax.swing.JFrame {
         getContentPane().setLayout(null);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(590, 180, 100, 100);
+        getContentPane().add(canvas1);
+        canvas1.setBounds(601, 356, 0, 0);
+
+        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel3.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("PATIENT list");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 270, 1280, 80);
-        getContentPane().add(canvas1);
-        canvas1.setBounds(601, 356, 0, 0);
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(0, 0, 1280, 70);
 
-        patTable.setBackground(new java.awt.Color(255, 255, 204));
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Disease"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, true, false, true, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        patTable.setGridColor(new java.awt.Color(0, 0, 0));
-        patTable.setShowGrid(false);
-        patTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(patTable);
-        if (patTable.getColumnModel().getColumnCount() > 0) {
-            patTable.getColumnModel().getColumn(0).setResizable(false);
-            patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(2).setResizable(false);
-            patTable.getColumnModel().getColumn(3).setResizable(false);
-            patTable.getColumnModel().getColumn(4).setResizable(false);
-            patTable.getColumnModel().getColumn(5).setResizable(false);
-            patTable.getColumnModel().getColumn(6).setResizable(false);
-            patTable.getColumnModel().getColumn(7).setResizable(false);
-        }
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 1250, 210);
-
-        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
-        jPanel3.setLayout(null);
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 1280, 60);
 
@@ -183,7 +149,7 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(1090, 550, 80, 40);
+        jButton2.setBounds(10, 70, 80, 40);
 
         jButton1.setBackground(new java.awt.Color(255, 222, 5));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -196,7 +162,7 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(1180, 550, 80, 40);
+        jButton1.setBounds(1180, 70, 80, 40);
 
         deleteButton.setBackground(new java.awt.Color(255, 222, 5));
         deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -209,7 +175,44 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(deleteButton);
-        deleteButton.setBounds(1000, 550, 80, 40);
+        deleteButton.setBounds(1180, 120, 80, 40);
+
+        patTable.setBackground(new java.awt.Color(255, 255, 204));
+        patTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "ID", "First Name", "Last Name", "Gender", "Age", "Address", "Patient Type", "Contact No.", "Disease"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, true, true, true, true, true, true, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        patTable.setGridColor(new java.awt.Color(0, 0, 0));
+        patTable.setShowGrid(false);
+        patTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(patTable);
+        if (patTable.getColumnModel().getColumnCount() > 0) {
+            patTable.getColumnModel().getColumn(0).setResizable(false);
+            patTable.getColumnModel().getColumn(1).setResizable(false);
+            patTable.getColumnModel().getColumn(2).setResizable(false);
+            patTable.getColumnModel().getColumn(3).setResizable(false);
+            patTable.getColumnModel().getColumn(4).setResizable(false);
+            patTable.getColumnModel().getColumn(5).setResizable(false);
+            patTable.getColumnModel().getColumn(6).setResizable(false);
+            patTable.getColumnModel().getColumn(7).setResizable(false);
+            patTable.getColumnModel().getColumn(8).setResizable(false);
+            patTable.getColumnModel().getColumn(9).setResizable(false);
+        }
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 420, 1260, 210);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 700);
