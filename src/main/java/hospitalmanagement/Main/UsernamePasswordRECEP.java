@@ -15,6 +15,7 @@ import java.util.HashMap;
  * @author Kurt Jayson Zacarias
  */
 public class UsernamePasswordRECEP {
+    final static String filePath = "src\\main\\java\\hospitalmanagement\\Main\\usernamePassRecep.txt";
     HashMap<String, String> loginInfoRecep = new HashMap<>();
     
     UsernamePasswordRECEP(){
