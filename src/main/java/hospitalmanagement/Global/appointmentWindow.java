@@ -5,7 +5,6 @@
  */
 package hospitalmanagement.Global;
 
-import hospitalmanagement.Doctor.*;
 import hospitalmanagement.Admin.doctorPanel;
 import hospitalmanagement.Admin.patientPanel;
 import hospitalmanagement.Main.hospitalMenu;

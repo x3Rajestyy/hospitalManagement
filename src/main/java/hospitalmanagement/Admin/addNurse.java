@@ -146,7 +146,7 @@ public class addNurse extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel8.setText("Marital Status:");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 400, 102, 30);
+        jLabel8.setBounds(10, 400, 92, 30);
 
         jButton1.setBackground(new java.awt.Color(204, 0, 255));
         jButton1.setFont(new java.awt.Font("Retroica", 0, 18)); // NOI18N
@@ -209,7 +209,7 @@ public class addNurse extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jLabel6.setText("Address:");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(10, 250, 62, 30);
+        jLabel6.setBounds(10, 250, 56, 30);
 
         addressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,7 +222,7 @@ public class addNurse extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Aeroport", 0, 11)); // NOI18N
         jLabel7.setText("Contact No.");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(10, 300, 64, 30);
+        jLabel7.setBounds(10, 300, 59, 30);
 
         conField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,7 +235,7 @@ public class addNurse extends javax.swing.JFrame {
         emailLabel.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         emailLabel.setText("Email:");
         jPanel3.add(emailLabel);
-        emailLabel.setBounds(10, 350, 41, 30);
+        emailLabel.setBounds(10, 350, 39, 30);
         jPanel3.add(emailField);
         emailField.setBounds(80, 350, 392, 28);
 
@@ -255,6 +255,7 @@ public class addNurse extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void dateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateFieldActionPerformed

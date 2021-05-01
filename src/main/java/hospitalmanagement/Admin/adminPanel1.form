@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -49,9 +49,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="18" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\icons8-doctor-male-48.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Doctor Info"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -73,9 +70,6 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="18" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\icons8-patient-oxygen-mask-48.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Patient Info"/>
             <Property name="actionCommand" type="java.lang.String" value="Patient"/>
@@ -101,9 +95,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="18" style="0"/>
             </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\icons8-nurse-48.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nurse Info"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -125,9 +116,6 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="14" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\icons8-front-desk-48.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Receptionist Info"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -160,11 +148,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\icons8-admin-settings-male-100.png"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="590" y="110" width="100" height="90"/>
@@ -178,9 +161,6 @@
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Aeroport" size="14" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\com\group10\hospitalmanagement\pictures\logout.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Logout"/>
             <Property name="borderPainted" type="boolean" value="false"/>

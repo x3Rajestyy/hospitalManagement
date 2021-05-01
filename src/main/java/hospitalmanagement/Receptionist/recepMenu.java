@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.group10.hospitalmanagement.Receptionist;
+package hospitalmanagement.Receptionist;
 
 import hospitalmanagement.Admin.patientPanel;
 import hospitalmanagement.Main.hospitalMenu;
@@ -143,6 +143,7 @@ public class recepMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

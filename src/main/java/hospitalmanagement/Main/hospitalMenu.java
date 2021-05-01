@@ -196,6 +196,7 @@ public class hospitalMenu extends javax.swing.JFrame {
         jPanel1.setBounds(0, 0, 1280, 720);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void docLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docLoginActionPerformed

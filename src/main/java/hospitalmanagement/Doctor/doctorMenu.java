@@ -61,7 +61,7 @@ public class doctorMenu extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 620, 1280, 0);
+        jPanel2.setBounds(0, 620, 1280, 100);
 
         jPanel3.setBackground(new java.awt.Color(105, 203, 255));
 
@@ -77,7 +77,7 @@ public class doctorMenu extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1280, 0);
+        jPanel3.setBounds(0, 0, 1280, 100);
 
         jButton3.setBackground(new java.awt.Color(105, 203, 255));
         jButton3.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
@@ -142,6 +142,7 @@ public class doctorMenu extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
