@@ -5,6 +5,7 @@
  */
 package hospitalmanagement.Main;
 
+import hospitalmanagement.Receptionist.*;
 import java.awt.Color;
 import java.util.HashMap;
 
@@ -135,7 +136,9 @@ public class recepLogin extends javax.swing.JFrame {
                 if(userPass1.get(userID).equals(password)) {
                     messageLabel.setForeground(Color.green);
                     messageLabel.setText("Login successful");
-                    //needs recepmenu here
+                    recepMenu remenu = new recepMenu();
+                    remenu.setVisible(true);
+                    dispose();
                 }
                 else {
                     messageLabel.setForeground(Color.red);

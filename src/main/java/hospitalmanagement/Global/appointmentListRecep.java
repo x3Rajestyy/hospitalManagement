@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hospitalmanagement.Admin;
+package hospitalmanagement.Global;
 
+import hospitalmanagement.Admin.*;
+import hospitalmanagement.Receptionist.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,12 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Enumeration;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractButton;
@@ -29,22 +26,19 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Raj
  */
-public class patientPanel extends javax.swing.JFrame {
+public class appointmentListRecep extends javax.swing.JFrame {
     
-     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
-    Date date = new Date();
-    Calendar cal = Calendar.getInstance();
+
 
     
     
     /**
      * Creates new form patientPanel
      */
-    public patientPanel() {
+    public appointmentListRecep() {
         initComponents();
         setSize(1290,766);
-        File file = new File("patientData.txt");
-        dateField.setText(" "+ dateFormat.format(date));
+        File file = new File("appointmentData.txt");
         if(file.length() == 0){
             //do nothing
         } else {
@@ -57,7 +51,7 @@ public class patientPanel extends javax.swing.JFrame {
     
     private void updateTable(){
         try{
-        String filePath = "patientData.txt";
+        String filePath = "appointmentData.txt";
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
@@ -77,16 +71,9 @@ public class patientPanel extends javax.swing.JFrame {
             Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         patientField.setText(null);
-        dateField.setText(" "+ dateFormat.format(date));
+        appDate.setText(null);
         fNameField.setText(null);
         lNameField.setText(null);
-        maleButton.setSelected(false);
-        femButton.setSelected(false);
-        otherButton.setSelected(false);
-        ageField.setText(null);
-        maritalCombox.setSelectedItem(0);
-        addField.setText(null);
-        patientCombox.setSelectedItem(0);
         conField.setText(null);
         disField.setText(null);
         }catch(Exception e){
@@ -94,21 +81,16 @@ public class patientPanel extends javax.swing.JFrame {
         }
     }
     
-    private String getSelectedButton(ButtonGroup buttongroup){
-        
-        for (Enumeration<AbstractButton> buttons = buttongroup.getElements(); buttons.hasMoreElements();) {
-            AbstractButton button = buttons.nextElement();
-
-            if (button.isSelected()) {
-                return button.getText();
-            }
-
-        }
-        return null;
+    public void setDataFromTable(String PatientID, String first, String last, String number, String disease){
+        patientField.setText(PatientID);
+        fNameField.setText(first);
+        lNameField.setText(last);
+        conField.setText(number);
+        disField.setText(disease);
     }
     
     private void setTableData(){
-        File file = new File("patientData.txt");
+        File file = new File("appointmentData.txt");
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
@@ -121,7 +103,7 @@ public class patientPanel extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }catch(FileNotFoundException ex){
-            Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(appointmentListRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -146,32 +128,23 @@ public class patientPanel extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         patTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
-        ageField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        dateField = new javax.swing.JTextField();
-        patientCombox = new javax.swing.JComboBox<>();
         fNameField = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        maleButton = new javax.swing.JRadioButton();
-        femButton = new javax.swing.JRadioButton();
-        otherButton = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         lNameField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         patientField = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        maritalCombox = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        addField = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
         conField = new javax.swing.JTextField();
         addPatient = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         disField = new javax.swing.JTextField();
+        updateButton1 = new javax.swing.JButton();
+        appDate = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        docField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -182,12 +155,12 @@ public class patientPanel extends javax.swing.JFrame {
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel3.setBackground(new java.awt.Color(105, 203, 255));
         jPanel3.setLayout(null);
 
         jLabel14.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("PATIENT list");
+        jLabel14.setText("Appointment list");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel3.add(jLabel14);
         jLabel14.setBounds(0, 0, 1280, 70);
@@ -195,10 +168,10 @@ public class patientPanel extends javax.swing.JFrame {
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 1280, 60);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(187, 232, 255));
         jPanel1.setLayout(null);
 
-        jButton2.setBackground(new java.awt.Color(255, 222, 5));
+        jButton2.setBackground(new java.awt.Color(105, 203, 255));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton2.setText("Back");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -211,7 +184,7 @@ public class patientPanel extends javax.swing.JFrame {
         jPanel1.add(jButton2);
         jButton2.setBounds(1190, 70, 80, 40);
 
-        updateButton.setBackground(new java.awt.Color(255, 222, 5));
+        updateButton.setBackground(new java.awt.Color(105, 203, 255));
         updateButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
         updateButton.setText("Update");
         updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -222,9 +195,9 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(updateButton);
-        updateButton.setBounds(1110, 360, 150, 70);
+        updateButton.setBounds(1050, 260, 150, 70);
 
-        deleteButton.setBackground(new java.awt.Color(255, 222, 5));
+        deleteButton.setBackground(new java.awt.Color(105, 203, 255));
         deleteButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -235,7 +208,7 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(deleteButton);
-        deleteButton.setBounds(960, 360, 140, 70);
+        deleteButton.setBounds(870, 260, 150, 70);
 
         patTable.setBackground(new java.awt.Color(255, 255, 204));
         patTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -243,7 +216,7 @@ public class patientPanel extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Patient ID", "Date", "First Name", "Last Name", "Gender", "Age", "Marital Status", "Address", "Patient Type", "Contact No.", "Disease"
+                "Patient ID", "Doctor", "Appointment Date", "First Name", "Last Name", "Contact No.", "Disease"
             }
         ));
         patTable.setGridColor(new java.awt.Color(0, 0, 0));
@@ -258,134 +231,69 @@ public class patientPanel extends javax.swing.JFrame {
         if (patTable.getColumnModel().getColumnCount() > 0) {
             patTable.getColumnModel().getColumn(0).setResizable(false);
             patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(2).setResizable(false);
             patTable.getColumnModel().getColumn(3).setResizable(false);
             patTable.getColumnModel().getColumn(4).setResizable(false);
             patTable.getColumnModel().getColumn(5).setResizable(false);
-            patTable.getColumnModel().getColumn(7).setResizable(false);
-            patTable.getColumnModel().getColumn(8).setResizable(false);
-            patTable.getColumnModel().getColumn(9).setResizable(false);
-            patTable.getColumnModel().getColumn(10).setResizable(false);
+            patTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 440, 1260, 210);
 
-        jPanel2.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel2.setBackground(new java.awt.Color(105, 203, 255));
         jPanel2.setLayout(null);
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 660, 1280, 60);
-        jPanel1.add(ageField);
-        ageField.setBounds(460, 120, 130, 30);
+        jPanel2.setBounds(0, 660, 1280, 90);
 
         jLabel4.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Contact No.");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(770, 120, 120, 30);
+        jLabel4.setBounds(470, 250, 120, 30);
 
         jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("First Name");
+        jLabel5.setText("Doctor");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(120, 180, 80, 30);
+        jLabel5.setBounds(120, 280, 80, 30);
 
-        dateField.setEnabled(false);
-        jPanel1.add(dateField);
-        dateField.setBounds(890, 240, 90, 30);
-
-        patientCombox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Patient Type", "Indoor", "Outdoor" }));
-        patientCombox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientComboxActionPerformed(evt);
-            }
-        });
-        jPanel1.add(patientCombox);
-        patientCombox.setBounds(500, 310, 220, 28);
+        fNameField.setEnabled(false);
         jPanel1.add(fNameField);
-        fNameField.setBounds(210, 180, 130, 30);
-
-        jLabel6.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel6.setText("Age");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(380, 120, 80, 30);
-
-        maleButton.setBackground(new java.awt.Color(255, 255, 204));
-        radioGroup.add(maleButton);
-        maleButton.setText("Male");
-        jPanel1.add(maleButton);
-        maleButton.setBounds(210, 300, 80, 23);
-
-        femButton.setBackground(new java.awt.Color(255, 255, 204));
-        radioGroup.add(femButton);
-        femButton.setText("Female");
-        jPanel1.add(femButton);
-        femButton.setBounds(210, 320, 100, 23);
-
-        otherButton.setBackground(new java.awt.Color(255, 255, 204));
-        radioGroup.add(otherButton);
-        otherButton.setText("Other");
-        jPanel1.add(otherButton);
-        otherButton.setBounds(210, 340, 90, 23);
+        fNameField.setBounds(570, 130, 220, 30);
 
         jLabel7.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel7.setText("Last Name");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(120, 240, 80, 30);
+        jLabel7.setBounds(470, 190, 80, 30);
 
-        jLabel8.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel8.setText("Gender");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(120, 310, 80, 30);
+        lNameField.setEnabled(false);
         jPanel1.add(lNameField);
-        lNameField.setBounds(210, 240, 130, 30);
+        lNameField.setBounds(570, 190, 220, 30);
 
         jLabel9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel9.setText("Patient ID");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(120, 120, 90, 30);
+        jLabel9.setBounds(120, 220, 90, 30);
+
+        patientField.setEnabled(false);
         jPanel1.add(patientField);
-        patientField.setBounds(210, 120, 130, 30);
+        patientField.setBounds(210, 220, 220, 30);
 
         jLabel10.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel10.setText("Date");
+        jLabel10.setText("Appointment Date");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(770, 240, 60, 30);
+        jLabel10.setBounds(120, 160, 130, 30);
 
-        maritalCombox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Maritial Status", "Single", "Married", "Engaged" }));
-        jPanel1.add(maritalCombox);
-        maritalCombox.setBounds(500, 240, 220, 28);
-
-        jLabel11.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel11.setText("Marital Status");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(380, 240, 110, 30);
-
-        jLabel12.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel12.setText("Patient Type");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(380, 310, 110, 30);
-        jPanel1.add(addField);
-        addField.setBounds(460, 180, 260, 30);
-
-        jLabel13.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel13.setText("Address");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(380, 180, 80, 30);
+        conField.setEnabled(false);
         jPanel1.add(conField);
-        conField.setBounds(890, 120, 220, 30);
+        conField.setBounds(570, 250, 220, 30);
 
-        addPatient.setBackground(new java.awt.Color(255, 222, 5));
-        addPatient.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        addPatient.setText("Add Patient");
+        addPatient.setBackground(new java.awt.Color(105, 203, 255));
+        addPatient.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        addPatient.setText("Add Appointment");
         addPatient.setToolTipText("");
         addPatient.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         addPatient.setBorderPainted(false);
@@ -395,22 +303,50 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(addPatient);
-        addPatient.setBounds(810, 360, 140, 70);
+        addPatient.setBounds(1050, 160, 150, 70);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("add patient");
+        jLabel3.setText("add Appointment");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(120, 70, 180, 50);
+        jLabel3.setBounds(120, 70, 250, 50);
 
         jLabel15.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel15.setText("Disease");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(770, 180, 80, 30);
+        jLabel15.setBounds(470, 310, 80, 30);
+
+        disField.setEnabled(false);
         jPanel1.add(disField);
-        disField.setBounds(890, 180, 220, 30);
+        disField.setBounds(570, 310, 220, 30);
+
+        updateButton1.setBackground(new java.awt.Color(105, 203, 255));
+        updateButton1.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        updateButton1.setText("Patient List");
+        updateButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateButton1.setBorderPainted(false);
+        updateButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updateButton1);
+        updateButton1.setBounds(870, 160, 150, 70);
+
+        appDate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        appDate.setText("MM/dd/YYYY");
+        jPanel1.add(appDate);
+        appDate.setBounds(260, 160, 170, 30);
+
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("First Name");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(470, 130, 80, 30);
+        jPanel1.add(docField);
+        docField.setBounds(210, 280, 220, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 720);
@@ -421,36 +357,28 @@ public class patientPanel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
-        adminPanel1 adminPanel = new adminPanel1();
-        adminPanel.setVisible(true);
+        recepMenu remenu = new recepMenu();
+        remenu.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         DefaultTableModel model = (DefaultTableModel) patTable.getModel();
         if(patTable.getSelectedRowCount() == 1){
             String PatientID = patientField.getText().replaceAll("\\s+", "");
-            String datesField = dateField.getText().replaceAll("\\s+", "");
+            String doctorName = docField.getText().replaceAll("\\s+", "_");
+            String datesField = appDate.getText().replaceAll("\\s+", "");
             String firstName = fNameField.getText().replaceAll("\\s+", "_");
             String lname = lNameField.getText().replaceAll("\\s+", "_");
-            String buttons = getSelectedButton(radioGroup);
-            String ag = ageField.getText();
-            String mar = maritalCombox.getSelectedItem().toString();
-            String add = addField.getText().replaceAll("\\s+", "_");
-            String patBox = patientCombox.getSelectedItem().toString();
             String contact = conField.getText().replaceAll("\\s+", "_");
             String disease = disField.getText().replaceAll("\\s+", "_");
             
             model.setValueAt(PatientID, patTable.getSelectedRow(),0);
-            model.setValueAt(datesField, patTable.getSelectedRow(),1);
-            model.setValueAt(firstName, patTable.getSelectedRow(),2);
-            model.setValueAt(lname, patTable.getSelectedRow(),3);
-            model.setValueAt(buttons, patTable.getSelectedRow(),4);
-            model.setValueAt(ag, patTable.getSelectedRow(),5);
-            model.setValueAt(mar, patTable.getSelectedRow(),6);
-            model.setValueAt(add, patTable.getSelectedRow(),7);
-            model.setValueAt(patBox, patTable.getSelectedRow(),8);
-            model.setValueAt(contact, patTable.getSelectedRow(),9);
-            model.setValueAt(disease, patTable.getSelectedRow(),10);
+            model.setValueAt(doctorName, patTable.getSelectedRow(),1);
+            model.setValueAt(datesField, patTable.getSelectedRow(),2);
+            model.setValueAt(firstName, patTable.getSelectedRow(),3);
+            model.setValueAt(lname, patTable.getSelectedRow(),4);
+            model.setValueAt(contact, patTable.getSelectedRow(),5);
+            model.setValueAt(disease, patTable.getSelectedRow(),6);
         } else {
             if(patTable.getRowCount() == 0){
                 JOptionPane.showMessageDialog(this,"Table is empty");
@@ -459,7 +387,7 @@ public class patientPanel extends javax.swing.JFrame {
             }
         }
         updateTable();
-        JOptionPane.showMessageDialog(this,"Patient Data Updated Successfully");
+        JOptionPane.showMessageDialog(this,"Appointment Data Updated Successfully");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -471,7 +399,7 @@ public class patientPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        JOptionPane.showMessageDialog(this,"Patient Data Deleted Sucessfully");
+        JOptionPane.showMessageDialog(this,"Appointment Data Deleted Sucessfully");
         updateTable();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -482,30 +410,18 @@ public class patientPanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) patTable.getModel();
         
         String PatientID  = patTable.getValueAt(patTable.getSelectedRow(),0).toString();
-        String date = patTable.getValueAt(patTable.getSelectedRow(),1).toString();
-        String first = patTable.getValueAt(patTable.getSelectedRow(),2).toString();
-        String last = patTable.getValueAt(patTable.getSelectedRow(),3).toString();
-        String gender = patTable.getValueAt(patTable.getSelectedRow(),4).toString();
-        String age = patTable.getValueAt(patTable.getSelectedRow(),5).toString();
-        String address = patTable.getValueAt(patTable.getSelectedRow(),7).toString();
-        String number = patTable.getValueAt(patTable.getSelectedRow(),9).toString();
-        String disease = patTable.getValueAt(patTable.getSelectedRow(),10).toString();
+        String doctorName = patTable.getValueAt(patTable.getSelectedRow(),1).toString();
+        String date =  patTable.getValueAt(patTable.getSelectedRow(),2).toString();
+        String first = patTable.getValueAt(patTable.getSelectedRow(),3).toString();
+        String last = patTable.getValueAt(patTable.getSelectedRow(),4).toString();
+        String number = patTable.getValueAt(patTable.getSelectedRow(),5).toString();
+        String disease = patTable.getValueAt(patTable.getSelectedRow(),6).toString();
         
         patientField.setText(PatientID);
-        dateField.setText(date);
+        docField.setText(doctorName);
+        appDate.setText(date);
         fNameField.setText(first);
         lNameField.setText(last);
-        if("Male".equals(gender)){
-            maleButton.setSelected(true);
-        } else if ("Female".equals(gender)){
-            femButton.setSelected(true);
-        } else if ("Other".equals(gender)){
-            otherButton.setSelected(true);
-        }
-        ageField.setText(age);
-        maritalCombox.setSelectedItem(patTable.getValueAt(patTable.getSelectedRow(),6).toString());
-        addField.setText(address);
-        patientCombox.setSelectedItem(patTable.getValueAt(patTable.getSelectedRow(),8).toString());
         conField.setText(number);
         disField.setText(disease);
         updateButton.setEnabled(true);
@@ -515,35 +431,31 @@ public class patientPanel extends javax.swing.JFrame {
     private void addPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientActionPerformed
         DefaultTableModel model = (DefaultTableModel) patTable.getModel();
         
-        model.insertRow(model.getRowCount(), new Object[]{patientField.getText().replaceAll("\\s+", ""),dateField.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
-            lNameField.getText().replaceAll("\\s+", "_"),getSelectedButton(radioGroup),ageField.getText(),maritalCombox.getSelectedItem().toString(),
-            addField.getText().replaceAll("\\s+", "_"),patientCombox.getSelectedItem(),conField.getText().replaceAll("\\s+", "_"),disField.getText().replaceAll("\\s+", "_")});
+        model.insertRow(model.getRowCount(), new Object[]{patientField.getText().replaceAll("\\s+", ""),docField.getText().replaceAll("\\s+", "_"),appDate.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
+            lNameField.getText().replaceAll("\\s+", "_"),conField.getText().replaceAll("\\s+", "_"),disField.getText().replaceAll("\\s+", "_")});
         updateTable();
-        JOptionPane.showMessageDialog(this,"Patient Data Added Successfully");
+        JOptionPane.showMessageDialog(this,"Appointment Data Added Successfully");
     }//GEN-LAST:event_addPatientActionPerformed
 
-    private void patientComboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientComboxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_patientComboxActionPerformed
+    private void updateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton1ActionPerformed
+        patientListRecep plr = new patientListRecep();
+        plr.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_updateButton1ActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField addField;
     private javax.swing.JButton addPatient;
-    private javax.swing.JTextField ageField;
+    private javax.swing.JTextField appDate;
     private java.awt.Canvas canvas1;
     private javax.swing.JTextField conField;
-    private javax.swing.JTextField dateField;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField disField;
+    private javax.swing.JTextField docField;
     private javax.swing.JTextField fNameField;
-    private javax.swing.JRadioButton femButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel3;
@@ -551,20 +463,16 @@ public class patientPanel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lNameField;
-    private javax.swing.JRadioButton maleButton;
-    private javax.swing.JComboBox<String> maritalCombox;
-    private javax.swing.JRadioButton otherButton;
     private javax.swing.JTable patTable;
-    private javax.swing.JComboBox<String> patientCombox;
     private javax.swing.JTextField patientField;
     private javax.swing.ButtonGroup radioGroup;
     private javax.swing.JButton updateButton;
+    private javax.swing.JButton updateButton1;
     // End of variables declaration//GEN-END:variables
 }

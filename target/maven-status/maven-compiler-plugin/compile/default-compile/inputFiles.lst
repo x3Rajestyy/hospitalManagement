@@ -11,9 +11,11 @@ E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospita
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Receptionist\recepMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\addNurse.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\addRecep.java
-E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Global\appointmentWindow.java
+E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Global\patientListRecep.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Main\doctorLogin.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Main\UsernamePasswordsADMIN.java
+E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Global\appointmentListRecep.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\addPatient.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Main\adminLogin.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Main\recepLogin.java
+E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Doctor\checkAppointments.java
