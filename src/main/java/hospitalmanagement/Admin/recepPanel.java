@@ -232,13 +232,13 @@ public class recepPanel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        dispose();
+        this.dispose();
         addRecep addR = new addRecep();
         addR.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        dispose();
+        this.dispose();
         adminPanel1 adminPanel = new adminPanel1();
         adminPanel.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed

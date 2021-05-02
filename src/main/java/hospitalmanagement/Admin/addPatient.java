@@ -238,7 +238,7 @@ public class addPatient extends javax.swing.JFrame {
     }//GEN-LAST:event_conFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        this.dispose();
         patientPanel patPanel = new patientPanel();
         patPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -257,7 +257,7 @@ public class addPatient extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(addPatient.class.getName()).log(Level.SEVERE, null, ex);
         }
-        dispose();
+        this.dispose();
         patientPanel patPanel = new patientPanel();
         patPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

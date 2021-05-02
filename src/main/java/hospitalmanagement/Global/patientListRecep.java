@@ -177,13 +177,13 @@ public class patientListRecep extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        this.dispose();
         appointmentListRecep appPanel = new appointmentListRecep();
         appPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
-        dispose();
+        this.dispose();
         appointmentListRecep appPanel = new appointmentListRecep();
         appPanel.setDataFromTable(PatientID,first,last,number,disease);
         appPanel.setVisible(true);

@@ -298,7 +298,7 @@ public class addDoctor extends javax.swing.JFrame {
     }//GEN-LAST:event_conFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        this.dispose();
         doctorPanel docPanel = new doctorPanel();
         docPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -319,7 +319,7 @@ public class addDoctor extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(addDoctor.class.getName()).log(Level.SEVERE, null, ex);
         }
-        dispose();
+        this.dispose();
         doctorPanel docPanel = new doctorPanel();
         docPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

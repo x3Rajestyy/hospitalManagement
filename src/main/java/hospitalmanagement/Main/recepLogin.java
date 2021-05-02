@@ -159,7 +159,7 @@ public class recepLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_userUsernameMouseClicked
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        dispose();
+        this.dispose();
         hospitalMenu lS = new hospitalMenu();
         lS.setVisible(true);
     }//GEN-LAST:event_backButtonActionPerformed

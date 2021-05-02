@@ -361,7 +361,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        this.dispose();
         recepMenu remenu = new recepMenu();
         remenu.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed

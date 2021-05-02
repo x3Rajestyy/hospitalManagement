@@ -271,7 +271,7 @@ public class addNurse extends javax.swing.JFrame {
     }//GEN-LAST:event_conFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        this.dispose();
         nursePanel nurPanel = new nursePanel();
         nurPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -290,7 +290,7 @@ public class addNurse extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(addNurse.class.getName()).log(Level.SEVERE, null, ex);
         }
-        dispose();
+        this.dispose();
         nursePanel nurPanel = new nursePanel();
         nurPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

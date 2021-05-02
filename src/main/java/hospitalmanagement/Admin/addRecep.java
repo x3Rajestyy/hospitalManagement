@@ -287,7 +287,7 @@ public class addRecep extends javax.swing.JFrame {
     }//GEN-LAST:event_conFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dispose();
+        this.dispose();
         recepPanel recPan = new recepPanel();
         recPan.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -307,7 +307,7 @@ public class addRecep extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(addRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
-        dispose();
+        this.dispose();
         recepPanel recPanel = new recepPanel();
         recPanel.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed

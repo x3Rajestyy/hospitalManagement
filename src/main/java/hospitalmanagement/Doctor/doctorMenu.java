@@ -146,13 +146,13 @@ public class doctorMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       dispose();
+       this.dispose();
        patientPanel patpan = new patientPanel();
        patpan.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       dispose();
+       this.dispose();
        doctorPanel docpan = new doctorPanel();
        docpan.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -162,7 +162,7 @@ public class doctorMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        dispose();
+        this.dispose();
         hospitalMenu hosMen = new hospitalMenu();
     }//GEN-LAST:event_jButton6ActionPerformed
 
