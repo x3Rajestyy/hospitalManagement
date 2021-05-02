@@ -138,7 +138,7 @@ public class recepLogin extends javax.swing.JFrame {
                     messageLabel.setText("Login successful");
                     recepMenu remenu = new recepMenu();
                     remenu.setVisible(true);
-                    dispose();
+                    this.dispose();
                 }
                 else {
                     messageLabel.setForeground(Color.red);

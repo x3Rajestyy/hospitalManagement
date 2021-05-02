@@ -140,6 +140,7 @@ public class doctorLogin extends javax.swing.JFrame {
                     messageLabel.setText("Login successful");
                     doctorMenu docMen = new doctorMenu();
                     docMen.setVisible(true);
+                    this.dispose();
                 }
                 else {
                     messageLabel.setForeground(Color.red);

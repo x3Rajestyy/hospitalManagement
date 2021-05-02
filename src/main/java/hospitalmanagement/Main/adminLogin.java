@@ -145,7 +145,7 @@ public class adminLogin extends javax.swing.JFrame{
                     messageLabel.setText("Login successful");
                     adminPanel1 admin = new adminPanel1();
                     admin.setVisible(true);
-                    dispose();
+                    this.dispose();
                 }
                 else {
                     messageLabel.setForeground(Color.red);
