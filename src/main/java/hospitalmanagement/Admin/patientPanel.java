@@ -395,7 +395,7 @@ public class patientPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(addPatient);
-        addPatient.setBounds(810, 360, 140, 70);
+        addPatient.setBounds(800, 360, 150, 70);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

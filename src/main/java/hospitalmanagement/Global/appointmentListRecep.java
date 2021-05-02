@@ -71,7 +71,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
             Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         patientField.setText(null);
-        appDate.setText(null);
+        appDate.setText("MM/dd/YYYY");
         fNameField.setText(null);
         lNameField.setText(null);
         conField.setText(null);
@@ -337,6 +337,11 @@ public class appointmentListRecep extends javax.swing.JFrame {
 
         appDate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         appDate.setText("MM/dd/YYYY");
+        appDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                appDateActionPerformed(evt);
+            }
+        });
         jPanel1.add(appDate);
         appDate.setBounds(260, 160, 170, 30);
 
@@ -442,6 +447,10 @@ public class appointmentListRecep extends javax.swing.JFrame {
         plr.setVisible(true);
         dispose();
     }//GEN-LAST:event_updateButton1ActionPerformed
+
+    private void appDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_appDateActionPerformed
 
 
 
