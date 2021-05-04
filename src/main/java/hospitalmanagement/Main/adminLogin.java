@@ -5,7 +5,7 @@
  */
 package hospitalmanagement.Main;
 
-import hospitalmanagement.Admin.adminPanel1;
+import hospitalmanagement.Admin.adminPanel;
 import java.awt.Color;
 import java.util.HashMap;
 
@@ -143,7 +143,7 @@ public class adminLogin extends javax.swing.JFrame{
                 if(userPass1.get(userID).equals(password)) {
                     messageLabel.setForeground(Color.GREEN);
                     messageLabel.setText("Login successful");
-                    adminPanel1 admin = new adminPanel1();
+                    adminPanel admin = new adminPanel();
                     admin.setVisible(true);
                     this.dispose();
                 }

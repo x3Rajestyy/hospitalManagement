@@ -65,7 +65,7 @@ public class roomMenu extends javax.swing.JFrame {
                 fw.close();
 
             } catch (IOException ex) {
-                Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(roomMenu.class.getName()).log(Level.SEVERE, null, ex);
             }
             bedID.setText("BED-");
             catBox.setSelectedIndex(0);

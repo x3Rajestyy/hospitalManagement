@@ -99,9 +99,17 @@ public class checkDoctor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Joined Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Department", "Marital Status", "Email"
+                "Join Date", "First Name", "Last Name", "Gender", "Age", "Address", "Contact No.", "Department", "Marital Status", "Email"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         docTable.setGridColor(new java.awt.Color(0, 0, 0));
         docTable.setShowGrid(false);
         docTable.getTableHeader().setReorderingAllowed(false);

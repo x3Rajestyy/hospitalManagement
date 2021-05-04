@@ -12,9 +12,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +31,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class nursePanel extends javax.swing.JFrame {
     
+     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
+    Date date = new Date();
+    Calendar cal = Calendar.getInstance();
+
+    
+    
     /**
      * Creates new form patientPanel
      */
@@ -31,14 +44,19 @@ public class nursePanel extends javax.swing.JFrame {
         initComponents();
         setSize(1290,766);
         File file = new File("nurseData.txt");
+        dateField.setText(" "+ dateFormat.format(date));
         if(file.length() == 0){
             //do nothing
         } else {
             setTableData();
         }
+        updateButton.setEnabled(false);
+        deleteButton.setEnabled(false);
+        
     }
     
     private void updateTable(){
+        try{
         String filePath = "nurseData.txt";
         File file = new File(filePath);
         try {
@@ -56,8 +74,35 @@ public class nursePanel extends javax.swing.JFrame {
             fw.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(nursePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
+        dateField.setText(" "+ dateFormat.format(date));
+        fNameField.setText(null);
+        lNameField.setText(null);
+        maleButton.setSelected(false);
+        femButton.setSelected(false);
+        otherButton.setSelected(false);
+        ageField.setText(null);
+        maritalCombox.setSelectedItem(0);
+        addField.setText(null);
+        conField.setText(null);
+        emailField.setText(null);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+    
+    private String getSelectedButton(ButtonGroup buttongroup){
+        
+        for (Enumeration<AbstractButton> buttons = buttongroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+
+        }
+        return null;
     }
     
     private void setTableData(){
@@ -88,20 +133,39 @@ public class nursePanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        radioGroup = new javax.swing.ButtonGroup();
         canvas1 = new java.awt.Canvas();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        ageField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        dateField = new javax.swing.JTextField();
+        fNameField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        maleButton = new javax.swing.JRadioButton();
+        femButton = new javax.swing.JRadioButton();
+        otherButton = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lNameField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        maritalCombox = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        addField = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        conField = new javax.swing.JTextField();
+        addNurse = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         nurTable = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        deleteButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -109,56 +173,24 @@ public class nursePanel extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 180, 100, 100);
-
-        jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("nurse list");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 270, 1280, 80);
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        nurTable.setBackground(new java.awt.Color(255, 255, 204));
-        nurTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Join Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Email"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, true, false, true, true, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        nurTable.setGridColor(new java.awt.Color(0, 0, 0));
-        nurTable.setShowGrid(false);
-        nurTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(nurTable);
-        if (nurTable.getColumnModel().getColumnCount() > 0) {
-            nurTable.getColumnModel().getColumn(0).setResizable(false);
-            nurTable.getColumnModel().getColumn(1).setResizable(false);
-            nurTable.getColumnModel().getColumn(2).setResizable(false);
-            nurTable.getColumnModel().getColumn(3).setResizable(false);
-            nurTable.getColumnModel().getColumn(4).setResizable(false);
-            nurTable.getColumnModel().getColumn(5).setResizable(false);
-            nurTable.getColumnModel().getColumn(6).setResizable(false);
-        }
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 1250, 210);
-
         jPanel3.setBackground(new java.awt.Color(204, 0, 255));
         jPanel3.setLayout(null);
+
+        jLabel14.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Nurse list");
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(jLabel14);
+        jLabel14.setBounds(0, 0, 1280, 70);
+
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 1280, 60);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.setLayout(null);
 
         jButton2.setBackground(new java.awt.Color(204, 0, 255));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -170,32 +202,24 @@ public class nursePanel extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(1090, 550, 80, 40);
+        jPanel1.add(jButton2);
+        jButton2.setBounds(1190, 70, 80, 40);
 
-        jButton1.setBackground(new java.awt.Color(204, 0, 255));
-        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setText("Update");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setBackground(new java.awt.Color(204, 0, 255));
+        updateButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        updateButton.setText("Update");
+        updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        updateButton.setBorderPainted(false);
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(1180, 550, 80, 40);
-
-        jPanel2.setBackground(new java.awt.Color(204, 0, 255));
-        jPanel2.setLayout(null);
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 640, 1280, 60);
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel1.setLayout(null);
+        jPanel1.add(updateButton);
+        updateButton.setBounds(1110, 360, 150, 70);
 
         deleteButton.setBackground(new java.awt.Color(204, 0, 255));
-        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
         deleteButton.setText("Delete");
         deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         deleteButton.setBorderPainted(false);
@@ -205,49 +229,196 @@ public class nursePanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(deleteButton);
-        deleteButton.setBounds(1000, 550, 80, 40);
+        deleteButton.setBounds(960, 360, 140, 70);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1280, 700);
+        jPanel2.setBackground(new java.awt.Color(204, 0, 255));
+        jPanel2.setLayout(null);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 660, 1280, 60);
+        jPanel1.add(ageField);
+        ageField.setBounds(460, 120, 60, 30);
 
-        jMenu4.setText("Nurse Tools");
-        jMenu4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("First Name");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(120, 180, 80, 30);
+        jPanel1.add(dateField);
+        dateField.setBounds(210, 120, 130, 30);
+        jPanel1.add(fNameField);
+        fNameField.setBounds(210, 180, 130, 30);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jMenuItem1.setText("Add Nurse");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Age");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(380, 120, 80, 30);
+
+        maleButton.setBackground(new java.awt.Color(204, 204, 255));
+        radioGroup.add(maleButton);
+        maleButton.setText("Male");
+        jPanel1.add(maleButton);
+        maleButton.setBounds(210, 300, 80, 23);
+
+        femButton.setBackground(new java.awt.Color(204, 204, 255));
+        radioGroup.add(femButton);
+        femButton.setText("Female");
+        jPanel1.add(femButton);
+        femButton.setBounds(210, 320, 100, 23);
+
+        otherButton.setBackground(new java.awt.Color(204, 204, 255));
+        radioGroup.add(otherButton);
+        otherButton.setText("Other");
+        jPanel1.add(otherButton);
+        otherButton.setBounds(210, 340, 90, 23);
+
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel7.setText("Last Name");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(120, 240, 80, 30);
+
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel8.setText("Gender");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(120, 310, 80, 30);
+        jPanel1.add(lNameField);
+        lNameField.setBounds(210, 240, 130, 30);
+
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel9.setText("Join Date");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(120, 120, 90, 30);
+
+        maritalCombox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Maritial Status", "Single", "Married", "Engaged" }));
+        jPanel1.add(maritalCombox);
+        maritalCombox.setBounds(500, 300, 220, 28);
+
+        jLabel11.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel11.setText("Marital Status");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(380, 300, 110, 30);
+        jPanel1.add(addField);
+        addField.setBounds(460, 180, 260, 30);
+
+        jLabel13.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel13.setText("Address");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(380, 180, 80, 30);
+        jPanel1.add(conField);
+        conField.setBounds(500, 240, 220, 30);
+
+        addNurse.setBackground(new java.awt.Color(204, 0, 255));
+        addNurse.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        addNurse.setText("Add Nurse");
+        addNurse.setToolTipText("");
+        addNurse.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        addNurse.setBorderPainted(false);
+        addNurse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                addNurseActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem1);
+        jPanel1.add(addNurse);
+        addNurse.setBounds(800, 360, 150, 70);
 
-        jMenuBar1.add(jMenu4);
+        jLabel3.setFont(new java.awt.Font("Couture", 0, 24)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("add Nurse");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(120, 70, 250, 50);
 
-        setJMenuBar(jMenuBar1);
+        jLabel15.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel15.setText("Email");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(770, 120, 80, 30);
+        jPanel1.add(emailField);
+        emailField.setBounds(830, 120, 250, 30);
+
+        nurTable.setBackground(new java.awt.Color(255, 255, 204));
+        nurTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Join Date", "First Name", "Last Name", "Gender", "Age", "Address", "Contact No.", "Marital Status", "Email"
+            }
+        ));
+        nurTable.setGridColor(new java.awt.Color(0, 0, 0));
+        nurTable.setShowGrid(false);
+        nurTable.getTableHeader().setReorderingAllowed(false);
+        nurTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nurTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(nurTable);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 440, 1260, 210);
+
+        jLabel16.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel16.setText("Contact No.");
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(380, 240, 120, 30);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 1280, 720);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        this.dispose();
-        addNurse addN = new addNurse();
-        addN.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        adminPanel1 adminPanel = new adminPanel1();
+        adminPanel adminPanel = new adminPanel();
         adminPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
+        
+        if(nurTable.getSelectedRowCount() == 1){
+            String datesField = dateField.getText().replaceAll("\\s+", "");
+            String firstName = fNameField.getText().replaceAll("\\s+", "_");
+            String lname = lNameField.getText().replaceAll("\\s+", "_");
+            String buttons = getSelectedButton(radioGroup);
+            String ag = ageField.getText();
+            String mar = maritalCombox.getSelectedItem().toString();
+            String add = addField.getText().replaceAll("\\s+", "_");
+            String contact = conField.getText().replaceAll("\\s+", "_");
+            String email = emailField.getText().replaceAll("\\s+", "_");
+            
+            model.setValueAt(datesField, nurTable.getSelectedRow(),0);
+            model.setValueAt(firstName, nurTable.getSelectedRow(),1);
+            model.setValueAt(lname, nurTable.getSelectedRow(),2);
+            model.setValueAt(buttons, nurTable.getSelectedRow(),3);
+            model.setValueAt(ag, nurTable.getSelectedRow(),4);
+            model.setValueAt(add, nurTable.getSelectedRow(),5);
+            model.setValueAt(contact, nurTable.getSelectedRow(),6);
+            model.setValueAt(mar, nurTable.getSelectedRow(),7);
+            model.setValueAt(email, nurTable.getSelectedRow(),8);
+        } else {
+            if(nurTable.getRowCount() == 0){
+                JOptionPane.showMessageDialog(this,"Table is empty");
+            } else {
+                JOptionPane.showMessageDialog(this,"Please select a single row for update");
+            }
+        }
+        
         updateTable();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(this,"Nurse Data Updated Successfully");
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        try{
         DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
         try {
             int SelectedRowIndex = nurTable.getSelectedRow();
@@ -255,25 +426,91 @@ public class nursePanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        JOptionPane.showMessageDialog(this,"Nurse Data Deleted Sucessfully");
         updateTable();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void addNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNurseActionPerformed
+        DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
+        
+        model.insertRow(model.getRowCount(), new Object[]{dateField.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
+            lNameField.getText().replaceAll("\\s+", "_"),getSelectedButton(radioGroup),ageField.getText(),addField.getText().replaceAll("\\s+", "_"),conField.getText().replaceAll("\\s+", "_"),
+           maritalCombox.getSelectedItem().toString(),emailField.getText().replaceAll("\\s+", "_")});
+        updateTable();
+        JOptionPane.showMessageDialog(this,"Nurse Data Added Successfully");
+    }//GEN-LAST:event_addNurseActionPerformed
+
+    private void nurTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nurTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
+        
+        String date  = nurTable.getValueAt(nurTable.getSelectedRow(),0).toString();
+        String fname  = nurTable.getValueAt(nurTable.getSelectedRow(),1).toString();
+        String lname  = nurTable.getValueAt(nurTable.getSelectedRow(),2).toString();
+        String gender  = nurTable.getValueAt(nurTable.getSelectedRow(),3).toString();
+        String age  = nurTable.getValueAt(nurTable.getSelectedRow(),4).toString();
+        String add  = nurTable.getValueAt(nurTable.getSelectedRow(),5).toString();
+        String con  = nurTable.getValueAt(nurTable.getSelectedRow(),6).toString();
+        String mar  = nurTable.getValueAt(nurTable.getSelectedRow(),7).toString();
+        String email  = nurTable.getValueAt(nurTable.getSelectedRow(),8).toString();
+        
+        
+        dateField.setText(date);
+        fNameField.setText(fname);
+        lNameField.setText(lname);
+        if("Male".equals(gender)){
+            maleButton.setSelected(true);
+        } else if ("Female".equals(gender)){
+            femButton.setSelected(true);
+        } else if ("Other".equals(gender)){
+            otherButton.setSelected(true);
+        }
+        ageField.setText(age);
+        maritalCombox.setSelectedItem(mar);
+        addField.setText(add);
+        conField.setText(con);
+        emailField.setText(email);
+        updateButton.setEnabled(true);
+        deleteButton.setEnabled(true);
+    }//GEN-LAST:event_nurTableMouseClicked
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addField;
+    private javax.swing.JButton addNurse;
+    private javax.swing.JTextField ageField;
     private java.awt.Canvas canvas1;
+    private javax.swing.JTextField conField;
+    private javax.swing.JTextField dateField;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JTextField fNameField;
+    private javax.swing.JRadioButton femButton;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField lNameField;
+    private javax.swing.JRadioButton maleButton;
+    private javax.swing.JComboBox<String> maritalCombox;
     private javax.swing.JTable nurTable;
+    private javax.swing.JRadioButton otherButton;
+    private javax.swing.ButtonGroup radioGroup;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,12 +11,12 @@ import hospitalmanagement.Main.hospitalMenu;
  *
  * @author Raj
  */
-public class adminPanel1 extends javax.swing.JFrame {
+public class adminPanel extends javax.swing.JFrame {
 
     /**
      * Creates new form adminPanel1
      */
-    public adminPanel1() {
+    public adminPanel() {
         initComponents();
     }
 

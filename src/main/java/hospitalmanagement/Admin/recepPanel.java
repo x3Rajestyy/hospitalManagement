@@ -12,9 +12,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Enumeration;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +31,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class recepPanel extends javax.swing.JFrame {
     
+     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
+    Date date = new Date();
+    Calendar cal = Calendar.getInstance();
+
+    
+    
     /**
      * Creates new form patientPanel
      */
@@ -31,14 +44,19 @@ public class recepPanel extends javax.swing.JFrame {
         initComponents();
         setSize(1290,766);
         File file = new File("recepData.txt");
+        dateField.setText(" "+ dateFormat.format(date));
         if(file.length() == 0){
             //do nothing
         } else {
             setTableData();
         }
+        updateButton.setEnabled(false);
+        deleteButton.setEnabled(false);
+        
     }
     
     private void updateTable(){
+        try{
         String filePath = "recepData.txt";
         File file = new File(filePath);
         try {
@@ -56,9 +74,37 @@ public class recepPanel extends javax.swing.JFrame {
             fw.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(recepPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dateField.setText(" "+ dateFormat.format(date));
+        fNameField.setText(null);
+        lNameField.setText(null);
+        maleButton.setSelected(false);
+        femButton.setSelected(false);
+        otherButton.setSelected(false);
+        ageField.setText(null);
+        maritalCombox.setSelectedItem(0);
+        addField.setText(null);
+        conField.setText(null);
+        emailField.setText(null);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
+    
+    private String getSelectedButton(ButtonGroup buttongroup){
+        
+        for (Enumeration<AbstractButton> buttons = buttongroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
+
+            if (button.isSelected()) {
+                return button.getText();
+            }
+
+        }
+        return null;
+    }
+    
     private void setTableData(){
         File file = new File("recepData.txt");
         try{
@@ -87,20 +133,39 @@ public class recepPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        radioGroup = new javax.swing.ButtonGroup();
         canvas1 = new java.awt.Canvas();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        ageField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        dateField = new javax.swing.JTextField();
+        fNameField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        maleButton = new javax.swing.JRadioButton();
+        femButton = new javax.swing.JRadioButton();
+        otherButton = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lNameField = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        maritalCombox = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        addField = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        conField = new javax.swing.JTextField();
+        addReceptionist = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         recepTable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        deleteButton = new javax.swing.JButton();
-        updateButton = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -108,81 +173,40 @@ public class recepPanel extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(590, 180, 100, 100);
-
-        jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("RECEPTIONIST list");
-        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 270, 1280, 80);
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        recepTable.setBackground(new java.awt.Color(255, 255, 204));
-        recepTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel3.setLayout(null);
 
-            },
-            new String [] {
-                "Joined Date", "ID", "Name", "Gender", "Age", "Address", "Contact No.", "Marital Status", "Email"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, true, true, true, true
-            };
+        jLabel14.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("receptionist list");
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel3.add(jLabel14);
+        jLabel14.setBounds(0, 0, 1280, 70);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        recepTable.setGridColor(new java.awt.Color(0, 0, 0));
-        recepTable.setShowGrid(false);
-        jScrollPane1.setViewportView(recepTable);
-        if (recepTable.getColumnModel().getColumnCount() > 0) {
-            recepTable.getColumnModel().getColumn(0).setResizable(false);
-            recepTable.getColumnModel().getColumn(1).setResizable(false);
-            recepTable.getColumnModel().getColumn(2).setResizable(false);
-            recepTable.getColumnModel().getColumn(3).setResizable(false);
-            recepTable.getColumnModel().getColumn(4).setResizable(false);
-            recepTable.getColumnModel().getColumn(5).setResizable(false);
-            recepTable.getColumnModel().getColumn(6).setResizable(false);
-            recepTable.getColumnModel().getColumn(7).setResizable(false);
-            recepTable.getColumnModel().getColumn(8).setResizable(false);
-        }
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 330, 1250, 210);
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(0, 0, 1280, 60);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 102));
         jPanel1.setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setLayout(null);
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 640, 1280, 60);
-
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel3.setLayout(null);
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1280, 60);
-
-        deleteButton.setBackground(new java.awt.Color(255, 153, 0));
-        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        deleteButton.setText("Delete");
-        deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        deleteButton.setBorderPainted(false);
-        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setBackground(new java.awt.Color(255, 153, 0));
+        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        jButton2.setText("Back");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteButtonActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(deleteButton);
-        deleteButton.setBounds(1000, 550, 80, 40);
+        jPanel1.add(jButton2);
+        jButton2.setBounds(1190, 70, 80, 40);
 
         updateButton.setBackground(new java.awt.Color(255, 153, 0));
-        updateButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
         updateButton.setText("Update");
         updateButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         updateButton.setBorderPainted(false);
@@ -192,62 +216,209 @@ public class recepPanel extends javax.swing.JFrame {
             }
         });
         jPanel1.add(updateButton);
-        updateButton.setBounds(1180, 550, 80, 40);
+        updateButton.setBounds(1110, 360, 150, 70);
 
-        backButton.setBackground(new java.awt.Color(255, 153, 0));
-        backButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        backButton.setText("Back");
-        backButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        backButton.setBorderPainted(false);
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setBackground(new java.awt.Color(255, 153, 0));
+        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        deleteButton.setBorderPainted(false);
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(backButton);
-        backButton.setBounds(1090, 550, 80, 40);
+        jPanel1.add(deleteButton);
+        deleteButton.setBounds(960, 360, 140, 70);
+
+        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel2.setLayout(null);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 660, 1280, 60);
+        jPanel1.add(ageField);
+        ageField.setBounds(460, 120, 60, 30);
+
+        jLabel5.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("First Name");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(120, 180, 80, 30);
+        jPanel1.add(dateField);
+        dateField.setBounds(210, 120, 130, 30);
+        jPanel1.add(fNameField);
+        fNameField.setBounds(210, 180, 130, 30);
+
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Age");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(380, 120, 80, 30);
+
+        maleButton.setBackground(new java.awt.Color(255, 204, 102));
+        radioGroup.add(maleButton);
+        maleButton.setText("Male");
+        jPanel1.add(maleButton);
+        maleButton.setBounds(210, 300, 80, 23);
+
+        femButton.setBackground(new java.awt.Color(255, 204, 102));
+        radioGroup.add(femButton);
+        femButton.setText("Female");
+        jPanel1.add(femButton);
+        femButton.setBounds(210, 320, 100, 23);
+
+        otherButton.setBackground(new java.awt.Color(255, 204, 102));
+        radioGroup.add(otherButton);
+        otherButton.setText("Other");
+        jPanel1.add(otherButton);
+        otherButton.setBounds(210, 340, 90, 23);
+
+        jLabel7.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel7.setText("Last Name");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(120, 240, 80, 30);
+
+        jLabel8.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel8.setText("Gender");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(120, 310, 80, 30);
+        jPanel1.add(lNameField);
+        lNameField.setBounds(210, 240, 130, 30);
+
+        jLabel9.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel9.setText("Join Date");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(120, 120, 90, 30);
+
+        maritalCombox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Maritial Status", "Single", "Married", "Engaged" }));
+        jPanel1.add(maritalCombox);
+        maritalCombox.setBounds(500, 300, 220, 28);
+
+        jLabel11.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel11.setText("Marital Status");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(380, 300, 110, 30);
+        jPanel1.add(addField);
+        addField.setBounds(460, 180, 260, 30);
+
+        jLabel13.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel13.setText("Address");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(380, 180, 80, 30);
+        jPanel1.add(conField);
+        conField.setBounds(500, 240, 220, 30);
+
+        addReceptionist.setBackground(new java.awt.Color(255, 153, 0));
+        addReceptionist.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        addReceptionist.setText("Add Doctor");
+        addReceptionist.setToolTipText("");
+        addReceptionist.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        addReceptionist.setBorderPainted(false);
+        addReceptionist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addReceptionistActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addReceptionist);
+        addReceptionist.setBounds(800, 360, 150, 70);
+
+        jLabel3.setFont(new java.awt.Font("Couture", 0, 24)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("add receptionist");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(120, 70, 250, 50);
+
+        jLabel15.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel15.setText("Email");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(770, 120, 80, 30);
+        jPanel1.add(emailField);
+        emailField.setBounds(830, 120, 250, 30);
+
+        recepTable.setBackground(new java.awt.Color(255, 255, 204));
+        recepTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Join Date", "First Name", "Last Name", "Gender", "Age", "Address", "Contact No.", "Marital Status", "Email"
+            }
+        ));
+        recepTable.setGridColor(new java.awt.Color(0, 0, 0));
+        recepTable.setShowGrid(false);
+        recepTable.getTableHeader().setReorderingAllowed(false);
+        recepTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                recepTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(recepTable);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 440, 1260, 210);
+
+        jLabel16.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 0, 18)); // NOI18N
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel16.setText("Contact No.");
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(380, 240, 120, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 1280, 700);
-
-        jMenu4.setText("Receptionist Tools");
-        jMenu4.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jMenuItem1.setText("Add Receptionist");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu4);
-
-        setJMenuBar(jMenuBar1);
+        jPanel1.setBounds(0, 0, 1280, 720);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        addRecep addR = new addRecep();
-        addR.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        this.dispose();
-        adminPanel1 adminPanel = new adminPanel1();
+        adminPanel adminPanel = new adminPanel();
         adminPanel.setVisible(true);
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
+        
+        if(recepTable.getSelectedRowCount() == 1){
+            String datesField = dateField.getText().replaceAll("\\s+", "");
+            String firstName = fNameField.getText().replaceAll("\\s+", "_");
+            String lname = lNameField.getText().replaceAll("\\s+", "_");
+            String buttons = getSelectedButton(radioGroup);
+            String ag = ageField.getText();
+            String mar = maritalCombox.getSelectedItem().toString();
+            String add = addField.getText().replaceAll("\\s+", "_");
+            String contact = conField.getText().replaceAll("\\s+", "_");
+            String email = emailField.getText().replaceAll("\\s+", "_");
+            
+            model.setValueAt(datesField, recepTable.getSelectedRow(),0);
+            model.setValueAt(firstName, recepTable.getSelectedRow(),1);
+            model.setValueAt(lname, recepTable.getSelectedRow(),2);
+            model.setValueAt(buttons, recepTable.getSelectedRow(),3);
+            model.setValueAt(ag, recepTable.getSelectedRow(),4);
+            model.setValueAt(add, recepTable.getSelectedRow(),5);
+            model.setValueAt(contact, recepTable.getSelectedRow(),6);
+            model.setValueAt(mar, recepTable.getSelectedRow(),7);
+            model.setValueAt(email, recepTable.getSelectedRow(),8);
+        } else {
+            if(recepTable.getRowCount() == 0){
+                JOptionPane.showMessageDialog(this,"Table is empty");
+            } else {
+                JOptionPane.showMessageDialog(this,"Please select a single row for update");
+            }
+        }
+        
         updateTable();
+        JOptionPane.showMessageDialog(this,"Receptionist Data Updated Successfully");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        try{
         DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
         try {
             int SelectedRowIndex = recepTable.getSelectedRow();
@@ -255,24 +426,90 @@ public class recepPanel extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        JOptionPane.showMessageDialog(this,"Receptionist Data Deleted Sucessfully");
         updateTable();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void addReceptionistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addReceptionistActionPerformed
+        DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
+        
+        model.insertRow(model.getRowCount(), new Object[]{dateField.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
+            lNameField.getText().replaceAll("\\s+", "_"),getSelectedButton(radioGroup),ageField.getText(),addField.getText().replaceAll("\\s+", "_"),conField.getText().replaceAll("\\s+", "_"),
+           maritalCombox.getSelectedItem().toString(),emailField.getText().replaceAll("\\s+", "_")});
+        updateTable();
+        JOptionPane.showMessageDialog(this,"Receptionist Data Added Successfully");
+    }//GEN-LAST:event_addReceptionistActionPerformed
+
+    private void recepTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_recepTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) recepTable.getModel();
+        
+        String date  = recepTable.getValueAt(recepTable.getSelectedRow(),0).toString();
+        String fname  = recepTable.getValueAt(recepTable.getSelectedRow(),1).toString();
+        String lname  = recepTable.getValueAt(recepTable.getSelectedRow(),2).toString();
+        String gender  = recepTable.getValueAt(recepTable.getSelectedRow(),3).toString();
+        String age  = recepTable.getValueAt(recepTable.getSelectedRow(),4).toString();
+        String add  = recepTable.getValueAt(recepTable.getSelectedRow(),5).toString();
+        String con  = recepTable.getValueAt(recepTable.getSelectedRow(),6).toString();
+        String mar  = recepTable.getValueAt(recepTable.getSelectedRow(),7).toString();
+        String email  = recepTable.getValueAt(recepTable.getSelectedRow(),8).toString();
+        
+        
+        dateField.setText(date);
+        fNameField.setText(fname);
+        lNameField.setText(lname);
+        if("Male".equals(gender)){
+            maleButton.setSelected(true);
+        } else if ("Female".equals(gender)){
+            femButton.setSelected(true);
+        } else if ("Other".equals(gender)){
+            otherButton.setSelected(true);
+        }
+        ageField.setText(age);
+        maritalCombox.setSelectedItem(mar);
+        addField.setText(add);
+        conField.setText(con);
+        emailField.setText(email);
+        updateButton.setEnabled(true);
+        deleteButton.setEnabled(true);
+    }//GEN-LAST:event_recepTableMouseClicked
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
+    private javax.swing.JTextField addField;
+    private javax.swing.JButton addReceptionist;
+    private javax.swing.JTextField ageField;
     private java.awt.Canvas canvas1;
+    private javax.swing.JTextField conField;
+    private javax.swing.JTextField dateField;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JTextField fNameField;
+    private javax.swing.JRadioButton femButton;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField lNameField;
+    private javax.swing.JRadioButton maleButton;
+    private javax.swing.JComboBox<String> maritalCombox;
+    private javax.swing.JRadioButton otherButton;
+    private javax.swing.ButtonGroup radioGroup;
     private javax.swing.JTable recepTable;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

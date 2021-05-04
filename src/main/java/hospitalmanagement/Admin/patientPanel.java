@@ -5,24 +5,14 @@
  */
 package hospitalmanagement.Admin;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import hospitalmanagement.Doctor.*;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.AbstractButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,6 +24,8 @@ public class patientPanel extends javax.swing.JFrame {
      DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
     Date date = new Date();
     Calendar cal = Calendar.getInstance();
+    
+    boolean fromDocMenu = false;
 
     
     
@@ -74,7 +66,7 @@ public class patientPanel extends javax.swing.JFrame {
             fw.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
         patientField.setText(null);
         dateField.setText(" "+ dateFormat.format(date));
@@ -105,6 +97,11 @@ public class patientPanel extends javax.swing.JFrame {
 
         }
         return null;
+    }
+    
+    
+    public void fromDoctor(){
+        fromDocMenu = true;
     }
     
     private void setTableData(){
@@ -421,8 +418,14 @@ public class patientPanel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        adminPanel1 adminPanel = new adminPanel1();
-        adminPanel.setVisible(true);
+        if(fromDocMenu == false){
+            adminPanel adminPanel = new adminPanel();
+            adminPanel.setVisible(true);
+        } else if (fromDocMenu == true){
+            doctorMenu docmen = new doctorMenu();
+            docmen.setVisible(true);
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed

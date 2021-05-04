@@ -68,7 +68,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
             fw.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(appointmentListRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
         patientField.setText(null);
         appDate.setText("MM/dd/YYYY");
