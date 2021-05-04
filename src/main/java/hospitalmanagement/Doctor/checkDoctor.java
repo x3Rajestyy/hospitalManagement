@@ -130,14 +130,14 @@ public class checkDoctor extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 120, 1260, 510);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(187, 232, 255));
         jPanel1.setLayout(null);
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel3.setBackground(new java.awt.Color(105, 203, 255));
         jPanel1.add(jPanel3);
         jPanel3.setBounds(0, 640, 1280, 60);
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(105, 203, 255));
         jPanel2.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
