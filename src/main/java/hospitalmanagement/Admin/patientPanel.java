@@ -21,72 +21,73 @@ import javax.swing.table.DefaultTableModel;
  * @author Raj
  */
 public class patientPanel extends javax.swing.JFrame {
-    
-     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
+
+    DateFormat dateFormat = new SimpleDateFormat("MM/dd/YY");
     Date date = new Date();
     Calendar cal = Calendar.getInstance();
     boolean fromDoc = false;
     boolean fromRecep = false;
-    
+
     /**
      * Creates new form patientPanel
      */
     public patientPanel() {
         initComponents();
-        setSize(1290,766);
+        setSize(1290, 766);
         File file = new File("patientData.txt");
-        dateField.setText(" "+ dateFormat.format(date));
-        if(file.length() == 0){
+        dateField.setText(" " + dateFormat.format(date));
+        if (file.length() == 0) {
             //do nothing
         } else {
             setTableData();
         }
         updateButton.setEnabled(false);
         deleteButton.setEnabled(false);
-        
+
     }
-    
-    private void updateTable(){
-        try{
-        String filePath = "patientData.txt";
-        File file = new File(filePath);
+
+    private void updateTable() {
         try {
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+            String filePath = "patientData.txt";
+            File file = new File(filePath);
+            try {
+                FileWriter fw = new FileWriter(file);
+                BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < patTable.getRowCount(); i++){//rows
-                for(int j = 0; j < patTable.getColumnCount(); j++){//columns
-                    bw.write(patTable.getValueAt(i, j).toString()+" ");
+                for (int i = 0; i < patTable.getRowCount(); i++) {//rows
+                    for (int j = 0; j < patTable.getColumnCount(); j++) {//columns
+                        String placeholder = patTable.getValueAt(i, j).toString().replaceAll("\\s+", "_");
+                        bw.write(placeholder + " ");
+                    }
+                    bw.newLine();
                 }
-                bw.newLine();
+
+                bw.close();
+                fw.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            bw.close();
-            fw.close();
-
-        } catch (IOException ex) {
-            Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        patientField.setText(null);
-        dateField.setText(" "+ dateFormat.format(date));
-        fNameField.setText(null);
-        lNameField.setText(null);
-        maleButton.setSelected(false);
-        femButton.setSelected(false);
-        otherButton.setSelected(false);
-        ageField.setText(null);
-        maritalCombox.setSelectedItem(0);
-        addField.setText(null);
-        patientCombox.setSelectedItem(0);
-        conField.setText(null);
-        disField.setText(null);
-        }catch(Exception e){
+            patientField.setText(null);
+            dateField.setText(" " + dateFormat.format(date));
+            fNameField.setText(null);
+            lNameField.setText(null);
+            maleButton.setSelected(false);
+            femButton.setSelected(false);
+            otherButton.setSelected(false);
+            ageField.setText(null);
+            maritalCombox.setSelectedItem(0);
+            addField.setText(null);
+            patientCombox.setSelectedItem(0);
+            conField.setText(null);
+            disField.setText(null);
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }
-    
-    private String getSelectedButton(ButtonGroup buttongroup){
-        
+
+    private String getSelectedButton(ButtonGroup buttongroup) {
+
         for (Enumeration<AbstractButton> buttons = buttongroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
 
@@ -97,32 +98,39 @@ public class patientPanel extends javax.swing.JFrame {
         }
         return null;
     }
-    
-    private void setTableData(){
-        File file = new File("patientData.txt");
-        try{
-        FileReader fr = new FileReader(file);
+
+    private void setTableData() {
+        String path = "patientData.txt";
+        File file = new File(path);
+        try {
+            FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
-            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
+
+            DefaultTableModel model = (DefaultTableModel) patTable.getModel();
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length; i++){
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+
+            for (int i = 0; i < lines.length; i++) {
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void fromDoctor(){
+
+    public void fromDoctor() {
         fromDoc = true;
     }
-    
-    public void fromReception(){
+
+    public void fromReception() {
         fromRecep = true;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -418,100 +426,100 @@ public class patientPanel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        if(fromDoc == false && fromRecep == false){
+        if (fromDoc == false && fromRecep == false) {
             adminPanel adminPanel = new adminPanel();
             adminPanel.setVisible(true);
-        } else if (fromDoc == true && fromRecep == false){
+        } else if (fromDoc == true && fromRecep == false) {
             doctorMenu docmen = new doctorMenu();
             docmen.setVisible(true);
-        } else if (fromDoc == false && fromRecep == true){
+        } else if (fromDoc == false && fromRecep == true) {
             recepMenu recmen = new recepMenu();
             recmen.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         DefaultTableModel model = (DefaultTableModel) patTable.getModel();
-        if(patTable.getSelectedRowCount() == 1){
-            String PatientID = patientField.getText().replaceAll("\\s+", "");
-            String datesField = dateField.getText().replaceAll("\\s+", "");
-            String firstName = fNameField.getText().replaceAll("\\s+", "_");
-            String lname = lNameField.getText().replaceAll("\\s+", "_");
+        if (patTable.getSelectedRowCount() == 1) {
+            String PatientID = patientField.getText();
+            String datesField = dateField.getText();
+            String firstName = fNameField.getText();
+            String lname = lNameField.getText();
             String buttons = getSelectedButton(radioGroup);
             String ag = ageField.getText();
             String mar = maritalCombox.getSelectedItem().toString();
-            String add = addField.getText().replaceAll("\\s+", "_");
+            String add = addField.getText();
             String patBox = patientCombox.getSelectedItem().toString();
-            String contact = conField.getText().replaceAll("\\s+", "_");
-            String disease = disField.getText().replaceAll("\\s+", "_");
-            
-            model.setValueAt(PatientID, patTable.getSelectedRow(),0);
-            model.setValueAt(datesField, patTable.getSelectedRow(),1);
-            model.setValueAt(firstName, patTable.getSelectedRow(),2);
-            model.setValueAt(lname, patTable.getSelectedRow(),3);
-            model.setValueAt(buttons, patTable.getSelectedRow(),4);
-            model.setValueAt(ag, patTable.getSelectedRow(),5);
-            model.setValueAt(mar, patTable.getSelectedRow(),6);
-            model.setValueAt(add, patTable.getSelectedRow(),7);
-            model.setValueAt(patBox, patTable.getSelectedRow(),8);
-            model.setValueAt(contact, patTable.getSelectedRow(),9);
-            model.setValueAt(disease, patTable.getSelectedRow(),10);
+            String contact = conField.getText();
+            String disease = disField.getText();
+
+            model.setValueAt(PatientID, patTable.getSelectedRow(), 0);
+            model.setValueAt(datesField, patTable.getSelectedRow(), 1);
+            model.setValueAt(firstName, patTable.getSelectedRow(), 2);
+            model.setValueAt(lname, patTable.getSelectedRow(), 3);
+            model.setValueAt(buttons, patTable.getSelectedRow(), 4);
+            model.setValueAt(ag, patTable.getSelectedRow(), 5);
+            model.setValueAt(mar, patTable.getSelectedRow(), 6);
+            model.setValueAt(add, patTable.getSelectedRow(), 7);
+            model.setValueAt(patBox, patTable.getSelectedRow(), 8);
+            model.setValueAt(contact, patTable.getSelectedRow(), 9);
+            model.setValueAt(disease, patTable.getSelectedRow(), 10);
         } else {
-            if(patTable.getRowCount() == 0){
-                JOptionPane.showMessageDialog(this,"Table is empty");
+            if (patTable.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Table is empty");
             } else {
-                JOptionPane.showMessageDialog(this,"Please select a single row for update");
+                JOptionPane.showMessageDialog(this, "Please select a single row for update");
             }
         }
         updateTable();
-        JOptionPane.showMessageDialog(this,"Patient Data Updated Successfully");
+        JOptionPane.showMessageDialog(this, "Patient Data Updated Successfully");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        try{
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
         try {
-            int SelectedRowIndex = patTable.getSelectedRow();
-            model.removeRow(SelectedRowIndex);
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        JOptionPane.showMessageDialog(this,"Patient Data Deleted Sucessfully");
-        updateTable();
-        }catch(Exception e){
+            DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+            try {
+                int SelectedRowIndex = patTable.getSelectedRow();
+                model.removeRow(SelectedRowIndex);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Patient Data Deleted Sucessfully");
+            updateTable();
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void patTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patTableMouseClicked
         DefaultTableModel model = (DefaultTableModel) patTable.getModel();
-        
-        String PatientID  = patTable.getValueAt(patTable.getSelectedRow(),0).toString();
-        String date = patTable.getValueAt(patTable.getSelectedRow(),1).toString();
-        String first = patTable.getValueAt(patTable.getSelectedRow(),2).toString();
-        String last = patTable.getValueAt(patTable.getSelectedRow(),3).toString();
-        String gender = patTable.getValueAt(patTable.getSelectedRow(),4).toString();
-        String age = patTable.getValueAt(patTable.getSelectedRow(),5).toString();
-        String address = patTable.getValueAt(patTable.getSelectedRow(),7).toString();
-        String number = patTable.getValueAt(patTable.getSelectedRow(),9).toString();
-        String disease = patTable.getValueAt(patTable.getSelectedRow(),10).toString();
-        
+
+        String PatientID = patTable.getValueAt(patTable.getSelectedRow(), 0).toString();
+        String date = patTable.getValueAt(patTable.getSelectedRow(), 1).toString();
+        String first = patTable.getValueAt(patTable.getSelectedRow(), 2).toString();
+        String last = patTable.getValueAt(patTable.getSelectedRow(), 3).toString();
+        String gender = patTable.getValueAt(patTable.getSelectedRow(), 4).toString();
+        String age = patTable.getValueAt(patTable.getSelectedRow(), 5).toString();
+        String address = patTable.getValueAt(patTable.getSelectedRow(), 7).toString();
+        String number = patTable.getValueAt(patTable.getSelectedRow(), 9).toString();
+        String disease = patTable.getValueAt(patTable.getSelectedRow(), 10).toString();
+
         patientField.setText(PatientID);
         dateField.setText(date);
         fNameField.setText(first);
         lNameField.setText(last);
-        if("Male".equals(gender)){
+        if ("Male".equals(gender)) {
             maleButton.setSelected(true);
-        } else if ("Female".equals(gender)){
+        } else if ("Female".equals(gender)) {
             femButton.setSelected(true);
-        } else if ("Other".equals(gender)){
+        } else if ("Other".equals(gender)) {
             otherButton.setSelected(true);
         }
         ageField.setText(age);
-        maritalCombox.setSelectedItem(patTable.getValueAt(patTable.getSelectedRow(),6).toString());
+        maritalCombox.setSelectedItem(patTable.getValueAt(patTable.getSelectedRow(), 6).toString());
         addField.setText(address);
-        patientCombox.setSelectedItem(patTable.getValueAt(patTable.getSelectedRow(),8).toString());
+        patientCombox.setSelectedItem(patTable.getValueAt(patTable.getSelectedRow(), 8).toString());
         conField.setText(number);
         disField.setText(disease);
         updateButton.setEnabled(true);
@@ -520,18 +528,17 @@ public class patientPanel extends javax.swing.JFrame {
 
     private void addPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientActionPerformed
         DefaultTableModel model = (DefaultTableModel) patTable.getModel();
-        
-        model.insertRow(model.getRowCount(), new Object[]{patientField.getText().replaceAll("\\s+", ""),dateField.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
-            lNameField.getText().replaceAll("\\s+", "_"),getSelectedButton(radioGroup),ageField.getText(),maritalCombox.getSelectedItem().toString(),
-            addField.getText().replaceAll("\\s+", "_"),patientCombox.getSelectedItem(),conField.getText().replaceAll("\\s+", "_"),disField.getText().replaceAll("\\s+", "_")});
+
+        model.insertRow(model.getRowCount(), new Object[]{patientField.getText(), dateField.getText(), fNameField.getText(),
+            lNameField.getText(), getSelectedButton(radioGroup), ageField.getText(), maritalCombox.getSelectedItem().toString(),
+            addField.getText(), patientCombox.getSelectedItem(), conField.getText(), disField.getText()});
         updateTable();
-        JOptionPane.showMessageDialog(this,"Patient Data Added Successfully");
+        JOptionPane.showMessageDialog(this, "Patient Data Added Successfully");
     }//GEN-LAST:event_addPatientActionPerformed
 
     private void patientComboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientComboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_patientComboxActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

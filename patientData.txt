@@ -1,3 +1,2 @@
 PT001 05/02/21 Raj Jumalon Male 200 Engaged faraway Outdoor 09994509736 Cough 
-PT002 05/02/21 Kurt_Jayson Zacarias Male 19 Single Pampanga Indoor 09184453355 Single 
-PT003 05/05/21 test test Male 36 Single test Indoor 099999999 test 
+PT002 05/05/21 Raj_Michael Jumalon Male 20 Single Somewhere_Far Indoor 09994509736 testing

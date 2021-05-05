@@ -1,4 +1,3 @@
-hospitalmanagement\Admin\patientPanel$2.class
 hospitalmanagement\Main\adminLogin$1.class
 hospitalmanagement\Main\adminLogin$4.class
 hospitalmanagement\Receptionist\roomMenu$7.class
@@ -14,7 +13,6 @@ hospitalmanagement\Admin\doctorPanel$1.class
 hospitalmanagement\Receptionist\roomMenu$4.class
 hospitalmanagement\Admin\adminPanel$3.class
 hospitalmanagement\Receptionist\roomMenu$1.class
-hospitalmanagement\Admin\patientPanel$5.class
 hospitalmanagement\Admin\nursePanel$2.class
 hospitalmanagement\Global\appointmentListRecep$2.class
 hospitalmanagement\Doctor\doctorMenu$4.class
@@ -23,7 +21,6 @@ hospitalmanagement\Admin\doctorPanel.class
 hospitalmanagement\Admin\adminPanel$4.class
 hospitalmanagement\Main\adminLogin$2.class
 hospitalmanagement\Main\hospitalMenu$3.class
-hospitalmanagement\Admin\patientPanel$1.class
 hospitalmanagement\Receptionist\recepMenu$2.class
 hospitalmanagement\Admin\doctorPanel$3.class
 hospitalmanagement\Admin\recepPanel$2.class
@@ -50,7 +47,6 @@ hospitalmanagement\Main\hospitalMenu$2.class
 hospitalmanagement\Doctor\checkAppointments$2.class
 hospitalmanagement\Main\UsernamePasswordRECEP.class
 hospitalmanagement\Receptionist\recepMenu.class
-hospitalmanagement\Admin\patientPanel$6.class
 hospitalmanagement\Doctor\doctorMenu$2.class
 hospitalmanagement\Main\hospitalMenu.class
 hospitalmanagement\Receptionist\recepMenu$3.class
@@ -68,7 +64,6 @@ hospitalmanagement\Main\recepLogin.class
 hospitalmanagement\Global\patientListRecep.class
 hospitalmanagement\Admin\adminPanel$1.class
 hospitalmanagement\Receptionist\recepMenu$5.class
-hospitalmanagement\Admin\patientPanel$4.class
 hospitalmanagement\Admin\recepPanel$5.class
 hospitalmanagement\Global\appointmentListRecep$5.class
 hospitalmanagement\Global\patientListRecep$3.class
@@ -77,11 +72,9 @@ hospitalmanagement\Admin\adminPanel$2.class
 hospitalmanagement\Global\patientListRecep$2.class
 hospitalmanagement\Main\UsernamePasswordsADMIN.class
 hospitalmanagement\Global\appointmentListRecep$6.class
-hospitalmanagement\Admin\patientPanel.class
 hospitalmanagement\Doctor\checkDoctor.class
 hospitalmanagement\Admin\adminPanel.class
 hospitalmanagement\Receptionist\roomMenu$3.class
-hospitalmanagement\Admin\patientPanel$3.class
 hospitalmanagement\Main\UsernamePasswordsDOC.class
 hospitalmanagement\Doctor\doctorMenu$1.class
 hospitalmanagement\Receptionist\roomMenu.class
