@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hospitalmanagement.Admin;
+package hospitalmanagement.Doctor;
 
+import hospitalmanagement.Admin.*;
 import hospitalmanagement.Doctor.*;
 import java.io.*;
 import java.text.DateFormat;
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Raj
  */
-public class patientPanel extends javax.swing.JFrame {
+public class patientPanelDoc extends javax.swing.JFrame {
     
      DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
     Date date = new Date();
@@ -29,7 +30,7 @@ public class patientPanel extends javax.swing.JFrame {
     /**
      * Creates new form patientPanel
      */
-    public patientPanel() {
+    public patientPanelDoc() {
         initComponents();
         setSize(1290,766);
         File file = new File("patientData.txt");
@@ -63,7 +64,7 @@ public class patientPanel extends javax.swing.JFrame {
             fw.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(patientPanelDoc.class.getName()).log(Level.SEVERE, null, ex);
         }
         patientField.setText(null);
         dateField.setText(" "+ dateFormat.format(date));
@@ -110,7 +111,7 @@ public class patientPanel extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }catch(FileNotFoundException ex){
-            Logger.getLogger(patientPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(patientPanelDoc.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -410,8 +411,8 @@ public class patientPanel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        adminPanel adminPanel = new adminPanel();
-        adminPanel.setVisible(true);
+        doctorMenu dM =new doctorMenu();
+        dM.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
