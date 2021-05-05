@@ -354,6 +354,8 @@ public class appointmentListRecep extends javax.swing.JFrame {
         jLabel6.setText("First Name");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(470, 130, 80, 30);
+
+        docField.setEnabled(false);
         jPanel1.add(docField);
         docField.setBounds(210, 280, 220, 30);
 
