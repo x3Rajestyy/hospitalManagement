@@ -24,3 +24,5 @@ hs_err_pid*
 target/classes/.netbeans_automatic_build
 target/test-classes/.netbeans_automatic_build
 target/classes/.netbeans_automatic_build
+src/main/java/Converter.java
+src/main/java/Converter.form
