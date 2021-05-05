@@ -19,17 +19,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Raj
  */
-public class patientListRecep extends javax.swing.JFrame {
+public class doctorListRecep extends javax.swing.JFrame {
     String PatientID,first,last,number,disease;
+    String fName,lName;
 
     
     /**
      * Creates new form patientPanel
      */
-    public patientListRecep() {
+    public doctorListRecep() {
         initComponents();
         setSize(1290,766);
-        File file = new File("patientData.txt");
+        File file = new File("doctorData.txt");
      
         if(file.length() == 0){
             //do nothing
@@ -40,13 +41,21 @@ public class patientListRecep extends javax.swing.JFrame {
         
     }
     
+    public void setValues(String PatientID, String first, String last, String number, String disease){
+        this.PatientID = PatientID;
+        this.first = first;
+        this.last = last;
+        this.number = number;
+        this.disease = disease;
+    }
+    
     private void setTableData(){
-        File file = new File("patientData.txt");
+        File file = new File("doctorData.txt");
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             
-            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)docTable.getModel();
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length; i++){
@@ -54,7 +63,7 @@ public class patientListRecep extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }catch(FileNotFoundException ex){
-            Logger.getLogger(patientListRecep.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(doctorListRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -75,9 +84,9 @@ public class patientListRecep extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         selectButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        docTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -88,12 +97,12 @@ public class patientListRecep extends javax.swing.JFrame {
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        jPanel3.setBackground(new java.awt.Color(255, 222, 5));
+        jPanel3.setBackground(new java.awt.Color(105, 203, 255));
         jPanel3.setLayout(null);
 
         jLabel14.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel14.setText("PATIENT list");
+        jLabel14.setText("doctor list");
         jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel3.add(jLabel14);
         jLabel14.setBounds(0, 0, 1280, 70);
@@ -101,10 +110,10 @@ public class patientListRecep extends javax.swing.JFrame {
         getContentPane().add(jPanel3);
         jPanel3.setBounds(0, 0, 1280, 60);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(187, 232, 255));
         jPanel1.setLayout(null);
 
-        jButton2.setBackground(new java.awt.Color(255, 222, 5));
+        jButton2.setBackground(new java.awt.Color(105, 203, 255));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton2.setText("Back");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -117,7 +126,7 @@ public class patientListRecep extends javax.swing.JFrame {
         jPanel1.add(jButton2);
         jButton2.setBounds(1190, 70, 80, 40);
 
-        selectButton.setBackground(new java.awt.Color(255, 222, 5));
+        selectButton.setBackground(new java.awt.Color(105, 203, 255));
         selectButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
         selectButton.setText("Select");
         selectButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -130,44 +139,40 @@ public class patientListRecep extends javax.swing.JFrame {
         jPanel1.add(selectButton);
         selectButton.setBounds(1120, 580, 150, 70);
 
-        patTable.setBackground(new java.awt.Color(255, 255, 204));
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel2.setBackground(new java.awt.Color(105, 203, 255));
+        jPanel2.setLayout(null);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 660, 1280, 60);
+
+        docTable.setBackground(new java.awt.Color(255, 255, 204));
+        docTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Patient ID", "Date", "First Name", "Last Name", "Gender", "Age", "Marital Status", "Address", "Patient Type", "Contact No.", "Disease"
+                "Join Date", "First Name", "Last Name", "Gender", "Age", "Address", "Contact No.", "Department", "Marital Status", "Email"
             }
-        ));
-        patTable.setGridColor(new java.awt.Color(0, 0, 0));
-        patTable.setShowGrid(false);
-        patTable.getTableHeader().setReorderingAllowed(false);
-        patTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                patTableMouseClicked(evt);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(patTable);
-        if (patTable.getColumnModel().getColumnCount() > 0) {
-            patTable.getColumnModel().getColumn(0).setResizable(false);
-            patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(2).setResizable(false);
-            patTable.getColumnModel().getColumn(3).setResizable(false);
-            patTable.getColumnModel().getColumn(4).setResizable(false);
-            patTable.getColumnModel().getColumn(5).setResizable(false);
-            patTable.getColumnModel().getColumn(7).setResizable(false);
-            patTable.getColumnModel().getColumn(8).setResizable(false);
-            patTable.getColumnModel().getColumn(9).setResizable(false);
-            patTable.getColumnModel().getColumn(10).setResizable(false);
-        }
+        docTable.setGridColor(new java.awt.Color(0, 0, 0));
+        docTable.setShowGrid(false);
+        docTable.getTableHeader().setReorderingAllowed(false);
+        docTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                docTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(docTable);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 120, 1260, 450);
-
-        jPanel2.setBackground(new java.awt.Color(255, 222, 5));
-        jPanel2.setLayout(null);
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 660, 1280, 60);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1280, 720);
@@ -178,39 +183,34 @@ public class patientListRecep extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        appointmentListRecep appPanel = new appointmentListRecep();
-        appPanel.setVisible(true);
+        patientListRecep backPanel = new patientListRecep();
+        backPanel.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         this.dispose();
-        doctorListRecep docList = new doctorListRecep();
-        docList.setValues(PatientID,first,last,number,disease);
-        docList.setVisible(true);
+        appointmentListRecep appPanel = new appointmentListRecep();
+        appPanel.setDataFromTable(PatientID,first,last,number,disease);
+        appPanel.setDataFromDoc(fName,lName);
+        appPanel.setVisible(true);
     }//GEN-LAST:event_selectButtonActionPerformed
 
-    private void patTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patTableMouseClicked
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
-        
-        PatientID  = patTable.getValueAt(patTable.getSelectedRow(),0).toString();
-        first = patTable.getValueAt(patTable.getSelectedRow(),2).toString();
-        last = patTable.getValueAt(patTable.getSelectedRow(),3).toString();
-        number = patTable.getValueAt(patTable.getSelectedRow(),9).toString();
-        disease = patTable.getValueAt(patTable.getSelectedRow(),10).toString();
-
-    }//GEN-LAST:event_patTableMouseClicked
+    private void docTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_docTableMouseClicked
+        fName = docTable.getValueAt(docTable.getSelectedRow(),1).toString();
+        lName = docTable.getValueAt(docTable.getSelectedRow(),2).toString();
+    }//GEN-LAST:event_docTableMouseClicked
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Canvas canvas1;
+    private javax.swing.JTable docTable;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable patTable;
     private javax.swing.ButtonGroup radioGroup;
     private javax.swing.JButton selectButton;
     // End of variables declaration//GEN-END:variables

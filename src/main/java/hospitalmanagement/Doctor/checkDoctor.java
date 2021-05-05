@@ -135,7 +135,7 @@ public class checkDoctor extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(105, 203, 255));
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(0, 640, 1280, 60);
+        jPanel3.setBounds(0, 640, 1280, 80);
 
         jPanel2.setBackground(new java.awt.Color(105, 203, 255));
         jPanel2.setLayout(null);
@@ -150,7 +150,7 @@ public class checkDoctor extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1280, 60);
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 0));
+        jButton2.setBackground(new java.awt.Color(105, 203, 255));
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton2.setText("Back");
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

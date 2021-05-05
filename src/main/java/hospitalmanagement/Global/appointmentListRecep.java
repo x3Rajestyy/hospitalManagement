@@ -89,6 +89,10 @@ public class appointmentListRecep extends javax.swing.JFrame {
         disField.setText(disease);
     }
     
+    public void setDataFromDoc(String doctorFName, String doctorLName){
+        docField.setText(doctorFName+"_"+doctorLName);
+    }
+    
     private void setTableData(){
         File file = new File("appointmentData.txt");
         try{
@@ -141,7 +145,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         disField = new javax.swing.JTextField();
-        updateButton1 = new javax.swing.JButton();
+        selectButton = new javax.swing.JButton();
         appDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         docField = new javax.swing.JTextField();
@@ -322,18 +326,18 @@ public class appointmentListRecep extends javax.swing.JFrame {
         jPanel1.add(disField);
         disField.setBounds(570, 310, 220, 30);
 
-        updateButton1.setBackground(new java.awt.Color(105, 203, 255));
-        updateButton1.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        updateButton1.setText("Patient List");
-        updateButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        updateButton1.setBorderPainted(false);
-        updateButton1.addActionListener(new java.awt.event.ActionListener() {
+        selectButton.setBackground(new java.awt.Color(105, 203, 255));
+        selectButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        selectButton.setText("Selection List");
+        selectButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        selectButton.setBorderPainted(false);
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButton1ActionPerformed(evt);
+                selectButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(updateButton1);
-        updateButton1.setBounds(870, 160, 150, 70);
+        jPanel1.add(selectButton);
+        selectButton.setBounds(870, 160, 150, 70);
 
         appDate.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         appDate.setText("MM/dd/YYYY");
@@ -442,11 +446,11 @@ public class appointmentListRecep extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this,"Appointment Data Added Successfully");
     }//GEN-LAST:event_addPatientActionPerformed
 
-    private void updateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton1ActionPerformed
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         patientListRecep plr = new patientListRecep();
         plr.setVisible(true);
         dispose();
-    }//GEN-LAST:event_updateButton1ActionPerformed
+    }//GEN-LAST:event_selectButtonActionPerformed
 
     private void appDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appDateActionPerformed
         // TODO add your handling code here:
@@ -481,7 +485,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
     private javax.swing.JTable patTable;
     private javax.swing.JTextField patientField;
     private javax.swing.ButtonGroup radioGroup;
+    private javax.swing.JButton selectButton;
     private javax.swing.JButton updateButton;
-    private javax.swing.JButton updateButton1;
     // End of variables declaration//GEN-END:variables
 }

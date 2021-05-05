@@ -5,9 +5,7 @@ hospitalmanagement\Receptionist\roomMenu$7.class
 hospitalmanagement\Admin\recepPanel$4.class
 hospitalmanagement\Main\recepLogin$2.class
 hospitalmanagement\Admin\nursePanel$4.class
-hospitalmanagement\Receptionist\patientPanelRecep$6.class
 hospitalmanagement\Doctor\checkDoctor$1.class
-hospitalmanagement\Receptionist\patientPanelRecep$3.class
 hospitalmanagement\Admin\doctorPanel$4.class
 hospitalmanagement\Doctor\doctorMenu$3.class
 hospitalmanagement\Main\doctorLogin$3.class
@@ -17,14 +15,12 @@ hospitalmanagement\Receptionist\roomMenu$4.class
 hospitalmanagement\Admin\adminPanel$3.class
 hospitalmanagement\Receptionist\roomMenu$1.class
 hospitalmanagement\Admin\patientPanel$5.class
-hospitalmanagement\Receptionist\patientPanelRecep.class
 hospitalmanagement\Admin\nursePanel$2.class
 hospitalmanagement\Global\appointmentListRecep$2.class
 hospitalmanagement\Doctor\doctorMenu$4.class
 hospitalmanagement\Doctor\checkAppointments$1.class
 hospitalmanagement\Admin\doctorPanel.class
 hospitalmanagement\Admin\adminPanel$4.class
-hospitalmanagement\Receptionist\patientPanelRecep$1.class
 hospitalmanagement\Main\adminLogin$2.class
 hospitalmanagement\Main\hospitalMenu$3.class
 hospitalmanagement\Admin\patientPanel$1.class
@@ -63,14 +59,12 @@ hospitalmanagement\Main\recepLogin$3.class
 hospitalmanagement\Main\doctorLogin.class
 hospitalmanagement\Admin\recepPanel$3.class
 hospitalmanagement\Global\appointmentListRecep$4.class
-hospitalmanagement\Receptionist\patientPanelRecep$2.class
 hospitalmanagement\Doctor\checkDoctor$2.class
 hospitalmanagement\Doctor\checkAppointments.class
 hospitalmanagement\Global\appointmentListRecep$1.class
 hospitalmanagement\Main\adminLogin$3.class
 hospitalmanagement\Receptionist\roomMenu$2.class
 hospitalmanagement\Main\recepLogin.class
-hospitalmanagement\Receptionist\patientPanelRecep$5.class
 hospitalmanagement\Global\patientListRecep.class
 hospitalmanagement\Admin\adminPanel$1.class
 hospitalmanagement\Receptionist\recepMenu$5.class
@@ -79,7 +73,6 @@ hospitalmanagement\Admin\recepPanel$5.class
 hospitalmanagement\Global\appointmentListRecep$5.class
 hospitalmanagement\Global\patientListRecep$3.class
 hospitalmanagement\Main\hospitalMenu$1.class
-hospitalmanagement\Receptionist\patientPanelRecep$4.class
 hospitalmanagement\Admin\adminPanel$2.class
 hospitalmanagement\Global\patientListRecep$2.class
 hospitalmanagement\Main\UsernamePasswordsADMIN.class
