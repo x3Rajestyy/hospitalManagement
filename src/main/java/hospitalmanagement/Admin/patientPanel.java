@@ -6,6 +6,7 @@
 package hospitalmanagement.Admin;
 
 import hospitalmanagement.Doctor.*;
+import hospitalmanagement.Receptionist.*;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,7 +25,8 @@ public class patientPanel extends javax.swing.JFrame {
      DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
     Date date = new Date();
     Calendar cal = Calendar.getInstance();
-    
+    boolean fromDoc = false;
+    boolean fromRecep = false;
     
     /**
      * Creates new form patientPanel
@@ -114,7 +116,13 @@ public class patientPanel extends javax.swing.JFrame {
         }
     }
     
-
+    public void fromDoctor(){
+        fromDoc = true;
+    }
+    
+    public void fromReception(){
+        fromRecep = true;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -410,8 +418,17 @@ public class patientPanel extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        adminPanel adminPanel = new adminPanel();
-        adminPanel.setVisible(true);
+        if(fromDoc == false && fromRecep == false){
+            adminPanel adminPanel = new adminPanel();
+            adminPanel.setVisible(true);
+        } else if (fromDoc == true && fromRecep == false){
+            doctorMenu docmen = new doctorMenu();
+            docmen.setVisible(true);
+        } else if (fromDoc == false && fromRecep == true){
+            recepMenu recmen = new recepMenu();
+            recmen.setVisible(true);
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed

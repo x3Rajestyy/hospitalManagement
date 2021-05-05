@@ -35,12 +35,12 @@ public class recepMenu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        billingButton = new javax.swing.JButton();
+        patientButton = new javax.swing.JButton();
+        addAppointment = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        roomButton = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,46 +80,46 @@ public class recepMenu extends javax.swing.JFrame {
         jPanel2.add(jPanel4);
         jPanel4.setBounds(0, 0, 1280, 100);
 
-        jButton3.setBackground(new java.awt.Color(242, 121, 53));
-        jButton3.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton3.setText("Billing");
-        jButton3.setActionCommand("Patient");
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        billingButton.setBackground(new java.awt.Color(242, 121, 53));
+        billingButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        billingButton.setText("Billing");
+        billingButton.setActionCommand("Patient");
+        billingButton.setBorder(null);
+        billingButton.setBorderPainted(false);
+        billingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                billingButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3);
-        jButton3.setBounds(640, 400, 200, 110);
+        jPanel2.add(billingButton);
+        billingButton.setBounds(640, 400, 200, 110);
 
-        jButton2.setBackground(new java.awt.Color(242, 121, 53));
-        jButton2.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton2.setText("Patient Info");
-        jButton2.setActionCommand("Patient");
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        patientButton.setBackground(new java.awt.Color(242, 121, 53));
+        patientButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        patientButton.setText("Patient Info");
+        patientButton.setActionCommand("Patient");
+        patientButton.setBorder(null);
+        patientButton.setBorderPainted(false);
+        patientButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                patientButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2);
-        jButton2.setBounds(430, 280, 200, 110);
+        jPanel2.add(patientButton);
+        patientButton.setBounds(430, 280, 200, 110);
 
-        jButton1.setBackground(new java.awt.Color(242, 121, 53));
-        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton1.setText("Add Appointments");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addAppointment.setBackground(new java.awt.Color(242, 121, 53));
+        addAppointment.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        addAppointment.setText("Add Appointments");
+        addAppointment.setBorder(null);
+        addAppointment.setBorderPainted(false);
+        addAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addAppointmentActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1);
-        jButton1.setBounds(640, 280, 200, 110);
+        jPanel2.add(addAppointment);
+        addAppointment.setBounds(640, 280, 200, 110);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -130,19 +130,19 @@ public class recepMenu extends javax.swing.JFrame {
         jPanel2.add(jLabel1);
         jLabel1.setBounds(590, 110, 100, 90);
 
-        jButton4.setBackground(new java.awt.Color(242, 121, 53));
-        jButton4.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        jButton4.setText("Rooms");
-        jButton4.setActionCommand("Patient");
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        roomButton.setBackground(new java.awt.Color(242, 121, 53));
+        roomButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
+        roomButton.setText("Rooms");
+        roomButton.setActionCommand("Patient");
+        roomButton.setBorder(null);
+        roomButton.setBorderPainted(false);
+        roomButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                roomButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4);
-        jButton4.setBounds(430, 400, 200, 110);
+        jPanel2.add(roomButton);
+        roomButton.setBounds(430, 400, 200, 110);
 
         jButton6.setBackground(new java.awt.Color(242, 121, 53));
         jButton6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -183,41 +183,42 @@ public class recepMenu extends javax.swing.JFrame {
         hosMen.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAppointmentActionPerformed
         this.dispose();
         appointmentListRecep alr = new appointmentListRecep();
         alr.setVisible(true); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addAppointmentActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void patientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientButtonActionPerformed
         this.dispose();
-        patientPanelRecep Pr = new patientPanelRecep();
+        patientPanel Pr = new patientPanel();
+        Pr.fromReception();
         Pr.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_patientButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void billingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billingButtonActionPerformed
         this.dispose();
         billingRecep bR = new billingRecep();
         bR.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_billingButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void roomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomButtonActionPerformed
         this.dispose();
         roomMenu room = new roomMenu();
         room.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_roomButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton addAppointment;
+    private javax.swing.JButton billingButton;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton patientButton;
+    private javax.swing.JButton roomButton;
     // End of variables declaration//GEN-END:variables
 }
