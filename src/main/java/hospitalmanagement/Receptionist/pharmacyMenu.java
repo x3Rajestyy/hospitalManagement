@@ -196,7 +196,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtDose.setText("2");
             jtxtNumberTablets.setText("32");
             jtxtIssuedDate.setText("06/05/2018");
-            jtxtExpDate.setText("04/05/2019");
+            jtxtExpDate.setText("04/05/2023");
            
 
         }
@@ -207,13 +207,13 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtDose.setText("500");
             jtxtNumberTablets.setText("30");
             jtxtIssuedDate.setText("06/05/2018");
-            jtxtExpDate.setText("04/12/2019");
+            jtxtExpDate.setText("04/12/2023");
 
         }
 
         else if (jcmbNameTablets.getSelectedItem().equals("Paracetamol"))
         {
-            jtxtRef.setText("01729214");
+            jtxtRef.setText("Pr01729214");
             jtxtDose.setText("500");
             jtxtNumberTablets.setText("16");
             jtxtIssuedDate.setText("07/05/2018");
@@ -227,11 +227,41 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtDose.setText("5");
             jtxtNumberTablets.setText("28");
             jtxtIssuedDate.setText("06/05/2018");
-            jtxtExpDate.setText("04/05/2020");
+            jtxtExpDate.setText("04/05/2023");
 
 
         }
+        //Cephalexin
+        else if (jcmbNameTablets.getSelectedItem().equals("Amoxicillin"))
+        {
+            jtxtRef.setText("Am058439");
+            jtxtDose.setText("4");
+            jtxtNumberTablets.setText("12");
+            jtxtIssuedDate.setText("03/23/2019");
+            jtxtExpDate.setText("10/15/2024");
 
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Cephalexin"))
+        {
+            jtxtRef.setText("Ce93281");
+            jtxtDose.setText("4");
+            jtxtNumberTablets.setText("12");
+            jtxtIssuedDate.setText("12/12/2018");
+            jtxtExpDate.setText("11/15/2024");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Hydrochlorothiazide"))
+        {
+            jtxtRef.setText("Hcz29311");
+            jtxtDose.setText("");
+            jtxtNumberTablets.setText("100");
+            jtxtIssuedDate.setText("02/15/2019");
+            jtxtExpDate.setText("06/25/2024");
+
+        }
+        
         else if (jcmbNameTablets.getSelectedItem().equals("Make a Selection"))
         {
             jtxtRef.setText("");
