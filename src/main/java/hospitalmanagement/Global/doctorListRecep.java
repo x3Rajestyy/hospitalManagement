@@ -49,24 +49,29 @@ public class doctorListRecep extends javax.swing.JFrame {
         this.disease = disease;
     }
     
-    private void setTableData(){
-        File file = new File("doctorData.txt");
-        try{
-        FileReader fr = new FileReader(file);
+    private void setTableData() {
+        String path = "doctorData.txt";
+        File file = new File(path);
+        try {
+            FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
-            DefaultTableModel model = (DefaultTableModel)docTable.getModel();
+
+            DefaultTableModel model = (DefaultTableModel) docTable.getModel();
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length; i++){
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+
+            for (int i = 0; i < lines.length; i++) {
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(doctorListRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

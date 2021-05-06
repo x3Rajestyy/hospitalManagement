@@ -54,9 +54,10 @@ public class roomMenu extends javax.swing.JFrame {
                 FileWriter fw = new FileWriter(file);
                 BufferedWriter bw = new BufferedWriter(fw);
 
-                for (int i = 0; i < patTable.getRowCount(); i++) {//rows
-                    for (int j = 0; j < patTable.getColumnCount(); j++) {//columns
-                        bw.write(patTable.getValueAt(i, j).toString() + " ");
+                for (int i = 0; i < roomTable.getRowCount(); i++) {//rows
+                    for (int j = 0; j < roomTable.getColumnCount(); j++) {//columns
+                        String placeholder = roomTable.getValueAt(i, j).toString().replaceAll("\\s+", "_");
+                        bw.write(placeholder + " ");
                     }
                     bw.newLine();
                 }
@@ -86,12 +87,17 @@ public class roomMenu extends javax.swing.JFrame {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
 
-            DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) roomTable.getModel();
             Object[] lines = br.lines().toArray();
 
             for (int i = 0; i < lines.length; i++) {
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(roomMenu.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,7 +122,7 @@ public class roomMenu extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
+        roomTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         addRoom = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -193,8 +199,8 @@ public class roomMenu extends javax.swing.JFrame {
         jPanel1.add(deleteButton);
         deleteButton.setBounds(330, 150, 150, 70);
 
-        patTable.setBackground(new java.awt.Color(255, 255, 204));
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
+        roomTable.setBackground(new java.awt.Color(255, 255, 204));
+        roomTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -210,20 +216,20 @@ public class roomMenu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        patTable.setGridColor(new java.awt.Color(0, 0, 0));
-        patTable.setShowGrid(false);
-        patTable.getTableHeader().setReorderingAllowed(false);
-        patTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        roomTable.setGridColor(new java.awt.Color(0, 0, 0));
+        roomTable.setShowGrid(false);
+        roomTable.getTableHeader().setReorderingAllowed(false);
+        roomTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                patTableMouseClicked(evt);
+                roomTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(patTable);
-        if (patTable.getColumnModel().getColumnCount() > 0) {
-            patTable.getColumnModel().getColumn(0).setResizable(false);
-            patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(2).setResizable(false);
-            patTable.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane1.setViewportView(roomTable);
+        if (roomTable.getColumnModel().getColumnCount() > 0) {
+            roomTable.getColumnModel().getColumn(0).setResizable(false);
+            roomTable.getColumnModel().getColumn(1).setResizable(false);
+            roomTable.getColumnModel().getColumn(2).setResizable(false);
+            roomTable.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1);
@@ -313,21 +319,21 @@ public class roomMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
-        if (patTable.getSelectedRowCount() == 1) {
+        DefaultTableModel model = (DefaultTableModel) roomTable.getModel();
+        if (roomTable.getSelectedRowCount() == 1) {
             
             String bedIDs = bedID.getText().replaceAll("\\s+", "");
             String catBoxs = catBox.getSelectedItem().toString();
             String roomnum = roomNo.getText().replaceAll("\\s+", "");
             String avaBoxs = avaBox.getSelectedItem().toString();
             
-            model.setValueAt(bedIDs,patTable.getSelectedRow(),0);
-            model.setValueAt(catBoxs,patTable.getSelectedRow(),1);
-            model.setValueAt(roomnum,patTable.getSelectedRow(),2);
-            model.setValueAt(avaBoxs,patTable.getSelectedRow(),3);
+            model.setValueAt(bedIDs,roomTable.getSelectedRow(),0);
+            model.setValueAt(catBoxs,roomTable.getSelectedRow(),1);
+            model.setValueAt(roomnum,roomTable.getSelectedRow(),2);
+            model.setValueAt(avaBoxs,roomTable.getSelectedRow(),3);
             
         } else {
-            if (patTable.getRowCount() == 0) {
+            if (roomTable.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Table is empty");
             } else {
                 JOptionPane.showMessageDialog(this, "Please select a single row for update");
@@ -339,9 +345,9 @@ public class roomMenu extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try {
-            DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+            DefaultTableModel model = (DefaultTableModel) roomTable.getModel();
             try {
-                int SelectedRowIndex = patTable.getSelectedRow();
+                int SelectedRowIndex = roomTable.getSelectedRow();
                 model.removeRow(SelectedRowIndex);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
@@ -353,13 +359,13 @@ public class roomMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void patTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patTableMouseClicked
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+    private void roomTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) roomTable.getModel();
 
-        String bedIDs = model.getValueAt(patTable.getSelectedRow(),0).toString();
-        Object catBoxs = model.getValueAt(patTable.getSelectedRow(),1).toString();
-        String roomnum = model.getValueAt(patTable.getSelectedRow(),2).toString();
-        Object avaBoxs = model.getValueAt(patTable.getSelectedRow(),3).toString();
+        String bedIDs = model.getValueAt(roomTable.getSelectedRow(),0).toString();
+        Object catBoxs = model.getValueAt(roomTable.getSelectedRow(),1).toString();
+        String roomnum = model.getValueAt(roomTable.getSelectedRow(),2).toString();
+        Object avaBoxs = model.getValueAt(roomTable.getSelectedRow(),3).toString();
         
         bedID.setText(bedIDs);
         catBox.setSelectedItem(catBoxs);
@@ -368,10 +374,10 @@ public class roomMenu extends javax.swing.JFrame {
         
         updateButton.setEnabled(true);
         deleteButton.setEnabled(true);
-    }//GEN-LAST:event_patTableMouseClicked
+    }//GEN-LAST:event_roomTableMouseClicked
 
     private void addRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addRoomActionPerformed
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) roomTable.getModel();
         
         model.insertRow(model.getRowCount(), new Object[] {bedID.getText(),catBox.getSelectedItem().toString(),roomNo.getText(),avaBox.getSelectedItem().toString()});
         
@@ -402,9 +408,9 @@ public class roomMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable patTable;
     private javax.swing.ButtonGroup radioGroup;
     private javax.swing.JTextField roomNo;
+    private javax.swing.JTable roomTable;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }

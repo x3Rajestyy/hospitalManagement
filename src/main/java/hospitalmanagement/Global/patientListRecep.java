@@ -6,6 +6,7 @@
 package hospitalmanagement.Global;
 
 import hospitalmanagement.Admin.*;
+import hospitalmanagement.Receptionist.*;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,7 +21,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Raj
  */
 public class patientListRecep extends javax.swing.JFrame {
-    String PatientID,first,last,number,disease;
+    String PatientID,first,last,number,disease,address;
+    boolean fromBilling = false;
 
     
     /**
@@ -40,20 +42,30 @@ public class patientListRecep extends javax.swing.JFrame {
         
     }
     
-    private void setTableData(){
-        File file = new File("patientData.txt");
-        try{
-        FileReader fr = new FileReader(file);
+    public void setFromBilling(){
+        fromBilling = true;
+    }
+    
+    private void setTableData() {
+        String path = "patientData.txt";
+        File file = new File(path);
+        try {
+            FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
-            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
+
+            DefaultTableModel model = (DefaultTableModel) patTable.getModel();
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length; i++){
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+
+            for (int i = 0; i < lines.length; i++) {
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(patientListRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -138,7 +150,15 @@ public class patientListRecep extends javax.swing.JFrame {
             new String [] {
                 "Patient ID", "Date", "First Name", "Last Name", "Gender", "Age", "Marital Status", "Address", "Patient Type", "Contact No.", "Disease"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         patTable.setGridColor(new java.awt.Color(0, 0, 0));
         patTable.setShowGrid(false);
         patTable.getTableHeader().setReorderingAllowed(false);
@@ -155,6 +175,7 @@ public class patientListRecep extends javax.swing.JFrame {
             patTable.getColumnModel().getColumn(3).setResizable(false);
             patTable.getColumnModel().getColumn(4).setResizable(false);
             patTable.getColumnModel().getColumn(5).setResizable(false);
+            patTable.getColumnModel().getColumn(6).setResizable(false);
             patTable.getColumnModel().getColumn(7).setResizable(false);
             patTable.getColumnModel().getColumn(8).setResizable(false);
             patTable.getColumnModel().getColumn(9).setResizable(false);
@@ -178,15 +199,27 @@ public class patientListRecep extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-        appointmentListRecep appPanel = new appointmentListRecep();
-        appPanel.setVisible(true);
+        if(fromBilling == true){
+            billingMenu billmen = new billingMenu();
+            billmen.setVisible(true);
+        } else {
+            appointmentListRecep appPanel = new appointmentListRecep();
+            appPanel.setVisible(true);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
         this.dispose();
-        doctorListRecep docList = new doctorListRecep();
-        docList.setValues(PatientID,first,last,number,disease);
-        docList.setVisible(true);
+        if(fromBilling == true){
+            billingMenu billmen = new billingMenu();
+            String name = first + " " + last;
+            billmen.passVariables(name,address,PatientID);
+            billmen.setVisible(true);
+        } else {
+            doctorListRecep docList = new doctorListRecep();
+            docList.setValues(PatientID,first,last,number,disease);
+            docList.setVisible(true);
+        }
     }//GEN-LAST:event_selectButtonActionPerformed
 
     private void patTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patTableMouseClicked
@@ -195,8 +228,10 @@ public class patientListRecep extends javax.swing.JFrame {
         PatientID  = patTable.getValueAt(patTable.getSelectedRow(),0).toString();
         first = patTable.getValueAt(patTable.getSelectedRow(),2).toString();
         last = patTable.getValueAt(patTable.getSelectedRow(),3).toString();
+        address = patTable.getValueAt(patTable.getSelectedRow(),7).toString();
         number = patTable.getValueAt(patTable.getSelectedRow(),9).toString();
         disease = patTable.getValueAt(patTable.getSelectedRow(),10).toString();
+        
 
     }//GEN-LAST:event_patTableMouseClicked
 

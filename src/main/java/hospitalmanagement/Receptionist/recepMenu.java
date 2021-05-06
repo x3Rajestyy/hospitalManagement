@@ -198,7 +198,7 @@ public class recepMenu extends javax.swing.JFrame {
 
     private void billingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billingButtonActionPerformed
         this.dispose();
-        billingRecep bR = new billingRecep();
+        billingMenu bR = new billingMenu();
         bR.setVisible(true);
     }//GEN-LAST:event_billingButtonActionPerformed
 

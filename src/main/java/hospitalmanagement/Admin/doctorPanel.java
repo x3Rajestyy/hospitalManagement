@@ -61,18 +61,18 @@ public class doctorPanel extends javax.swing.JFrame {
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+                BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < docTable.getRowCount(); i++){//rows
-                for(int j = 0; j < docTable.getColumnCount(); j++){//columns
-                    bw.write(docTable.getValueAt(i, j).toString()+" ");
+                for (int i = 0; i < docTable.getRowCount(); i++) {//rows
+                    for (int j = 0; j < docTable.getColumnCount(); j++) {//columns
+                        String placeholder = docTable.getValueAt(i, j).toString().replaceAll("\\s+", "_");
+                        bw.write(placeholder + " ");
+                    }
+                    bw.newLine();
                 }
-                bw.newLine();
-            }
 
-            bw.close();
-            fw.close();
-
+                bw.close();
+                fw.close();
         } catch (IOException ex) {
             Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -109,15 +109,20 @@ public class doctorPanel extends javax.swing.JFrame {
     private void setTableData(){
         File file = new File("doctorData.txt");
         try{
-        FileReader fr = new FileReader(file);
+         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
-            DefaultTableModel model = (DefaultTableModel)docTable.getModel();
+
+            DefaultTableModel model = (DefaultTableModel) docTable.getModel();
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length; i++){
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+
+            for (int i = 0; i < lines.length; i++) {
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
         }catch(FileNotFoundException ex){
             Logger.getLogger(doctorPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -399,16 +404,16 @@ public class doctorPanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) docTable.getModel();
         
         if(docTable.getSelectedRowCount() == 1){
-            String datesField = dateField.getText().replaceAll("\\s+", "");
-            String firstName = fNameField.getText().replaceAll("\\s+", "_");
-            String lname = lNameField.getText().replaceAll("\\s+", "_");
+            String datesField = dateField.getText();
+            String firstName = fNameField.getText();
+            String lname = lNameField.getText();
             String buttons = getSelectedButton(radioGroup);
             String ag = ageField.getText();
             String mar = maritalCombox.getSelectedItem().toString();
-            String add = addField.getText().replaceAll("\\s+", "_");
+            String add = addField.getText();
             String deptBox = deptComBox.getSelectedItem().toString();
-            String contact = conField.getText().replaceAll("\\s+", "_");
-            String email = emailField.getText().replaceAll("\\s+", "_");
+            String contact = conField.getText();
+            String email = emailField.getText();
             
             model.setValueAt(datesField, docTable.getSelectedRow(),0);
             model.setValueAt(firstName, docTable.getSelectedRow(),1);
@@ -451,9 +456,9 @@ public class doctorPanel extends javax.swing.JFrame {
     private void addDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDoctorActionPerformed
         DefaultTableModel model = (DefaultTableModel) docTable.getModel();
         
-        model.insertRow(model.getRowCount(), new Object[]{dateField.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
-            lNameField.getText().replaceAll("\\s+", "_"),getSelectedButton(radioGroup),ageField.getText(),addField.getText().replaceAll("\\s+", "_"),conField.getText().replaceAll("\\s+", "_"),
-           deptComBox.getSelectedItem().toString(),maritalCombox.getSelectedItem().toString(),emailField.getText().replaceAll("\\s+", "_")});
+        model.insertRow(model.getRowCount(), new Object[]{dateField.getText(),fNameField.getText(),
+            lNameField.getText(),getSelectedButton(radioGroup),ageField.getText(),addField.getText(),conField.getText(),
+           deptComBox.getSelectedItem().toString(),maritalCombox.getSelectedItem().toString(),emailField.getText()});
         updateTable();
         JOptionPane.showMessageDialog(this,"Doctor Data Added Successfully");
     }//GEN-LAST:event_addDoctorActionPerformed

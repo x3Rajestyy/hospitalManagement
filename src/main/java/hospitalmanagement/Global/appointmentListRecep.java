@@ -55,18 +55,19 @@ public class appointmentListRecep extends javax.swing.JFrame {
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+                BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < patTable.getRowCount(); i++){//rows
-                for(int j = 0; j < patTable.getColumnCount(); j++){//columns
-                    bw.write(patTable.getValueAt(i, j).toString()+" ");
+                for (int i = 0; i < appointTable.getRowCount(); i++) {//rows
+                    for (int j = 0; j < appointTable.getColumnCount(); j++) {//columns
+                        String placeholder = appointTable.getValueAt(i, j).toString().replaceAll("\\s+", "_");
+                        bw.write(placeholder + " ");
+                    }
+                    bw.newLine();
                 }
-                bw.newLine();
-            }
 
-            bw.close();
-            fw.close();
-
+                bw.close();
+                fw.close();
+                
         } catch (IOException ex) {
             Logger.getLogger(appointmentListRecep.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -98,13 +99,18 @@ public class appointmentListRecep extends javax.swing.JFrame {
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
-            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
+
+            DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length; i++){
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+
+            for (int i = 0; i < lines.length; i++) {
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
         }catch(FileNotFoundException ex){
             Logger.getLogger(appointmentListRecep.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,7 +136,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
         updateButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
+        appointTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -214,8 +220,8 @@ public class appointmentListRecep extends javax.swing.JFrame {
         jPanel1.add(deleteButton);
         deleteButton.setBounds(870, 260, 150, 70);
 
-        patTable.setBackground(new java.awt.Color(255, 255, 204));
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
+        appointTable.setBackground(new java.awt.Color(255, 255, 204));
+        appointTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -223,22 +229,22 @@ public class appointmentListRecep extends javax.swing.JFrame {
                 "Patient ID", "Doctor", "Appointment Date", "First Name", "Last Name", "Contact No.", "Disease"
             }
         ));
-        patTable.setGridColor(new java.awt.Color(0, 0, 0));
-        patTable.setShowGrid(false);
-        patTable.getTableHeader().setReorderingAllowed(false);
-        patTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        appointTable.setGridColor(new java.awt.Color(0, 0, 0));
+        appointTable.setShowGrid(false);
+        appointTable.getTableHeader().setReorderingAllowed(false);
+        appointTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                patTableMouseClicked(evt);
+                appointTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(patTable);
-        if (patTable.getColumnModel().getColumnCount() > 0) {
-            patTable.getColumnModel().getColumn(0).setResizable(false);
-            patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(3).setResizable(false);
-            patTable.getColumnModel().getColumn(4).setResizable(false);
-            patTable.getColumnModel().getColumn(5).setResizable(false);
-            patTable.getColumnModel().getColumn(6).setResizable(false);
+        jScrollPane1.setViewportView(appointTable);
+        if (appointTable.getColumnModel().getColumnCount() > 0) {
+            appointTable.getColumnModel().getColumn(0).setResizable(false);
+            appointTable.getColumnModel().getColumn(1).setResizable(false);
+            appointTable.getColumnModel().getColumn(3).setResizable(false);
+            appointTable.getColumnModel().getColumn(4).setResizable(false);
+            appointTable.getColumnModel().getColumn(5).setResizable(false);
+            appointTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1);
@@ -373,25 +379,25 @@ public class appointmentListRecep extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
-        if(patTable.getSelectedRowCount() == 1){
-            String PatientID = patientField.getText().replaceAll("\\s+", "");
-            String doctorName = docField.getText().replaceAll("\\s+", "_");
-            String datesField = appDate.getText().replaceAll("\\s+", "");
-            String firstName = fNameField.getText().replaceAll("\\s+", "_");
-            String lname = lNameField.getText().replaceAll("\\s+", "_");
-            String contact = conField.getText().replaceAll("\\s+", "_");
-            String disease = disField.getText().replaceAll("\\s+", "_");
+        DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
+        if(appointTable.getSelectedRowCount() == 1){
+            String PatientID = patientField.getText();
+            String doctorName = docField.getText();
+            String datesField = appDate.getText();
+            String firstName = fNameField.getText();
+            String lname = lNameField.getText();
+            String contact = conField.getText();
+            String disease = disField.getText();
             
-            model.setValueAt(PatientID, patTable.getSelectedRow(),0);
-            model.setValueAt(doctorName, patTable.getSelectedRow(),1);
-            model.setValueAt(datesField, patTable.getSelectedRow(),2);
-            model.setValueAt(firstName, patTable.getSelectedRow(),3);
-            model.setValueAt(lname, patTable.getSelectedRow(),4);
-            model.setValueAt(contact, patTable.getSelectedRow(),5);
-            model.setValueAt(disease, patTable.getSelectedRow(),6);
+            model.setValueAt(PatientID, appointTable.getSelectedRow(),0);
+            model.setValueAt(doctorName, appointTable.getSelectedRow(),1);
+            model.setValueAt(datesField, appointTable.getSelectedRow(),2);
+            model.setValueAt(firstName, appointTable.getSelectedRow(),3);
+            model.setValueAt(lname, appointTable.getSelectedRow(),4);
+            model.setValueAt(contact, appointTable.getSelectedRow(),5);
+            model.setValueAt(disease, appointTable.getSelectedRow(),6);
         } else {
-            if(patTable.getRowCount() == 0){
+            if(appointTable.getRowCount() == 0){
                 JOptionPane.showMessageDialog(this,"Table is empty");
             } else {
                 JOptionPane.showMessageDialog(this,"Please select a single row for update");
@@ -403,9 +409,9 @@ public class appointmentListRecep extends javax.swing.JFrame {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try{
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         try {
-            int SelectedRowIndex = patTable.getSelectedRow();
+            int SelectedRowIndex = appointTable.getSelectedRow();
             model.removeRow(SelectedRowIndex);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -417,16 +423,16 @@ public class appointmentListRecep extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void patTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patTableMouseClicked
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+    private void appointTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appointTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         
-        String PatientID  = patTable.getValueAt(patTable.getSelectedRow(),0).toString();
-        String doctorName = patTable.getValueAt(patTable.getSelectedRow(),1).toString();
-        String date =  patTable.getValueAt(patTable.getSelectedRow(),2).toString();
-        String first = patTable.getValueAt(patTable.getSelectedRow(),3).toString();
-        String last = patTable.getValueAt(patTable.getSelectedRow(),4).toString();
-        String number = patTable.getValueAt(patTable.getSelectedRow(),5).toString();
-        String disease = patTable.getValueAt(patTable.getSelectedRow(),6).toString();
+        String PatientID  = appointTable.getValueAt(appointTable.getSelectedRow(),0).toString();
+        String doctorName = appointTable.getValueAt(appointTable.getSelectedRow(),1).toString();
+        String date =  appointTable.getValueAt(appointTable.getSelectedRow(),2).toString();
+        String first = appointTable.getValueAt(appointTable.getSelectedRow(),3).toString();
+        String last = appointTable.getValueAt(appointTable.getSelectedRow(),4).toString();
+        String number = appointTable.getValueAt(appointTable.getSelectedRow(),5).toString();
+        String disease = appointTable.getValueAt(appointTable.getSelectedRow(),6).toString();
         
         patientField.setText(PatientID);
         docField.setText(doctorName);
@@ -437,13 +443,13 @@ public class appointmentListRecep extends javax.swing.JFrame {
         disField.setText(disease);
         updateButton.setEnabled(true);
         deleteButton.setEnabled(true);
-    }//GEN-LAST:event_patTableMouseClicked
+    }//GEN-LAST:event_appointTableMouseClicked
 
     private void addPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientActionPerformed
-        DefaultTableModel model = (DefaultTableModel) patTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) appointTable.getModel();
         
-        model.insertRow(model.getRowCount(), new Object[]{patientField.getText().replaceAll("\\s+", ""),docField.getText().replaceAll("\\s+", "_"),appDate.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
-            lNameField.getText().replaceAll("\\s+", "_"),conField.getText().replaceAll("\\s+", "_"),disField.getText().replaceAll("\\s+", "_")});
+        model.insertRow(model.getRowCount(), new Object[]{patientField.getText().replaceAll("\\s+", ""),docField.getText(),appDate.getText(),fNameField.getText(),
+            lNameField.getText(),conField.getText(),disField.getText()});
         updateTable();
         JOptionPane.showMessageDialog(this,"Appointment Data Added Successfully");
     }//GEN-LAST:event_addPatientActionPerformed
@@ -463,6 +469,7 @@ public class appointmentListRecep extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPatient;
     private javax.swing.JTextField appDate;
+    private javax.swing.JTable appointTable;
     private java.awt.Canvas canvas1;
     private javax.swing.JTextField conField;
     private javax.swing.JButton deleteButton;
@@ -484,7 +491,6 @@ public class appointmentListRecep extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lNameField;
-    private javax.swing.JTable patTable;
     private javax.swing.JTextField patientField;
     private javax.swing.ButtonGroup radioGroup;
     private javax.swing.JButton selectButton;

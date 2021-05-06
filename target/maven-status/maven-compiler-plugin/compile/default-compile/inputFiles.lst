@@ -1,8 +1,8 @@
-E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Global\billingRecep.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Doctor\checkDoctor.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Doctor\doctorMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\doctorPanel.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\patientPanel.java
+E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Receptionist\pharmacyMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Main\UsernamePasswordsDOC.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\nursePanel.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Global\doctorListRecep.java
@@ -10,6 +10,7 @@ E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospita
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Receptionist\roomMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\adminPanel.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Admin\recepPanel.java
+E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Receptionist\billingMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Main\hospitalMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Receptionist\recepMenu.java
 E:\Users\Raj\Documents\NetBeansProjects\hospitalManagement\src\main\java\hospitalmanagement\Global\patientListRecep.java

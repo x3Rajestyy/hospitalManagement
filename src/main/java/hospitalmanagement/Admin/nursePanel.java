@@ -61,17 +61,18 @@ public class nursePanel extends javax.swing.JFrame {
         File file = new File(filePath);
         try {
             FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
+                BufferedWriter bw = new BufferedWriter(fw);
 
-            for(int i = 0; i < nurTable.getRowCount(); i++){//rows
-                for(int j = 0; j < nurTable.getColumnCount(); j++){//columns
-                    bw.write(nurTable.getValueAt(i, j).toString()+" ");
+                for (int i = 0; i < nurTable.getRowCount(); i++) {//rows
+                    for (int j = 0; j < nurTable.getColumnCount(); j++) {//columns
+                        String placeholder = nurTable.getValueAt(i, j).toString().replaceAll("\\s+", "_");
+                        bw.write(placeholder + " ");
+                    }
+                    bw.newLine();
                 }
-                bw.newLine();
-            }
 
-            bw.close();
-            fw.close();
+                bw.close();
+                fw.close();
 
         } catch (IOException ex) {
             Logger.getLogger(nursePanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -105,20 +106,26 @@ public class nursePanel extends javax.swing.JFrame {
         return null;
     }
     
-    private void setTableData(){
-        File file = new File("nurseData.txt");
-        try{
-        FileReader fr = new FileReader(file);
+    private void setTableData() {
+        String path = "nurseData.txt";
+        File file = new File(path);
+        try {
+            FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
-            
-            DefaultTableModel model = (DefaultTableModel)nurTable.getModel();
+
+            DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
             Object[] lines = br.lines().toArray();
-            
-            for(int i = 0; i < lines.length; i++){
-                String[] row = lines[i].toString().split(" ");
-                model.addRow(row);
+
+            for (int i = 0; i < lines.length; i++) {
+                
+                String line = lines[i].toString().trim();
+                String[] dataRow = line.split(" ");
+                for(int j = 0; j < dataRow.length; j++){
+                    dataRow[j] = dataRow[j].replaceAll("_", " ");
+                }
+                model.addRow(dataRow);
             }
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(nursePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -436,9 +443,9 @@ public class nursePanel extends javax.swing.JFrame {
     private void addNurseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNurseActionPerformed
         DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
         
-        model.insertRow(model.getRowCount(), new Object[]{dateField.getText().replaceAll("\\s+", ""),fNameField.getText().replaceAll("\\s+", "_"),
-            lNameField.getText().replaceAll("\\s+", "_"),getSelectedButton(radioGroup),ageField.getText(),addField.getText().replaceAll("\\s+", "_"),conField.getText().replaceAll("\\s+", "_"),
-           maritalCombox.getSelectedItem().toString(),emailField.getText().replaceAll("\\s+", "_")});
+        model.insertRow(model.getRowCount(), new Object[]{dateField.getText(),fNameField.getText(),
+            lNameField.getText(),getSelectedButton(radioGroup),ageField.getText(),addField.getText(),conField.getText(),
+           maritalCombox.getSelectedItem().toString(),emailField.getText()});
         updateTable();
         JOptionPane.showMessageDialog(this,"Nurse Data Added Successfully");
     }//GEN-LAST:event_addNurseActionPerformed
