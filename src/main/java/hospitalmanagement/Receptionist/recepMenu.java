@@ -12,7 +12,7 @@ import hospitalmanagement.Global.*;
 
 /**
  *
- * @author ACER
+ * @author Kurt Jayson Zacarias
  */
 public class recepMenu extends javax.swing.JFrame {
 
