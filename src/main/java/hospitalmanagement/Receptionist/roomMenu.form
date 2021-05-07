@@ -255,7 +255,7 @@
               <Color blue="ff" green="cb" red="69" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Aeroport" size="36" style="0"/>
+              <Font name="Aeroport" size="24" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Add Room"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>

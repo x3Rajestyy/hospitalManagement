@@ -77,9 +77,6 @@ public class roomMenu extends javax.swing.JFrame {
         }
     }
 
-    public void setDataFromTable(String PatientID, String first, String last, String number, String disease) {
-
-    }
 
     private void setTableData() {
         File file = new File("roomData.txt");
@@ -241,7 +238,7 @@ public class roomMenu extends javax.swing.JFrame {
         jPanel2.setBounds(0, 660, 1280, 90);
 
         addRoom.setBackground(new java.awt.Color(105, 203, 255));
-        addRoom.setFont(new java.awt.Font("Aeroport", 0, 36)); // NOI18N
+        addRoom.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         addRoom.setText("Add Room");
         addRoom.setToolTipText("");
         addRoom.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));

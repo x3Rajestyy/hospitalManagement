@@ -40,6 +40,7 @@ public class recepMenu extends javax.swing.JFrame {
         addAppointment = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        roomButton1 = new javax.swing.JButton();
         roomButton = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
 
@@ -92,7 +93,7 @@ public class recepMenu extends javax.swing.JFrame {
             }
         });
         jPanel2.add(billingButton);
-        billingButton.setBounds(640, 400, 200, 110);
+        billingButton.setBounds(640, 330, 200, 110);
 
         patientButton.setBackground(new java.awt.Color(242, 121, 53));
         patientButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
@@ -106,7 +107,7 @@ public class recepMenu extends javax.swing.JFrame {
             }
         });
         jPanel2.add(patientButton);
-        patientButton.setBounds(430, 280, 200, 110);
+        patientButton.setBounds(430, 210, 200, 110);
 
         addAppointment.setBackground(new java.awt.Color(242, 121, 53));
         addAppointment.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -119,20 +120,34 @@ public class recepMenu extends javax.swing.JFrame {
             }
         });
         jPanel2.add(addAppointment);
-        addAppointment.setBounds(640, 280, 200, 110);
+        addAppointment.setBounds(640, 210, 200, 110);
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Reception Menu");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(0, 200, 1280, 80);
+        jLabel3.setBounds(0, 130, 1280, 80);
         jPanel2.add(jLabel1);
         jLabel1.setBounds(590, 110, 100, 90);
 
+        roomButton1.setBackground(new java.awt.Color(242, 121, 53));
+        roomButton1.setFont(new java.awt.Font("Aeroport", 0, 17)); // NOI18N
+        roomButton1.setText("Check Room Occupants");
+        roomButton1.setActionCommand("Patient");
+        roomButton1.setBorder(null);
+        roomButton1.setBorderPainted(false);
+        roomButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roomButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(roomButton1);
+        roomButton1.setBounds(540, 450, 200, 110);
+
         roomButton.setBackground(new java.awt.Color(242, 121, 53));
         roomButton.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        roomButton.setText("Rooms");
+        roomButton.setText("Add Rooms");
         roomButton.setActionCommand("Patient");
         roomButton.setBorder(null);
         roomButton.setBorderPainted(false);
@@ -142,7 +157,7 @@ public class recepMenu extends javax.swing.JFrame {
             }
         });
         jPanel2.add(roomButton);
-        roomButton.setBounds(430, 400, 200, 110);
+        roomButton.setBounds(430, 330, 200, 110);
 
         jButton6.setBackground(new java.awt.Color(242, 121, 53));
         jButton6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -208,6 +223,10 @@ public class recepMenu extends javax.swing.JFrame {
         room.setVisible(true);
     }//GEN-LAST:event_roomButtonActionPerformed
 
+    private void roomButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roomButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addAppointment;
@@ -220,5 +239,6 @@ public class recepMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton patientButton;
     private javax.swing.JButton roomButton;
+    private javax.swing.JButton roomButton1;
     // End of variables declaration//GEN-END:variables
 }

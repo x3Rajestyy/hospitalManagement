@@ -23,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class patientListRecep extends javax.swing.JFrame {
     String PatientID,first,last,number,disease,address;
     boolean fromBilling = false;
+    boolean fromRoom = false;
 
     
     /**
@@ -44,6 +45,10 @@ public class patientListRecep extends javax.swing.JFrame {
     
     public void setFromBilling(){
         fromBilling = true;
+    }
+    
+    public void fromRooms(){
+        fromRoom = true;
     }
     
     private void setTableData() {
@@ -202,6 +207,9 @@ public class patientListRecep extends javax.swing.JFrame {
         if(fromBilling == true){
             billingMenu billmen = new billingMenu();
             billmen.setVisible(true);
+        }else if(fromRoom == true){
+            roomMenu rm = new roomMenu();
+            rm.setVisible(true);
         } else {
             appointmentListRecep appPanel = new appointmentListRecep();
             appPanel.setVisible(true);
@@ -231,7 +239,6 @@ public class patientListRecep extends javax.swing.JFrame {
         address = patTable.getValueAt(patTable.getSelectedRow(),7).toString();
         number = patTable.getValueAt(patTable.getSelectedRow(),9).toString();
         disease = patTable.getValueAt(patTable.getSelectedRow(),10).toString();
-        
 
     }//GEN-LAST:event_patTableMouseClicked
 

@@ -146,6 +146,11 @@ public class billingMenu extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         jButton2.setText("Laboratory");
         jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2);
         jButton2.setBounds(260, 240, 330, 100);
 
@@ -218,7 +223,9 @@ public class billingMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        pharmacyMenu pharma = new pharmacyMenu();
+        pharma.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -228,6 +235,12 @@ public class billingMenu extends javax.swing.JFrame {
         patListR.setVisible(true);
         
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        laboratoryMenu lab = new laboratoryMenu();
+        lab.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -13,12 +13,12 @@ import hospitalmanagement.Main.hospitalMenu;
  *
  * @author Raj
  */
-public class pharmacyMenu extends javax.swing.JFrame {
+public class laboratoryMenu extends javax.swing.JFrame {
 
     /**
      * Creates new form adminPanel1
      */
-    public pharmacyMenu() {
+    public laboratoryMenu() {
         initComponents();
     }
 
@@ -38,20 +38,11 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jcmbNameTablets = new javax.swing.JComboBox<>();
-        jLabel22 = new javax.swing.JLabel();
-        jtxtRef = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jtxtDose = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jtxtNumberTablets = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jtxtIssuedDate = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jtxtExpDate = new javax.swing.JTextField();
         logoutButton = new javax.swing.JButton();
         priceField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jcmbNameTablets1 = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,7 +70,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Couture", 0, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("pharmacy MENU");
+        jLabel3.setText("laboratory MENU");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -104,12 +95,12 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel1.setBounds(590, 110, 100, 90);
 
         jLabel23.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
-        jLabel23.setText("Name of Tablets:");
+        jLabel23.setText("Category");
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(70, 190, 149, 26);
+        jLabel23.setBounds(70, 190, 82, 26);
 
         jcmbNameTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jcmbNameTablets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Ibuprofen", "Co-codamol", "Paracetamol", "Amlodipine" }));
+        jcmbNameTablets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Anatomic Pathology", "Clinical Microscopy", "Chemistry/Immunology", "Drug Test", "Molecular Diagnostic" }));
         jcmbNameTablets.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmbNameTabletsActionPerformed(evt);
@@ -117,51 +108,6 @@ public class pharmacyMenu extends javax.swing.JFrame {
         });
         jPanel1.add(jcmbNameTablets);
         jcmbNameTablets.setBounds(270, 190, 210, 28);
-
-        jLabel22.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
-        jLabel22.setText("Reference No.");
-        jPanel1.add(jLabel22);
-        jLabel22.setBounds(70, 230, 126, 26);
-
-        jtxtRef.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jtxtRef);
-        jtxtRef.setBounds(270, 230, 210, 28);
-
-        jLabel24.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
-        jLabel24.setText("Dose (mg):");
-        jPanel1.add(jLabel24);
-        jLabel24.setBounds(70, 270, 94, 26);
-
-        jtxtDose.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jtxtDose);
-        jtxtDose.setBounds(270, 270, 210, 28);
-
-        jLabel4.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
-        jLabel4.setText("Number of Tablets:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(70, 310, 169, 26);
-
-        jtxtNumberTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jtxtNumberTablets);
-        jtxtNumberTablets.setBounds(270, 310, 210, 28);
-
-        jLabel6.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
-        jLabel6.setText("Issued Date:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(70, 390, 109, 26);
-
-        jtxtIssuedDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jtxtIssuedDate);
-        jtxtIssuedDate.setBounds(270, 390, 210, 28);
-
-        jLabel7.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
-        jLabel7.setText("Exp Date:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(70, 430, 83, 26);
-
-        jtxtExpDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jtxtExpDate);
-        jtxtExpDate.setBounds(270, 430, 210, 28);
 
         logoutButton.setBackground(new java.awt.Color(105, 203, 255));
         logoutButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -184,11 +130,19 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(70, 470, 200, 30);
 
-        jButton1.setBackground(new java.awt.Color(105, 203, 255));
-        jButton1.setText("Ok");
-        jButton1.setBorderPainted(false);
-        jPanel1.add(jButton1);
-        jButton1.setBounds(283, 550, 110, 60);
+        jcmbNameTablets1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jcmbNameTablets1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcmbNameTablets1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jcmbNameTablets1);
+        jcmbNameTablets1.setBounds(270, 250, 210, 30);
+
+        jLabel25.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
+        jLabel25.setText("Type");
+        jPanel1.add(jLabel25);
+        jLabel25.setBounds(70, 250, 43, 26);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 720));
 
@@ -197,88 +151,19 @@ public class pharmacyMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcmbNameTabletsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbNameTabletsActionPerformed
-        if (jcmbNameTablets.getSelectedItem().equals("Ibuprofen"))
-        {
-            jtxtRef.setText("Ibu8568959");
-            jtxtDose.setText("2");
-            jtxtNumberTablets.setText("32");
-            jtxtIssuedDate.setText("06/05/2018");
-            jtxtExpDate.setText("04/05/2023");
-           
-
+        if(jcmbNameTablets.getSelectedItem().equals("Make a Selection")){
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {""}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Anatomic Pathology")){
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Automated Hispathology Processing", "SurePath Liquid-PAP Test"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Clinical Microscopy")){
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "InSure ONE Occult  Blood Test"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Chemistry/Immunology")){
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Human Epipdidymal Protein (HE4)"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Drug Test")){
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Drug Testing"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Molecular Diagnostic")){
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "RT-PCR Swab Testing For COVID-19"}));
         }
-
-        else if (jcmbNameTablets.getSelectedItem().equals("Co-codamol"))
-        {
-            jtxtRef.setText("COCO6758940");
-            jtxtDose.setText("500");
-            jtxtNumberTablets.setText("30");
-            jtxtIssuedDate.setText("06/05/2018");
-            jtxtExpDate.setText("04/12/2023");
-
-        }
-
-        else if (jcmbNameTablets.getSelectedItem().equals("Paracetamol"))
-        {
-            jtxtRef.setText("Pr01729214");
-            jtxtDose.setText("500");
-            jtxtNumberTablets.setText("16");
-            jtxtIssuedDate.setText("07/05/2018");
-            jtxtExpDate.setText("04/05/2023");
-
-        }
-
-        else if (jcmbNameTablets.getSelectedItem().equals("Amlodipine"))
-        {
-            jtxtRef.setText("Am05875");
-            jtxtDose.setText("5");
-            jtxtNumberTablets.setText("28");
-            jtxtIssuedDate.setText("06/05/2018");
-            jtxtExpDate.setText("04/05/2023");
-
-
-        }
-        //Cephalexin
-        else if (jcmbNameTablets.getSelectedItem().equals("Amoxicillin"))
-        {
-            jtxtRef.setText("Am058439");
-            jtxtDose.setText("4");
-            jtxtNumberTablets.setText("12");
-            jtxtIssuedDate.setText("03/23/2019");
-            jtxtExpDate.setText("10/15/2024");
-
-        }
-        
-        else if (jcmbNameTablets.getSelectedItem().equals("Cephalexin"))
-        {
-            jtxtRef.setText("Ce93281");
-            jtxtDose.setText("4");
-            jtxtNumberTablets.setText("12");
-            jtxtIssuedDate.setText("12/12/2018");
-            jtxtExpDate.setText("11/15/2024");
-
-        }
-        
-        else if (jcmbNameTablets.getSelectedItem().equals("Hydrochlorothiazide"))
-        {
-            jtxtRef.setText("Hcz29311");
-            jtxtDose.setText("");
-            jtxtNumberTablets.setText("100");
-            jtxtIssuedDate.setText("02/15/2019");
-            jtxtExpDate.setText("06/25/2024");
-
-        }
-        
-        else if (jcmbNameTablets.getSelectedItem().equals("Make a Selection"))
-        {
-            jtxtRef.setText("");
-            jtxtDose.setText("");
-            jtxtNumberTablets.setText("");
-            jtxtIssuedDate.setText("");
-            jtxtExpDate.setText("");
-
-        }
-
     }//GEN-LAST:event_jcmbNameTabletsActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -287,30 +172,25 @@ public class pharmacyMenu extends javax.swing.JFrame {
         recMen.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    private void jcmbNameTablets1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbNameTablets1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcmbNameTablets1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JComboBox<String> jcmbNameTablets;
-    private javax.swing.JTextField jtxtDose;
-    private javax.swing.JTextField jtxtExpDate;
-    private javax.swing.JTextField jtxtIssuedDate;
-    private javax.swing.JTextField jtxtNumberTablets;
-    private javax.swing.JTextField jtxtRef;
+    private javax.swing.JComboBox<String> jcmbNameTablets1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField priceField;
     // End of variables declaration//GEN-END:variables
