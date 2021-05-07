@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package hospitalmanagement.Receptionist;
-
+import hospitalmanagement.Main.*;
 import hospitalmanagement.Doctor.*;
 import hospitalmanagement.Admin.patientPanel;
-import hospitalmanagement.Main.hospitalMenu;
 
 /**
  *
@@ -43,6 +42,7 @@ public class laboratoryMenu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jcmbNameTablets1 = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,7 +97,7 @@ public class laboratoryMenu extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel23.setText("Category");
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(70, 190, 82, 26);
+        jLabel23.setBounds(70, 190, 79, 24);
 
         jcmbNameTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jcmbNameTablets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Anatomic Pathology", "Clinical Microscopy", "Chemistry/Immunology", "Drug Test", "Molecular Diagnostic" }));
@@ -142,7 +142,18 @@ public class laboratoryMenu extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel25.setText("Type");
         jPanel1.add(jLabel25);
-        jLabel25.setBounds(70, 250, 43, 26);
+        jLabel25.setBounds(70, 250, 42, 24);
+
+        jButton1.setBackground(new java.awt.Color(105, 203, 255));
+        jButton1.setText("Ok");
+        jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(283, 550, 110, 60);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 720));
 
@@ -168,19 +179,23 @@ public class laboratoryMenu extends javax.swing.JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         this.dispose();
-        billingMenu recMen = new billingMenu();
-        recMen.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void jcmbNameTablets1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbNameTablets1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcmbNameTablets1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        billingMenu billMenu = new billingMenu();
+        billMenu.totalTextField.setText(String.valueOf(billMenu.priceLaba()));
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
@@ -192,6 +207,6 @@ public class laboratoryMenu extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcmbNameTablets;
     private javax.swing.JComboBox<String> jcmbNameTablets1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField priceField;
+    public javax.swing.JTextField priceField;
     // End of variables declaration//GEN-END:variables
 }

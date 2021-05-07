@@ -24,7 +24,6 @@ public class patientListRecep extends javax.swing.JFrame {
     String PatientID,first,last,number,disease,address;
     boolean fromBilling = false;
     boolean fromRoom = false;
-
     
     /**
      * Creates new form patientPanel
@@ -43,7 +42,7 @@ public class patientListRecep extends javax.swing.JFrame {
         
     }
     
-    public void setFromBilling(){
+    public void fromBilling(){
         fromBilling = true;
     }
     

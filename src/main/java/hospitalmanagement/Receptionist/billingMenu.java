@@ -15,17 +15,22 @@ import hospitalmanagement.Main.hospitalMenu;
  * @author Raj
  */
 public class billingMenu extends javax.swing.JFrame {
+
+    
     
     public String address;
     public String patID;
     public String patientName;
+    
+    public static String pricePha;
+    public static String priceLab;
+    public static String totalPrice;
     /**
      * Creates new form adminPanel1
      */
     public billingMenu() {
         initComponents();
     }
-    
     private void setTextOnField(){
         jTextArea1.setText(
         "\nPatient Name:\t\t" + patientName
@@ -39,7 +44,18 @@ public class billingMenu extends javax.swing.JFrame {
         patID = id;
         setTextOnField();
     }
-
+    public int pricePharma(){
+        pharmacyMenu phaM = new pharmacyMenu();
+        pricePha = phaM.priceField.getText();
+        int pharmaPrice = Integer.parseInt(pricePha);
+        return pharmaPrice;
+    }
+    public int priceLaba(){
+        laboratoryMenu labM = new laboratoryMenu();
+        priceLab = labM.priceField.getText();
+        int labaPrice = Integer.parseInt(priceLab);
+        return labaPrice;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +75,7 @@ public class billingMenu extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        totalTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -168,11 +184,11 @@ public class billingMenu extends javax.swing.JFrame {
         jPanel1.add(jButton4);
         jButton4.setBounds(260, 500, 330, 100);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField1.setText("P");
-        jTextField1.setEnabled(false);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(830, 150, 360, 30);
+        totalTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        totalTextField.setText("P");
+        totalTextField.setEnabled(false);
+        jPanel1.add(totalTextField);
+        totalTextField.setBounds(830, 150, 360, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Total Amount:");
@@ -223,21 +239,19 @@ public class billingMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.dispose();
+
         pharmacyMenu pharma = new pharmacyMenu();
         pharma.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        this.dispose();
         patientListRecep patListR = new patientListRecep();
-        patListR.setFromBilling();
+        patListR.fromBilling();
         patListR.setVisible(true);
-        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
+
         laboratoryMenu lab = new laboratoryMenu();
         lab.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -262,7 +276,7 @@ public class billingMenu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logoutButton;
+    public javax.swing.JTextField totalTextField;
     // End of variables declaration//GEN-END:variables
 }
