@@ -22,14 +22,30 @@ public class billingMenu extends javax.swing.JFrame {
     public String patID;
     public String patientName;
     
-    public static String pricePha;
-    public static String priceLab;
-    public static String totalPrice;
+    private int totalprice=0;
     /**
      * Creates new form adminPanel1
      */
     public billingMenu() {
         initComponents();
+        totalTextField.setText("P" + totalprice); 
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+    }
+    
+    public billingMenu(int total, int price){
+        initComponents();
+        totalprice = total;
+        totalprice = totalprice + price;
+        totalTextField.setText("P" + totalprice);
+    }
+    
+    public billingMenu(int total){
+        initComponents();
+        totalprice = total;
+        totalTextField.setText("P" + totalprice);
     }
     private void setTextOnField(){
         jTextArea1.setText(
@@ -44,18 +60,14 @@ public class billingMenu extends javax.swing.JFrame {
         patID = id;
         setTextOnField();
     }
-    public int pricePharma(){
-        pharmacyMenu phaM = new pharmacyMenu();
-        pricePha = phaM.priceField.getText();
-        int pharmaPrice = Integer.parseInt(pricePha);
-        return pharmaPrice;
+    
+    public void buttonEnabled(){
+        jButton1.setEnabled(true);
+        jButton2.setEnabled(true);
+        jButton3.setEnabled(true);
+        jButton4.setEnabled(true);
     }
-    public int priceLaba(){
-        laboratoryMenu labM = new laboratoryMenu();
-        priceLab = labM.priceField.getText();
-        int labaPrice = Integer.parseInt(priceLab);
-        return labaPrice;
-    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,7 +197,7 @@ public class billingMenu extends javax.swing.JFrame {
         jButton4.setBounds(260, 500, 330, 100);
 
         totalTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        totalTextField.setText("P");
+        totalTextField.setText("P 0");
         totalTextField.setEnabled(false);
         jPanel1.add(totalTextField);
         totalTextField.setBounds(830, 150, 360, 30);
@@ -239,20 +251,23 @@ public class billingMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        pharmacyMenu pharma = new pharmacyMenu();
+        this.dispose();
+        pharmacyMenu pharma = new pharmacyMenu(totalprice);
+        pharma.passVariables(patientName, address, patID);
         pharma.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.dispose();
         patientListRecep patListR = new patientListRecep();
         patListR.fromBilling();
         patListR.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        laboratoryMenu lab = new laboratoryMenu();
+        this.dispose();
+        laboratoryMenu lab = new laboratoryMenu(totalprice);
+        lab.passVariables(patientName, address, patID);
         lab.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

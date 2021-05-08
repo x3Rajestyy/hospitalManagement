@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package hospitalmanagement.Receptionist;
+
 import hospitalmanagement.Main.*;
 import hospitalmanagement.Doctor.*;
 import hospitalmanagement.Admin.patientPanel;
@@ -14,11 +15,25 @@ import hospitalmanagement.Admin.patientPanel;
  */
 public class laboratoryMenu extends javax.swing.JFrame {
 
+    String patientName, address, patID;
+    int totalPrice = 0, price = 0;
+
     /**
      * Creates new form adminPanel1
      */
     public laboratoryMenu() {
         initComponents();
+    }
+
+    public laboratoryMenu(int total) {
+        initComponents();
+        totalPrice = total;
+    }
+
+    public void passVariables(String name, String add, String id) {
+        patientName = name;
+        address = add;
+        patID = id;
     }
 
     /**
@@ -97,7 +112,7 @@ public class laboratoryMenu extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel23.setText("Category");
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(70, 190, 79, 24);
+        jLabel23.setBounds(70, 186, 200, 50);
 
         jcmbNameTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jcmbNameTablets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Anatomic Pathology", "Clinical Microscopy", "Chemistry/Immunology", "Drug Test", "Molecular Diagnostic" }));
@@ -107,7 +122,7 @@ public class laboratoryMenu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jcmbNameTablets);
-        jcmbNameTablets.setBounds(270, 190, 210, 28);
+        jcmbNameTablets.setBounds(270, 190, 210, 50);
 
         logoutButton.setBackground(new java.awt.Color(105, 203, 255));
         logoutButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -137,14 +152,15 @@ public class laboratoryMenu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jcmbNameTablets1);
-        jcmbNameTablets1.setBounds(270, 250, 210, 30);
+        jcmbNameTablets1.setBounds(270, 310, 210, 50);
 
         jLabel25.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel25.setText("Type");
         jPanel1.add(jLabel25);
-        jLabel25.setBounds(70, 250, 42, 24);
+        jLabel25.setBounds(70, 310, 200, 50);
 
         jButton1.setBackground(new java.awt.Color(105, 203, 255));
+        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton1.setText("Ok");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -162,32 +178,58 @@ public class laboratoryMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcmbNameTabletsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbNameTabletsActionPerformed
-        if(jcmbNameTablets.getSelectedItem().equals("Make a Selection")){
-            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {""}));
-        } else if (jcmbNameTablets.getSelectedItem().equals("Anatomic Pathology")){
-            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Automated Hispathology Processing", "SurePath Liquid-PAP Test"}));
-        } else if (jcmbNameTablets.getSelectedItem().equals("Clinical Microscopy")){
-            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "InSure ONE Occult  Blood Test"}));
-        } else if (jcmbNameTablets.getSelectedItem().equals("Chemistry/Immunology")){
-            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Human Epipdidymal Protein (HE4)"}));
-        } else if (jcmbNameTablets.getSelectedItem().equals("Drug Test")){
-            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Drug Testing"}));
-        } else if (jcmbNameTablets.getSelectedItem().equals("Molecular Diagnostic")){
-            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "RT-PCR Swab Testing For COVID-19"}));
+        if (jcmbNameTablets.getSelectedItem().equals("Make a Selection")) {
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{""}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Anatomic Pathology")) {
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "Automated Hispathology Processing", "SurePath Liquid-PAP Test"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Clinical Microscopy")) {
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "Occult Blood Test"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Chemistry/Immunology")) {
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "Human Epipdidymal Protein (HE4)"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Drug Test")) {
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "Drug Testing"}));
+        } else if (jcmbNameTablets.getSelectedItem().equals("Molecular Diagnostic")) {
+            jcmbNameTablets1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "RT-PCR Swab Testing For COVID-19"}));
         }
     }//GEN-LAST:event_jcmbNameTabletsActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         this.dispose();
+        billingMenu billMenu = new billingMenu(totalPrice);
+        billMenu.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void jcmbNameTablets1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbNameTablets1ActionPerformed
-        // TODO add your handling code here:
+        if (jcmbNameTablets1.getSelectedItem().equals("Make a Selection")) {
+            priceField.setText("P0");
+            price = 0;
+        } else if (jcmbNameTablets1.getSelectedItem().equals("Automated Hispathology Processing")) {
+            priceField.setText("P1200");
+            price = 1200;
+        } else if (jcmbNameTablets1.getSelectedItem().equals("SurePath Liquid-PAP Test")) {
+            priceField.setText("P1000");
+            price = 1000;
+        } else if (jcmbNameTablets1.getSelectedItem().equals("Occult Blood Test")){
+            priceField.setText("P1700");
+            price = 1700;
+        } else if (jcmbNameTablets1.getSelectedItem().equals("Human Epipdidymal Protein (HE4)")){
+            priceField.setText("P1000");
+            price = 2000;
+        } else if (jcmbNameTablets1.getSelectedItem().equals("Drug Testing")){
+            priceField.setText("P1000");
+            price = 700;
+        } else if (jcmbNameTablets1.getSelectedItem().equals("RT-PCR Swab Testing For COVID-19")){
+            priceField.setText("P1000");
+            price = 2900;
+        } 
     }//GEN-LAST:event_jcmbNameTablets1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        billingMenu billMenu = new billingMenu();
-        billMenu.totalTextField.setText(String.valueOf(billMenu.priceLaba()));
+        this.dispose();
+        billingMenu billMenu = new billingMenu(totalPrice,price);
+        billMenu.passVariables(patientName, address, patID);
+        billMenu.setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

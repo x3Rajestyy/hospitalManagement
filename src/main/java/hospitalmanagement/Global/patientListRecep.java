@@ -221,6 +221,7 @@ public class patientListRecep extends javax.swing.JFrame {
             billingMenu billmen = new billingMenu();
             String name = first + " " + last;
             billmen.passVariables(name,address,PatientID);
+            billmen.buttonEnabled();
             billmen.setVisible(true);
         } else {
             doctorListRecep docList = new doctorListRecep();

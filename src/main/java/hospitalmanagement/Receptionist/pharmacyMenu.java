@@ -14,12 +14,28 @@ import hospitalmanagement.Admin.patientPanel;
  * @author Raj
  */
 public class pharmacyMenu extends javax.swing.JFrame {
-
+    
+    int totalPrice = 0;
+    int price = 0;
+    String patientName,address,patID;
+    
     /**
      * Creates new form adminPanel1
      */
     public pharmacyMenu() {
         initComponents();
+        
+    }
+    
+    public pharmacyMenu(int totalPrice){
+        initComponents();
+        this.totalPrice = totalPrice;
+    }
+    
+    public void passVariables(String name, String add, String id){
+        patientName = name;
+        address = add;
+        patID = id;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,7 +121,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel23.setText("Name of Tablets:");
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(70, 190, 149, 24);
+        jLabel23.setBounds(70, 190, 149, 26);
 
         jcmbNameTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jcmbNameTablets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Ibuprofen", "Co-codamol", "Paracetamol", "Amlodipine" }));
@@ -120,7 +136,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel22.setText("Reference No.");
         jPanel1.add(jLabel22);
-        jLabel22.setBounds(70, 230, 126, 24);
+        jLabel22.setBounds(70, 230, 126, 26);
 
         jtxtRef.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtRef);
@@ -129,7 +145,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel24.setText("Dose (mg):");
         jPanel1.add(jLabel24);
-        jLabel24.setBounds(70, 270, 95, 24);
+        jLabel24.setBounds(70, 270, 94, 26);
 
         jtxtDose.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtDose);
@@ -138,7 +154,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel4.setText("Number of Tablets:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(70, 310, 169, 24);
+        jLabel4.setBounds(70, 310, 169, 26);
 
         jtxtNumberTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtNumberTablets);
@@ -147,7 +163,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel6.setText("Issued Date:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(70, 390, 110, 24);
+        jLabel6.setBounds(70, 390, 109, 26);
 
         jtxtIssuedDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtIssuedDate);
@@ -156,7 +172,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel7.setText("Exp Date:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(70, 430, 84, 24);
+        jLabel7.setBounds(70, 430, 83, 26);
 
         jtxtExpDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtExpDate);
@@ -175,6 +191,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         logoutButton.setBounds(410, 550, 111, 58);
 
         priceField.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        priceField.setEnabled(false);
         jPanel1.add(priceField);
         priceField.setBounds(270, 470, 210, 30);
 
@@ -184,6 +201,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel2.setBounds(70, 470, 200, 30);
 
         jButton1.setBackground(new java.awt.Color(105, 203, 255));
+        jButton1.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton1.setText("Ok");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -206,9 +224,10 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtRef.setText("Ibu8568959");
             jtxtDose.setText("2");
             jtxtNumberTablets.setText("32");
-            jtxtIssuedDate.setText("06/05/2018");
+            jtxtIssuedDate.setText("06/05/2020");
             jtxtExpDate.setText("04/05/2023");
-           
+            priceField.setText("P18");
+            price = 18;
 
         }
 
@@ -217,8 +236,10 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtRef.setText("COCO6758940");
             jtxtDose.setText("500");
             jtxtNumberTablets.setText("30");
-            jtxtIssuedDate.setText("06/05/2018");
+            jtxtIssuedDate.setText("06/05/2020");
             jtxtExpDate.setText("04/12/2023");
+            priceField.setText("P200");
+            price = 200;
 
         }
 
@@ -227,8 +248,10 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtRef.setText("Pr01729214");
             jtxtDose.setText("500");
             jtxtNumberTablets.setText("16");
-            jtxtIssuedDate.setText("07/05/2018");
+            jtxtIssuedDate.setText("07/05/2020");
             jtxtExpDate.setText("04/05/2023");
+            priceField.setText("P70");
+            price = 70;
 
         }
 
@@ -237,8 +260,10 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtRef.setText("Am05875");
             jtxtDose.setText("5");
             jtxtNumberTablets.setText("28");
-            jtxtIssuedDate.setText("06/05/2018");
+            jtxtIssuedDate.setText("06/05/2020");
             jtxtExpDate.setText("04/05/2023");
+            priceField.setText("P100");
+            price = 100;
 
 
         }
@@ -248,8 +273,10 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtRef.setText("Am058439");
             jtxtDose.setText("4");
             jtxtNumberTablets.setText("12");
-            jtxtIssuedDate.setText("03/23/2019");
+            jtxtIssuedDate.setText("03/23/2020");
             jtxtExpDate.setText("10/15/2024");
+            priceField.setText("P80");
+            price = 80;
 
         }
         
@@ -258,8 +285,10 @@ public class pharmacyMenu extends javax.swing.JFrame {
             jtxtRef.setText("Ce93281");
             jtxtDose.setText("4");
             jtxtNumberTablets.setText("12");
-            jtxtIssuedDate.setText("12/12/2018");
+            jtxtIssuedDate.setText("12/12/2020");
             jtxtExpDate.setText("11/15/2024");
+            priceField.setText("P70");
+            price = 70;
 
         }
         
@@ -267,10 +296,11 @@ public class pharmacyMenu extends javax.swing.JFrame {
         {
             jtxtRef.setText("Hcz29311");
             jtxtDose.setText("");
-            jtxtNumberTablets.setText("100");
-            jtxtIssuedDate.setText("02/15/2019");
+            jtxtNumberTablets.setText("12");
+            jtxtIssuedDate.setText("02/15/2020");
             jtxtExpDate.setText("06/25/2024");
-
+            priceField.setText("78");
+            price = 78;
         }
         
         else if (jcmbNameTablets.getSelectedItem().equals("Make a Selection"))
@@ -287,11 +317,17 @@ public class pharmacyMenu extends javax.swing.JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         this.dispose();
+        billingMenu billMenu = new billingMenu(totalPrice);
+        billMenu.passVariables(patientName, address, patID);
+        billMenu.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        billingMenu billMenu = new billingMenu();
-        billMenu.totalTextField.setText(String.valueOf(billMenu.pricePharma()));
+        this.dispose();
+        billingMenu billMenu = new billingMenu(totalPrice,price);
+        billMenu.passVariables(patientName, address, patID);
+        billMenu.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
