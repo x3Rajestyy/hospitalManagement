@@ -303,6 +303,126 @@ public class pharmacyMenu extends javax.swing.JFrame {
             price = 78;
         }
         
+        else if (jcmbNameTablets.getSelectedItem().equals("Aspirin"))
+        {
+            jtxtRef.setText("ASPR-X2234");
+            jtxtDose.setText("80");
+            jtxtNumberTablets.setText("10");
+            jtxtIssuedDate.setText("05/30/2020");
+            jtxtExpDate.setText("1/24/2024");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Fluimucil"))
+        {
+            jtxtRef.setText("DR-XY22982");
+            jtxtDose.setText("600");
+            jtxtNumberTablets.setText("8");
+            jtxtIssuedDate.setText("10/13/2020");
+            jtxtExpDate.setText("01/16/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Solmux"))
+        {
+            jtxtRef.setText("U182208");
+            jtxtDose.setText("500");
+            jtxtNumberTablets.setText("10");
+            jtxtIssuedDate.setText("04/03/2021");
+            jtxtExpDate.setText("06/23/2025");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Alaxan FR"))
+        {
+            jtxtRef.setText("20452025");
+            jtxtDose.setText("200/325");
+            jtxtNumberTablets.setText("6");
+            jtxtIssuedDate.setText("12/12/2020");
+            jtxtExpDate.setText("04/20/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Kremil - S"))
+        {
+            jtxtRef.setText("UO20411");
+            jtxtDose.setText("178");
+            jtxtNumberTablets.setText("1");
+            jtxtIssuedDate.setText("09/20/2020");
+            jtxtExpDate.setText("04/16/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Diatabs"))
+        {
+            jtxtRef.setText("UO32570");
+            jtxtDose.setText("2");
+            jtxtNumberTablets.setText("12");
+            jtxtIssuedDate.setText("03/26/2020");
+            jtxtExpDate.setText("01/29/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Bioflu"))
+        {
+            jtxtRef.setText("N02BE51");
+            jtxtDose.setText("500");
+            jtxtNumberTablets.setText("6");
+            jtxtIssuedDate.setText("05/20/2020");
+            jtxtExpDate.setText("08/19/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Neozeps"))
+        {
+            jtxtRef.setText("20076266");
+            jtxtDose.setText("500");
+            jtxtNumberTablets.setText("10");
+            jtxtIssuedDate.setText("04/18/2020");
+            jtxtExpDate.setText("06/31/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Medicol"))
+        {
+            jtxtRef.setText("20632452");
+            jtxtDose.setText("200");
+            jtxtNumberTablets.setText("10");
+            jtxtIssuedDate.setText("05/31/2020");
+            jtxtExpDate.setText("09/19/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Imodium"))
+        {
+            jtxtRef.setText("20ADEQ29");
+            jtxtDose.setText("2");
+            jtxtNumberTablets.setText("1");
+            jtxtIssuedDate.setText("12/12/2021");
+            jtxtExpDate.setText("10/23/2023");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Ventomax"))
+        {
+            jtxtRef.setText("3070235");
+            jtxtDose.setText("2");
+            jtxtNumberTablets.setText("5");
+            jtxtIssuedDate.setText("01/10/2021");
+            jtxtExpDate.setText("08/19/2024");
+
+        }
+        
+        else if (jcmbNameTablets.getSelectedItem().equals("Flanax"))
+        {
+            jtxtRef.setText("U2892408");
+            jtxtDose.setText("550");
+            jtxtNumberTablets.setText("6");
+            jtxtIssuedDate.setText("02/31/2020");
+            jtxtExpDate.setText("06/26/2023");
+
+        }
+        
         else if (jcmbNameTablets.getSelectedItem().equals("Make a Selection"))
         {
             jtxtRef.setText("");
