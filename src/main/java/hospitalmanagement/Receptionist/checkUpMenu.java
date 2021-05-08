@@ -115,7 +115,7 @@ public class checkUpMenu extends javax.swing.JFrame {
         jLabel23.setBounds(70, 186, 200, 50);
 
         jcmbNameCheckUpService.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jcmbNameCheckUpService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Anatomic Pathology", "Clinical Microscopy", "Chemistry/Immunology", "Drug Test", "Molecular Diagnostic" }));
+        jcmbNameCheckUpService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Health Check for Heart", "Health Check at Home" }));
         jcmbNameCheckUpService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcmbNameCheckUpServiceActionPerformed(evt);
@@ -182,7 +182,7 @@ public class checkUpMenu extends javax.swing.JFrame {
             jcmbNameCheckUpService1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{""}));
         } else if (jcmbNameCheckUpService.getSelectedItem().equals("Health Check for Heart")) {
             jcmbNameCheckUpService1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "Blood Pressure","Blood Test","Electrocardiogram","Obesity Test"}));
-        } else if (jcmbNameCheckUpService.getSelectedItem().equals("health Check at Home")) {
+        } else if (jcmbNameCheckUpService.getSelectedItem().equals("Health Check at Home")) {
             jcmbNameCheckUpService1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Make a Selection", "Dental Care","Physical Activity","Skin Checks","Eye sight Checks"}));
         }
     }//GEN-LAST:event_jcmbNameCheckUpServiceActionPerformed

@@ -46,6 +46,33 @@ public class roomsOccupied extends javax.swing.JFrame {
             setTableData();
         }
     }
+    
+    private void updateTable() {
+        try {
+            String filePath = "occupiedroom.txt";
+            File file = new File(filePath);
+            try {
+                FileWriter fw = new FileWriter(file);
+                BufferedWriter bw = new BufferedWriter(fw);
+
+                for (int i = 0; i < occTable.getRowCount(); i++) {//rows
+                    for (int j = 0; j < occTable.getColumnCount(); j++) {//columns
+                        String placeholder = occTable.getValueAt(i, j).toString().replaceAll("\\s+", "_");
+                        bw.write(placeholder + " ");
+                    }
+                    bw.newLine();
+                }
+
+                bw.close();
+                fw.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(roomMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
    
     private void setTableData(){
         File file = new File("occupiedroom.txt");
@@ -53,7 +80,7 @@ public class roomsOccupied extends javax.swing.JFrame {
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             
-            DefaultTableModel model = (DefaultTableModel)docTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)occTable.getModel();
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length; i++){
@@ -68,6 +95,8 @@ public class roomsOccupied extends javax.swing.JFrame {
     public void fromOtherPane(){
         fromBilling = true;
         selectButton.setVisible(true);
+        addButton.setVisible(false);
+        deleteButton.setVisible(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,13 +109,15 @@ public class roomsOccupied extends javax.swing.JFrame {
 
         canvas1 = new java.awt.Canvas();
         jScrollPane1 = new javax.swing.JScrollPane();
-        docTable = new javax.swing.JTable();
+        occTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         selectButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -97,8 +128,8 @@ public class roomsOccupied extends javax.swing.JFrame {
         getContentPane().add(canvas1);
         canvas1.setBounds(601, 356, 0, 0);
 
-        docTable.setBackground(new java.awt.Color(255, 255, 204));
-        docTable.setModel(new javax.swing.table.DefaultTableModel(
+        occTable.setBackground(new java.awt.Color(255, 255, 204));
+        occTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -114,17 +145,17 @@ public class roomsOccupied extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        docTable.setGridColor(new java.awt.Color(0, 0, 0));
-        docTable.setShowGrid(false);
-        docTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(docTable);
-        if (docTable.getColumnModel().getColumnCount() > 0) {
-            docTable.getColumnModel().getColumn(0).setResizable(false);
-            docTable.getColumnModel().getColumn(1).setResizable(false);
-            docTable.getColumnModel().getColumn(2).setResizable(false);
-            docTable.getColumnModel().getColumn(3).setResizable(false);
-            docTable.getColumnModel().getColumn(4).setResizable(false);
-            docTable.getColumnModel().getColumn(5).setResizable(false);
+        occTable.setGridColor(new java.awt.Color(0, 0, 0));
+        occTable.setShowGrid(false);
+        occTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(occTable);
+        if (occTable.getColumnModel().getColumnCount() > 0) {
+            occTable.getColumnModel().getColumn(0).setResizable(false);
+            occTable.getColumnModel().getColumn(1).setResizable(false);
+            occTable.getColumnModel().getColumn(2).setResizable(false);
+            occTable.getColumnModel().getColumn(3).setResizable(false);
+            occTable.getColumnModel().getColumn(4).setResizable(false);
+            occTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         getContentPane().add(jScrollPane1);
@@ -170,6 +201,30 @@ public class roomsOccupied extends javax.swing.JFrame {
         jPanel1.add(selectButton);
         selectButton.setBounds(1103, 70, 80, 40);
 
+        deleteButton.setBackground(new java.awt.Color(105, 203, 255));
+        deleteButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.setBorderPainted(false);
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deleteButton);
+        deleteButton.setBounds(120, 70, 100, 40);
+
+        addButton.setBackground(new java.awt.Color(105, 203, 255));
+        addButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        addButton.setText("Add");
+        addButton.setBorderPainted(false);
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addButton);
+        addButton.setBounds(10, 70, 100, 40);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1340, 780);
 
@@ -188,17 +243,40 @@ public class roomsOccupied extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
+        try {
+            DefaultTableModel model = (DefaultTableModel) occTable.getModel();
+            try {
+                int SelectedRowIndex = occTable.getSelectedRow();
+                model.removeRow(SelectedRowIndex);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+            JOptionPane.showMessageDialog(this, "Patient Data Deleted Sucessfully");
+            updateTable();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        this.dispose();
+        
+    }//GEN-LAST:event_addButtonActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
     private java.awt.Canvas canvas1;
-    private javax.swing.JTable docTable;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable occTable;
     private javax.swing.JButton selectButton;
     // End of variables declaration//GEN-END:variables
 }
