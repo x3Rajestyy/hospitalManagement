@@ -9,6 +9,7 @@ import hospitalmanagement.Doctor.*;
 import hospitalmanagement.Global.*;
 import hospitalmanagement.Admin.patientPanel;
 import hospitalmanagement.Main.hospitalMenu;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -226,6 +227,11 @@ public class billingMenu extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         jButton5.setText("Pay");
         jButton5.setBorderPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton5);
         jButton5.setBounds(960, 420, 110, 60);
 
@@ -296,6 +302,20 @@ public class billingMenu extends javax.swing.JFrame {
         room.fromOtherPane();
         room.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String pay= JOptionPane.showInputDialog(this, "Customer Money: ");
+        double tempPay = Double.parseDouble(pay);
+        double change;
+        if(tempPay>totalprice){
+            change = totalprice-tempPay;
+            JOptionPane.showConfirmDialog(rootPane,"Change is: "+change);
+        }else if(tempPay<totalprice){
+            JOptionPane.showMessageDialog(rootPane, "Invalid: not enough gold");
+        }else if(tempPay==totalprice){
+            JOptionPane.showConfirmDialog(rootPane, "Exact Amount");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
