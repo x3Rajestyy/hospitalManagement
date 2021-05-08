@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package hospitalmanagement.Receptionist;
-
+import hospitalmanagement.Receptionist.billingMenu;
+import hospitalmanagement.Main.*;
 import hospitalmanagement.Doctor.*;
 import hospitalmanagement.Admin.patientPanel;
-import hospitalmanagement.Main.hospitalMenu;
 
 /**
  *
@@ -21,7 +21,6 @@ public class pharmacyMenu extends javax.swing.JFrame {
     public pharmacyMenu() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,7 +105,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel23.setText("Name of Tablets:");
         jPanel1.add(jLabel23);
-        jLabel23.setBounds(70, 190, 149, 26);
+        jLabel23.setBounds(70, 190, 149, 24);
 
         jcmbNameTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jcmbNameTablets.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Make a Selection", "Ibuprofen", "Co-codamol", "Paracetamol", "Amlodipine" }));
@@ -121,7 +120,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel22.setText("Reference No.");
         jPanel1.add(jLabel22);
-        jLabel22.setBounds(70, 230, 126, 26);
+        jLabel22.setBounds(70, 230, 126, 24);
 
         jtxtRef.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtRef);
@@ -130,7 +129,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel24.setText("Dose (mg):");
         jPanel1.add(jLabel24);
-        jLabel24.setBounds(70, 270, 94, 26);
+        jLabel24.setBounds(70, 270, 95, 24);
 
         jtxtDose.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtDose);
@@ -139,7 +138,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel4.setText("Number of Tablets:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(70, 310, 169, 26);
+        jLabel4.setBounds(70, 310, 169, 24);
 
         jtxtNumberTablets.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtNumberTablets);
@@ -148,7 +147,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel6.setText("Issued Date:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(70, 390, 109, 26);
+        jLabel6.setBounds(70, 390, 110, 24);
 
         jtxtIssuedDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtIssuedDate);
@@ -157,7 +156,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Aeroport", 1, 18)); // NOI18N
         jLabel7.setText("Exp Date:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(70, 430, 83, 26);
+        jLabel7.setBounds(70, 430, 84, 24);
 
         jtxtExpDate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jPanel1.add(jtxtExpDate);
@@ -187,6 +186,11 @@ public class pharmacyMenu extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(105, 203, 255));
         jButton1.setText("Ok");
         jButton1.setBorderPainted(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
         jButton1.setBounds(283, 550, 110, 60);
 
@@ -283,9 +287,12 @@ public class pharmacyMenu extends javax.swing.JFrame {
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         this.dispose();
-        billingMenu recMen = new billingMenu();
-        recMen.setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        billingMenu billMenu = new billingMenu();
+        billMenu.totalTextField.setText(String.valueOf(billMenu.pricePharma()));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +319,7 @@ public class pharmacyMenu extends javax.swing.JFrame {
     private javax.swing.JTextField jtxtNumberTablets;
     private javax.swing.JTextField jtxtRef;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField priceField;
+    public javax.swing.JTextField priceField;
     // End of variables declaration//GEN-END:variables
+    
 }
