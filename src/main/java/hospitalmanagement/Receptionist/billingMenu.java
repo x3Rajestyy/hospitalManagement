@@ -68,7 +68,15 @@ public class billingMenu extends javax.swing.JFrame {
         jButton3.setEnabled(true);
         jButton4.setEnabled(true);
     }
-   
+    
+    public void clearAndDisable(){
+        jTextArea1.setText("");
+        totalTextField.setText("P"); 
+        jButton1.setEnabled(false);
+        jButton2.setEnabled(false);
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -310,10 +318,12 @@ public class billingMenu extends javax.swing.JFrame {
         if(tempPay>totalprice){
             change = totalprice-tempPay;
             JOptionPane.showConfirmDialog(rootPane,"Change is: "+change);
+            clearAndDisable();
         }else if(tempPay<totalprice){
             JOptionPane.showMessageDialog(rootPane, "Invalid: not enough gold");
         }else if(tempPay==totalprice){
             JOptionPane.showConfirmDialog(rootPane, "Exact Amount");
+            clearAndDisable();
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
