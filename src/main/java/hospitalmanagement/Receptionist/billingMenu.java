@@ -328,6 +328,7 @@ public class billingMenu extends javax.swing.JFrame {
         }else if(tempPay==totalprice){
             JOptionPane.showMessageDialog(this, "Exact Amount");
             clearAndDisable();
+            JOptionPane.showMessageDialog(this, "Transaction Complete!");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
