@@ -193,6 +193,11 @@ public class billingMenu extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         jButton4.setText("Check Up");
         jButton4.setBorderPainted(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4);
         jButton4.setBounds(260, 500, 330, 100);
 
@@ -270,6 +275,13 @@ public class billingMenu extends javax.swing.JFrame {
         lab.passVariables(patientName, address, patID);
         lab.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.dispose();
+        checkUpMenu cUp = new checkUpMenu(totalprice);
+        cUp.passVariables(patientName, address, patID);
+        cUp.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

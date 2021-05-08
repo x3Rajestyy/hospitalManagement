@@ -9,6 +9,7 @@ hospitalmanagement\Admin\nursePanel$4.class
 hospitalmanagement\Doctor\checkDoctor$1.class
 hospitalmanagement\Receptionist\checkRoomOccupants$3.class
 hospitalmanagement\Admin\doctorPanel$4.class
+hospitalmanagement\Receptionist\checkUpMenu$3.class
 hospitalmanagement\Doctor\doctorMenu$3.class
 hospitalmanagement\Main\doctorLogin$3.class
 hospitalmanagement\Admin\nursePanel$1.class
@@ -18,6 +19,7 @@ hospitalmanagement\Receptionist\roomMenu$4.class
 hospitalmanagement\Receptionist\billingMenu$4.class
 hospitalmanagement\Admin\adminPanel$3.class
 hospitalmanagement\Receptionist\billingMenu$1.class
+hospitalmanagement\Receptionist\checkUpMenu.class
 hospitalmanagement\Receptionist\roomMenu$1.class
 hospitalmanagement\Admin\patientPanel$5.class
 hospitalmanagement\Global\doctorListRecep$3.class
@@ -52,9 +54,11 @@ hospitalmanagement\Main\doctorLogin$1.class
 hospitalmanagement\Receptionist\roomMenu$6.class
 hospitalmanagement\Admin\doctorPanel$2.class
 hospitalmanagement\Global\appointmentListRecep.class
+hospitalmanagement\Receptionist\checkUpMenu$4.class
 hospitalmanagement\Admin\nursePanel$3.class
 hospitalmanagement\Admin\recepPanel.class
 hospitalmanagement\Receptionist\laboratoryMenu.class
+hospitalmanagement\Global\roomsOccupied.class
 hospitalmanagement\Receptionist\billingMenu$2.class
 hospitalmanagement\Main\doctorLogin$2.class
 hospitalmanagement\Admin\doctorPanel$5.class
@@ -66,6 +70,8 @@ hospitalmanagement\Main\UsernamePasswordRECEP.class
 hospitalmanagement\Receptionist\recepMenu.class
 hospitalmanagement\Admin\patientPanel$6.class
 hospitalmanagement\Doctor\doctorMenu$2.class
+hospitalmanagement\Global\roomsOccupied$1.class
+hospitalmanagement\Receptionist\billingMenu$5.class
 hospitalmanagement\Main\hospitalMenu.class
 hospitalmanagement\Receptionist\recepMenu$3.class
 hospitalmanagement\Receptionist\laboratoryMenu$2.class
@@ -84,6 +90,7 @@ hospitalmanagement\Receptionist\checkRoomOccupants$1.class
 hospitalmanagement\Receptionist\roomMenu$2.class
 hospitalmanagement\Main\recepLogin.class
 hospitalmanagement\Global\patientListRecep.class
+hospitalmanagement\Receptionist\checkUpMenu$2.class
 hospitalmanagement\Admin\adminPanel$1.class
 hospitalmanagement\Global\doctorListRecep.class
 hospitalmanagement\Receptionist\pharmacyMenu.class
@@ -95,6 +102,7 @@ hospitalmanagement\Global\appointmentListRecep$5.class
 hospitalmanagement\Receptionist\laboratoryMenu$1.class
 hospitalmanagement\Global\patientListRecep$3.class
 hospitalmanagement\Main\hospitalMenu$1.class
+hospitalmanagement\Global\roomsOccupied$2.class
 hospitalmanagement\Admin\adminPanel$2.class
 hospitalmanagement\Global\patientListRecep$2.class
 hospitalmanagement\Main\UsernamePasswordsADMIN.class
@@ -107,6 +115,7 @@ hospitalmanagement\Receptionist\billingMenu$3.class
 hospitalmanagement\Receptionist\roomMenu$3.class
 hospitalmanagement\Admin\patientPanel$3.class
 hospitalmanagement\Main\UsernamePasswordsDOC.class
+hospitalmanagement\Receptionist\checkUpMenu$1.class
 hospitalmanagement\Doctor\doctorMenu$1.class
 hospitalmanagement\Receptionist\roomMenu.class
 hospitalmanagement\Main\recepLogin$1.class
