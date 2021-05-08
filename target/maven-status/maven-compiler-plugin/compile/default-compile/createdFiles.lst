@@ -24,6 +24,7 @@ hospitalmanagement\Admin\nursePanel$2.class
 hospitalmanagement\Global\appointmentListRecep$2.class
 hospitalmanagement\Doctor\doctorMenu$4.class
 hospitalmanagement\Doctor\checkAppointments$1.class
+hospitalmanagement\Receptionist\billingMenu$7.class
 hospitalmanagement\Global\doctorListRecep$1.class
 hospitalmanagement\Admin\doctorPanel.class
 hospitalmanagement\Admin\adminPanel$4.class
