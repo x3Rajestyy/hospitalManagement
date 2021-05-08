@@ -198,25 +198,25 @@ public class checkUpMenu extends javax.swing.JFrame {
             priceField.setText("P0");
             price = 0;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Blood Pressure")) {
-            priceField.setText("P1200");
+            priceField.setText("P100");
             price = 1200;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Blood Test")) {
-            priceField.setText("P1000");
+            priceField.setText("P165");
             price = 1000;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Electrocardiogram")){
-            priceField.setText("P1700");
+            priceField.setText("P250");
             price = 1700;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Obesity Test")){
-            priceField.setText("P1000");
+            priceField.setText("P100");
             price = 2000;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Dental Care")){
-            priceField.setText("P1000");
+            priceField.setText("P2500");
             price = 700;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Physical Activity")){
-            priceField.setText("P1000");
+            priceField.setText("P150");
             price = 2900;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Skin Checks")){
-            priceField.setText("P1000");
+            priceField.setText("P3000");
             price = 2900;
         } else if (jcmbNameCheckUpService1.getSelectedItem().equals("Eye sight Checks")){
             priceField.setText("P1000");
