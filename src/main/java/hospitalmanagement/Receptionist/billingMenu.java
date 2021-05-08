@@ -308,7 +308,7 @@ public class billingMenu extends javax.swing.JFrame {
         double tempPay = Double.parseDouble(pay);
         double change;
         if(tempPay>totalprice){
-            change = totalprice-tempPay;
+            change = tempPay - totalprice;
             JOptionPane.showConfirmDialog(rootPane,"Change is: "+change);
         }else if(tempPay<totalprice){
             JOptionPane.showMessageDialog(rootPane, "Invalid: not enough gold");
