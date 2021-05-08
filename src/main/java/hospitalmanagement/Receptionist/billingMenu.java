@@ -156,7 +156,7 @@ public class billingMenu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(logoutButton);
-        logoutButton.setBounds(1160, 550, 110, 60);
+        logoutButton.setBounds(1080, 420, 110, 60);
 
         jButton1.setBackground(new java.awt.Color(255, 153, 0));
         jButton1.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
@@ -218,7 +218,7 @@ public class billingMenu extends javax.swing.JFrame {
         jLabel2.setBounds(830, 120, 90, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Services Used:");
+        jLabel4.setText("Patient Info");
         jPanel1.add(jLabel4);
         jLabel4.setBounds(830, 194, 360, 30);
 
@@ -227,7 +227,7 @@ public class billingMenu extends javax.swing.JFrame {
         jButton5.setText("Pay");
         jButton5.setBorderPainted(false);
         jPanel1.add(jButton5);
-        jButton5.setBounds(1040, 550, 110, 60);
+        jButton5.setBounds(960, 420, 110, 60);
 
         jButton6.setBackground(new java.awt.Color(255, 153, 0));
         jButton6.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
@@ -239,14 +239,14 @@ public class billingMenu extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton6);
-        jButton6.setBounds(910, 550, 120, 60);
+        jButton6.setBounds(830, 420, 120, 60);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(830, 230, 360, 290);
+        jScrollPane1.setBounds(830, 230, 360, 180);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
 

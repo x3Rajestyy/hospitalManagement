@@ -337,7 +337,7 @@ public class roomMenu extends javax.swing.JFrame {
             }
         }
         updateTable();
-        JOptionPane.showMessageDialog(this, "Appointment Data Updated Successfully");
+        JOptionPane.showMessageDialog(this, "Room Data Updated Successfully");
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -349,7 +349,7 @@ public class roomMenu extends javax.swing.JFrame {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
-            JOptionPane.showMessageDialog(this, "Appointment Data Deleted Sucessfully");
+            JOptionPane.showMessageDialog(this, "Room Data Updated Successfully");
             updateTable();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -379,7 +379,7 @@ public class roomMenu extends javax.swing.JFrame {
         model.insertRow(model.getRowCount(), new Object[] {bedID.getText(),catBox.getSelectedItem().toString(),roomNo.getText(),avaBox.getSelectedItem().toString()});
         
         updateTable();
-        JOptionPane.showMessageDialog(this, "Appointment Data Added Successfully");
+        JOptionPane.showMessageDialog(this, "Room Data Updated Successfully");
     }//GEN-LAST:event_addRoomActionPerformed
 
     private void roomNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomNoActionPerformed

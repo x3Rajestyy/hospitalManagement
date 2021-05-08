@@ -302,7 +302,7 @@ public class roomsOccupied extends javax.swing.JFrame {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
-            JOptionPane.showMessageDialog(this, "Patient Data Deleted Sucessfully");
+            JOptionPane.showMessageDialog(this, "Occupied Room Data Deleted Sucessfully");
             updateTable();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
