@@ -186,6 +186,11 @@ public class billingMenu extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Aeroport", 0, 24)); // NOI18N
         jButton3.setText("Room Usage");
         jButton3.setBorderPainted(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton3);
         jButton3.setBounds(260, 370, 330, 100);
 
@@ -282,6 +287,15 @@ public class billingMenu extends javax.swing.JFrame {
         cUp.passVariables(patientName, address, patID);
         cUp.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+        roomsOccupied room = new roomsOccupied(totalprice);
+        room.filter(patID);
+        room.passVariables(patientName, address, patID);
+        room.fromOtherPane();
+        room.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

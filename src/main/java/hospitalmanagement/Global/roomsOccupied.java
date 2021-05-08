@@ -19,7 +19,9 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -27,9 +29,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class roomsOccupied extends javax.swing.JFrame {
     
-    private String date, ID, name, gender, age, address, con, dis;
     boolean fromBilling = false;
-    
+    private int totalPrice;
+    String patientName,address,patID;
     /**
      * Creates new form patientPanel
      */
@@ -39,12 +41,49 @@ public class roomsOccupied extends javax.swing.JFrame {
         setSize(1290,766);
         
         selectButton.setVisible(false);
-        File file = new File("occupiedroomData.txt");
+        File file = new File("occupiedroom.txt");
         if(file.length() == 0){
-            //do nothing
+            deleteButton.setEnabled(false);
         } else {
             setTableData();
         }
+    }
+    
+    public roomsOccupied(int totalPrice){
+        initComponents();
+        
+        setSize(1290,766);
+        
+        File file = new File("occupiedroom.txt");
+        if(file.length() == 0){
+            deleteButton.setEnabled(false);
+        } else {
+            setTableData();
+        }
+        
+        this.totalPrice = totalPrice;
+    }
+    
+    public void filter(String query){
+        DefaultTableModel model = (DefaultTableModel) occTable.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        
+        occTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(query));
+        
+    }
+    
+    public void passVariables(String name, String add, String id) {
+        patientName = name;
+        address = add;
+        patID = id;
+    }
+    
+    public void setData(String ID, String fName, String lName, String add, String bedID, String roomCat, String date){
+        DefaultTableModel model = (DefaultTableModel) occTable.getModel();
+        
+         model.insertRow(model.getRowCount(), new Object[]{ID,fName,lName,add,bedID,roomCat,date});
+         updateTable();
     }
     
     private void updateTable() {
@@ -94,7 +133,6 @@ public class roomsOccupied extends javax.swing.JFrame {
     
     public void fromOtherPane(){
         fromBilling = true;
-        selectButton.setVisible(true);
         addButton.setVisible(false);
         deleteButton.setVisible(false);
     }
@@ -114,7 +152,7 @@ public class roomsOccupied extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         selectButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         addButton = new javax.swing.JButton();
@@ -148,6 +186,11 @@ public class roomsOccupied extends javax.swing.JFrame {
         occTable.setGridColor(new java.awt.Color(0, 0, 0));
         occTable.setShowGrid(false);
         occTable.getTableHeader().setReorderingAllowed(false);
+        occTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                occTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(occTable);
         if (occTable.getColumnModel().getColumnCount() > 0) {
             occTable.getColumnModel().getColumn(0).setResizable(false);
@@ -181,23 +224,28 @@ public class roomsOccupied extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 0, 1280, 60);
 
-        jButton2.setBackground(new java.awt.Color(105, 203, 255));
-        jButton2.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
-        jButton2.setText("Back");
-        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(105, 203, 255));
+        backButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        backButton.setText("Back");
+        backButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        backButton.setBorderPainted(false);
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(1190, 70, 80, 40);
+        jPanel1.add(backButton);
+        backButton.setBounds(1190, 70, 80, 40);
 
         selectButton.setBackground(new java.awt.Color(105, 203, 255));
         selectButton.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
         selectButton.setText("Select");
         selectButton.setBorderPainted(false);
+        selectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectButtonActionPerformed(evt);
+            }
+        });
         jPanel1.add(selectButton);
         selectButton.setBounds(1103, 70, 80, 40);
 
@@ -232,23 +280,25 @@ public class roomsOccupied extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.dispose();
         if(fromBilling == true){
-            checkRoomOccupants room = new checkRoomOccupants();
-            room.setVisible(true);
-        } else {
             billingMenu bill = new billingMenu();
             bill.setVisible(true);
+        } else {
+            recepMenu room = new recepMenu();
+            room.setVisible(true);
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_backButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try {
             DefaultTableModel model = (DefaultTableModel) occTable.getModel();
+            String bedID = model.getValueAt(occTable.getSelectedRow(), 4).toString();
             try {
                 int SelectedRowIndex = occTable.getSelectedRow();
                 model.removeRow(SelectedRowIndex);
+
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
@@ -261,16 +311,36 @@ public class roomsOccupied extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         this.dispose();
-        
+        patientListRecep patpan = new patientListRecep();
+        patpan.fromRooms();
+        patpan.setVisible(true);
     }//GEN-LAST:event_addButtonActionPerformed
+
+    private void occTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_occTableMouseClicked
+        deleteButton.setEnabled(true);
+    }//GEN-LAST:event_occTableMouseClicked
+
+    private void selectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectButtonActionPerformed
+        try{
+        int totalDays = Integer.parseInt(JOptionPane.showInputDialog(this,"How many days confined?"));
+        int price = 600 * totalDays;
+        this.dispose();
+        billingMenu bMenu = new billingMenu(totalPrice,price);
+        bMenu.passVariables(patientName, address, patID);
+        bMenu.setVisible(true);
+        } catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this,"Input Numbers Only");
+        }
+        
+    }//GEN-LAST:event_selectButtonActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JButton backButton;
     private java.awt.Canvas canvas1;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

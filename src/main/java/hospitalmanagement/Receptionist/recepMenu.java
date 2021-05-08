@@ -225,7 +225,7 @@ public class recepMenu extends javax.swing.JFrame {
 
     private void roomButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomButton1ActionPerformed
         this.dispose();
-        checkRoomOccupants checkRoom = new checkRoomOccupants();
+        roomsOccupied checkRoom = new roomsOccupied();
         checkRoom.setVisible(true);
     }//GEN-LAST:event_roomButton1ActionPerformed
 
