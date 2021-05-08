@@ -71,7 +71,11 @@ public class billingMenu extends javax.swing.JFrame {
     
     public void clearAndDisable(){
         jTextArea1.setText("");
-        totalTextField.setText("P"); 
+        totalTextField.setText("P 0");
+        totalprice = 0;
+        patID = "";
+        address = "";
+        patientName = "";
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         jButton3.setEnabled(false);
@@ -317,12 +321,12 @@ public class billingMenu extends javax.swing.JFrame {
         double change;
         if(tempPay>totalprice){
             change = tempPay - totalprice;
-            JOptionPane.showConfirmDialog(rootPane,"Change is: "+change);
+            JOptionPane.showMessageDialog(this,"Change is: "+change);
             clearAndDisable();
         }else if(tempPay<totalprice){
-            JOptionPane.showMessageDialog(rootPane, "Invalid: not enough gold");
+            JOptionPane.showMessageDialog(this, "Invalid: not enough money");
         }else if(tempPay==totalprice){
-            JOptionPane.showConfirmDialog(rootPane, "Exact Amount");
+            JOptionPane.showMessageDialog(this, "Exact Amount");
             clearAndDisable();
         }
     }//GEN-LAST:event_jButton5ActionPerformed
