@@ -32,13 +32,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Raj
  */
 public class checkAppointments extends javax.swing.JFrame {
-    
-     DateFormat  dateFormat = new SimpleDateFormat("MM/dd/YY");
-    Date date = new Date();
-    Calendar cal = Calendar.getInstance();
-
-    
-    
+   
     /**
      * Creates new form patientPanel
      */
@@ -60,7 +54,7 @@ public class checkAppointments extends javax.swing.JFrame {
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             
-            DefaultTableModel model = (DefaultTableModel)patTable.getModel();
+            DefaultTableModel model = (DefaultTableModel)appTable.getModel();
             Object[] lines = br.lines().toArray();
             
             for(int i = 0; i < lines.length; i++){
@@ -89,7 +83,7 @@ public class checkAppointments extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        patTable = new javax.swing.JTable();
+        appTable = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,8 +124,8 @@ public class checkAppointments extends javax.swing.JFrame {
         jPanel1.add(jButton2);
         jButton2.setBounds(1190, 70, 80, 40);
 
-        patTable.setBackground(new java.awt.Color(255, 255, 204));
-        patTable.setModel(new javax.swing.table.DefaultTableModel(
+        appTable.setBackground(new java.awt.Color(255, 255, 204));
+        appTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -139,22 +133,22 @@ public class checkAppointments extends javax.swing.JFrame {
                 "Patient ID", "Doctor", "Appointment Date", "First Name", "Last Name", "Contact No.", "Disease"
             }
         ));
-        patTable.setGridColor(new java.awt.Color(0, 0, 0));
-        patTable.setShowGrid(false);
-        patTable.getTableHeader().setReorderingAllowed(false);
-        patTable.addMouseListener(new java.awt.event.MouseAdapter() {
+        appTable.setGridColor(new java.awt.Color(0, 0, 0));
+        appTable.setShowGrid(false);
+        appTable.getTableHeader().setReorderingAllowed(false);
+        appTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                patTableMouseClicked(evt);
+                appTableMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(patTable);
-        if (patTable.getColumnModel().getColumnCount() > 0) {
-            patTable.getColumnModel().getColumn(0).setResizable(false);
-            patTable.getColumnModel().getColumn(1).setResizable(false);
-            patTable.getColumnModel().getColumn(3).setResizable(false);
-            patTable.getColumnModel().getColumn(4).setResizable(false);
-            patTable.getColumnModel().getColumn(5).setResizable(false);
-            patTable.getColumnModel().getColumn(6).setResizable(false);
+        jScrollPane1.setViewportView(appTable);
+        if (appTable.getColumnModel().getColumnCount() > 0) {
+            appTable.getColumnModel().getColumn(0).setResizable(false);
+            appTable.getColumnModel().getColumn(1).setResizable(false);
+            appTable.getColumnModel().getColumn(3).setResizable(false);
+            appTable.getColumnModel().getColumn(4).setResizable(false);
+            appTable.getColumnModel().getColumn(5).setResizable(false);
+            appTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jPanel1.add(jScrollPane1);
@@ -178,13 +172,14 @@ public class checkAppointments extends javax.swing.JFrame {
         docmen.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void patTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patTableMouseClicked
+    private void appTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTableMouseClicked
     
-    }//GEN-LAST:event_patTableMouseClicked
+    }//GEN-LAST:event_appTableMouseClicked
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable appTable;
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel14;
@@ -192,7 +187,6 @@ public class checkAppointments extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable patTable;
     private javax.swing.ButtonGroup radioGroup;
     // End of variables declaration//GEN-END:variables
 }
