@@ -25,7 +25,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class checkDoctor extends javax.swing.JFrame {
     
-    private String date, ID, name, gender, age, address, con, dis;
     
     
     /**
