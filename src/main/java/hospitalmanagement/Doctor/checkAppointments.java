@@ -45,7 +45,7 @@ public class checkAppointments extends javax.swing.JFrame {
     public checkAppointments() {
         initComponents();
         setSize(1290,766);
-        File file = new File("patientData.txt");
+        File file = new File("appointmentData.txt");
         if(file.length() == 0){
             //do nothing
         } else {
@@ -55,7 +55,7 @@ public class checkAppointments extends javax.swing.JFrame {
 
     
     private void setTableData(){
-        File file = new File("patientData.txt");
+        File file = new File("appointmentData.txt");
         try{
         FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
