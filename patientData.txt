@@ -1,2 +1,1 @@
-PT001 05/02/21 Raj Jumalon Male 200 Engaged faraway Outdoor 09994509736 Cough 
-PT002 05/05/21 Raj_Michael Jumalon Male 20 Single Somewhere_Far Indoor 09994509736 testing
+PT001 _05/10/21 Astra Cruz Female 23 Single Manggahan,_Rodriguez,_Rizal Outdoor 09945059785 Cough 

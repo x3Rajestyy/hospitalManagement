@@ -393,15 +393,15 @@ public class nursePanel extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) nurTable.getModel();
         
         if(nurTable.getSelectedRowCount() == 1){
-            String datesField = dateField.getText().replaceAll("\\s+", "");
-            String firstName = fNameField.getText().replaceAll("\\s+", "_");
-            String lname = lNameField.getText().replaceAll("\\s+", "_");
+            String datesField = dateField.getText();
+            String firstName = fNameField.getText();
+            String lname = lNameField.getText();
             String buttons = getSelectedButton(radioGroup);
             String ag = ageField.getText();
             String mar = maritalCombox.getSelectedItem().toString();
-            String add = addField.getText().replaceAll("\\s+", "_");
-            String contact = conField.getText().replaceAll("\\s+", "_");
-            String email = emailField.getText().replaceAll("\\s+", "_");
+            String add = addField.getText();
+            String contact = conField.getText();
+            String email = emailField.getText();
             
             model.setValueAt(datesField, nurTable.getSelectedRow(),0);
             model.setValueAt(firstName, nurTable.getSelectedRow(),1);

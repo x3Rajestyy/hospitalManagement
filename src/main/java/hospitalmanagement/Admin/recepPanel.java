@@ -322,8 +322,8 @@ public class recepPanel extends javax.swing.JFrame {
         conField.setBounds(500, 240, 220, 30);
 
         addReceptionist.setBackground(new java.awt.Color(255, 153, 0));
-        addReceptionist.setFont(new java.awt.Font("Aeroport", 0, 18)); // NOI18N
-        addReceptionist.setText("Add Doctor");
+        addReceptionist.setFont(new java.awt.Font("Aeroport", 0, 14)); // NOI18N
+        addReceptionist.setText("Add Receptionist");
         addReceptionist.setToolTipText("");
         addReceptionist.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         addReceptionist.setBorderPainted(false);

@@ -65,11 +65,17 @@ public class roomsOccupied extends javax.swing.JFrame {
     }
     
     public void filter(String query){
+        try{
         DefaultTableModel model = (DefaultTableModel) occTable.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
         
         occTable.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(query));
+        }catch(NullPointerException e){
+            billingMenu bill = new billingMenu(totalPrice);
+            bill.setVisible(true);
+        }
+        
         
     }
     
@@ -283,7 +289,7 @@ public class roomsOccupied extends javax.swing.JFrame {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.dispose();
         if(fromBilling == true){
-            billingMenu bill = new billingMenu();
+            billingMenu bill = new billingMenu(totalPrice);
             bill.setVisible(true);
         } else {
             recepMenu room = new recepMenu();
